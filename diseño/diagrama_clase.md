@@ -34,18 +34,27 @@ classDiagram
     class  MetrajeDAO {
         -List~Metraje~ metrajes
         +MetrajeDAO()
-        +obtenerRandom() List~Metraje~
-        +obtenerPorTitulo(String) List~Metraje~
-        +obtenerPorGenero(String) List~Metraje~
+        +obtenerRandom() 
+        +obtenerPorTitulo(String) 
+        +obtenerPorGenero(String)
+        +mostrarDestacados(List<Metraje>)
+        +obtenerPorGenero(String) : List<Contenido>
+        +obtenerPeliculas() : List<Pelicula>
+        +obtenerSeries() : List<Serie>
+        +obtenerPorValoracion(int)
     }
 
     class MetrajeController {
         <<RestController>>
         -ContenidoDAO contenidoDAO
         +ContenidoController()
-        +obtenerRandom() List~Metraje~
-        +obtenerPorTitulo(String) List~Metraje~
-        +obtenerPorGenero(String) List~Metraje~
+        +obtenerRandom()
+        +obtenerPorTitulo(String)
+        +obtenerPorGenero(String) 
+        +mostrarDestacados(List<Metraje>)
+        +obtenerPeliculas() : List<Pelicula>
+        +obtenerSeries() : List<Serie>
+        +obtenerPorValoracion(int)
     }
 
     class MetrajeApiApplication {
