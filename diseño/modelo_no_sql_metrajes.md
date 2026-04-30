@@ -21,7 +21,6 @@ Cada documento representa un contenido audiovisual (película o serie) y contien
 - `sinopsis`: Descripción breve
 - `tipo`: Indica si es "pelicula" o "serie"
 - `imagen`: URL del poster o imagen principal del metraje almacenada en Amazon S3. Este atributo no guarda el archivo directamente, sino la dirección (URL) que permite acceder a la imagen desde el frontend.
-- `video`: URL del vídeo almacenado en S3, normalmente un tráiler o contenido asociado al metraje.
 
 ---
 
@@ -42,7 +41,6 @@ Si el tipo de metraje es **película**, el documento incluirá el siguiente atri
   "sinopsis": "Un ladrón que roba secretos a través de los sueños.",
   "tipo": "pelicula",
   "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/2/poster.jpg",
-  "video": "https://s3.amazonaws.com/bucket/metrajes/peliculas/2/video.mp4",
   "duracion": 148
 }
 ```
@@ -74,7 +72,48 @@ Si el tipo de metraje es **serie**, el documento incluirá los siguientes atribu
   "estado": "FINALIZADA"
 }
 ```
+---
+## 🧩 Colección: `Personas`
+Esta colección almacena información sobre las personas relacionadas con los metrajes, como actores y directores.
 
+Se utiliza un modelo polimórfico mediante un atributo discriminador rol, que indica el tipo de persona.
+
+### 🔹 Atributos
+id: Identificador único
+nombre: Nombre completo
+fechaNacimiento: Fecha de nacimiento
+nacionalidad: País de origen
+rol: Tipo de persona (actor o director)
+### ✔️ Ejemplo
+```json
+{
+  "id": 1,
+  "nombre": "Quentin Tarantino",
+  "fechaNacimiento": "1963-03-27",
+  "nacionalidad": "Estados Unidos",
+  "rol": "director"
+}
+```
+---
+## 🧩 Colección : `Usuarios`
+Esta colección almacena la información de los usuarios de la aplicación.
+
+### 🔹 Atributos
+id: Identificador único del usuario
+nombre: Nombre del usuario
+email: Correo electrónico (único)
+password: Contraseña cifrada
+fechaRegistro: Fecha de creación de la cuenta
+### ✔️ Ejemplo
+```json
+{
+  "id": 10,
+  "nombre": "usuario1",
+  "email": "usuario1@email.com",
+  "password": "hash_seguro",
+  "fechaRegistro": "2026-04-30"
+}
+```
 ---
 
 ## ⚙️ Consideraciones de diseño
