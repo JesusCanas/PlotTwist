@@ -74,6 +74,8 @@ classDiagram
     class Usuario {
         - String nombre
         - String contraseña
+        - String correo
+        - Date fechaRegistro 
         - List<Metraje> metrajes
         +getters
         +setters
@@ -85,7 +87,7 @@ classDiagram
     MetrajeDAO --> Metraje 
     MetrajeController --> MetrajeDAO 
     MetrajeApiApplication ..> MetrajeController 
-    Usuario --> Metraje : has
+    Usuario --> Metraje
 
     
 ```
