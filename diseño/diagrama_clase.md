@@ -70,6 +70,7 @@ classDiagram
     }
     Metraje <|-- Pelicula
     Metraje <|-- Serie 
+    Metraje <--> Persona
     MetrajeDAO --> Metraje 
     MetrajeController --> MetrajeDAO 
     MetrajeApiApplication ..> MetrajeController 
