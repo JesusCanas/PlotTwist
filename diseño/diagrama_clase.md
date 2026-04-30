@@ -8,7 +8,7 @@ classDiagram
         -String genero
         -String creador
         -double valoracion
-        -<List Persona> personas
+        -List <Persona> personas
         +getters
         +setters
     }
@@ -33,7 +33,7 @@ classDiagram
         - int edad
         - String lugarNacimiento
         - String rol
-        - List<Metraje>  metrajes
+        - List<Metraje> metrajes
         +getters
         +setters
     }
