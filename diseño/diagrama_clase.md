@@ -38,32 +38,42 @@ classDiagram
         +setters
     }
 
-    class  MetrajeDAO {
-        -List~Metraje~ metrajes
-        +MetrajeDAO()
-        +obtenerRandom() 
-        +obtenerPorTitulo(String) 
-        +obtenerPorGenero(String)
-        +mostrarDestacados(List<Metraje>)
-        +obtenerPorGenero(String) : List<Contenido>
-        +obtenerPeliculas() : List<Pelicula>
-        +obtenerSeries() : List<Serie>
-        +obtenerPersonas() : List<Personas>
-        +obtenerPorValoracion(int)
+    class PeliculaDAO {
+        -List<Pelicula> peliculas 
+        +obtenerPorTitulo(String titulo) : List<Pelicula>
+        +mostrarDestacados(int num) : List<Pelicula>
+        +obtenerPorGenero(String genero) : List<Pelicula>
+        +obtenerPersonas() : List<Persona>
+        +obtenerPorValoracion(int valoracion) : List<Pelicula>
     }
 
-    class MetrajeController {
+    class SerieDAO {
+        -List<Serie> series 
+        +obtenerPorTitulo(String titulo) : List<Serie>
+        +mostrarDestacados(int num) : List<Serie>
+        +obtenerPorGenero(String genero) : List<Serie>
+        +obtenerPersonas() : List<Persona>
+        +obtenerPorValoracion(int valoracion) : List<Serie>
+    }
+
+    class PeliculaController {
         <<RestController>>
-        -ContenidoDAO contenidoDAO
-        +ContenidoController()
-        +obtenerRandom()
-        +obtenerPorTitulo(String)
-        +obtenerPorGenero(String) 
-        +mostrarDestacados(List<Metraje>)
-        +obtenerPeliculas() : List<Pelicula>
-        +obtenerSeries() : List<Serie>
-        +obtenerPersonas() : List<Personas>
-        +obtenerPorValoracion(int)
+        -PeliculaDAO peliDao
+        +obtenerPorTitulo(String titulo) : List<Pelicula>
+        +mostrarDestacados(int num) : List<Pelicula>
+        +obtenerPorGenero(String genero) : List<Pelicula>
+        +obtenerPersonas() : List<Persona>
+        +obtenerPorValoracion(int valoracion) : List<Pelicula>
+    }
+
+      class SerieController {
+        <<RestController>>
+        -List<Serie> series 
+        +obtenerPorTitulo(String titulo) : List<Serie>
+        +mostrarDestacados(int num) : List<Serie>
+        +obtenerPorGenero(String genero) : List<Serie>
+        +obtenerPersonas() : List<Persona>
+        +obtenerPorValoracion(int valoracion) : List<Serie>
     }
 
     class MetrajeApiApplication {
@@ -84,10 +94,14 @@ classDiagram
     Metraje <|-- Pelicula
     Metraje <|-- Serie 
     Metraje <--> Persona
-    MetrajeDAO --> Metraje 
-    MetrajeController --> MetrajeDAO 
-    MetrajeApiApplication ..> MetrajeController 
+    SerieDAO --> Serie 
+    SerieController --> SerieDAO 
+    PeliculaDAO --> Pelicula 
+    PeliculaController --> PeliculaDAO 
+    MetrajeApiApplication ..> PeliculaController 
+    MetrajeApiApplication ..> SerieController 
     Usuario --> Metraje
+
 
     
 ```
