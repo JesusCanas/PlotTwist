@@ -37,6 +37,7 @@ classDiagram
         +getters
         +setters
     }
+
     class  MetrajeDAO {
         -List~Metraje~ metrajes
         +MetrajeDAO()
