@@ -1,5 +1,6 @@
 # MODELO DE BASE DE DATOS NO RELACIONAL
 
+
 ## 📌 Descripción general
 Este modelo de base de datos no relacional está diseñado para gestionar información de **películas y series** utilizando una única colección llamada `metrajes`.
 
