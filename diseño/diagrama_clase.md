@@ -31,7 +31,7 @@ classDiagram
         - String nombre
         - String apellido
         - int edad
-        - String lugarNacimiento
+        - String Nacionalidad
         - String rol
         - List<Metraje> metrajes
         +getters
@@ -69,10 +69,22 @@ classDiagram
         <<SpringBootApplication>>
         +main(String[] args)
     }
+
+    class Usuario {
+        - String nombre
+        - String contraseña
+        - List<Metraje> metrajes
+        +getters
+        +setters
+    }
+
     Metraje <|-- Pelicula
     Metraje <|-- Serie 
     Metraje <--> Persona
     MetrajeDAO --> Metraje 
     MetrajeController --> MetrajeDAO 
     MetrajeApiApplication ..> MetrajeController 
+    Usuario --> Metraje : has
+
+    
 ```
