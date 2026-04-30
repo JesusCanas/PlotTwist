@@ -27,7 +27,16 @@ classDiagram
         +getters
         +setters
     }
-
+    class Persona {
+        - String nombre
+        - String apellido
+        - int edad
+        - String lugarNacimiento
+        - String rol
+        - List<Metraje>  metrajes
+        +getters
+        +setters
+    }
     class  MetrajeDAO {
         -List~Metraje~ metrajes
         +MetrajeDAO()
@@ -38,6 +47,7 @@ classDiagram
         +obtenerPorGenero(String) : List<Contenido>
         +obtenerPeliculas() : List<Pelicula>
         +obtenerSeries() : List<Serie>
+        +obtenerPersonas() : List<Personas>
         +obtenerPorValoracion(int)
     }
 
@@ -51,22 +61,13 @@ classDiagram
         +mostrarDestacados(List<Metraje>)
         +obtenerPeliculas() : List<Pelicula>
         +obtenerSeries() : List<Serie>
+        +obtenerPersonas() : List<Personas>
         +obtenerPorValoracion(int)
     }
 
     class MetrajeApiApplication {
         <<SpringBootApplication>>
         +main(String[] args)
-    }
-    class Persona {
-        - String nombre
-        - String apellido
-        - int edad
-        - String lugarNacimiento
-        - String rol
-        - List<Metraje>  metrajes
-        +getters
-        +setters
     }
     Metraje <|-- Pelicula
     Metraje <|-- Serie 
