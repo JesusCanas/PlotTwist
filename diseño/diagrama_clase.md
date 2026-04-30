@@ -8,15 +8,13 @@ classDiagram
         -String genero
         -String creador
         -double valoracion
-        +Metraje()
-        +Metraje(id, titulo, anyo, genero, creador, valoracion)
-        +getters y setters...
+        -<List Persona> personas
+        +getters
+        +setters
     }
 
     class Pelicula {
         -int duracion
-        +Pelicula()
-        +Pelicula(id, titulo, anyo, genero, creador, valoracion, duracionMinutos)
         +getDuracion() int
         +setDuracion(int)
     }
@@ -26,9 +24,8 @@ classDiagram
         -int numEpisodios
         -int duracionEpisodio
         -Enum estado
-        +Serie()
-        +Serie(id, titulo, anyo, genero, creador, valoracion, ...)
-        +getters y setters...
+        +getters
+        +setters
     }
 
     class  MetrajeDAO {
@@ -61,7 +58,16 @@ classDiagram
         <<SpringBootApplication>>
         +main(String[] args)
     }
-
+    class Persona {
+        - String nombre
+        - String apellido
+        - int edad
+        - String lugarNacimiento
+        - String rol
+        - List<Metraje>  metrajes
+        +getters
+        +setters
+    }
     Metraje <|-- Pelicula
     Metraje <|-- Serie 
     MetrajeDAO --> Metraje 
