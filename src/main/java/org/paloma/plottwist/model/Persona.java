@@ -13,15 +13,15 @@ public class Persona {
     private int edad;
     private String nacionalidad;
     private String rol;
-    private List<Metraje> metrajes;
+    private List<String> metrajesId;
 
-    public Persona(String nombre, String apellido, int edad, String nacionalidad, String rol, List<Metraje> metrajes) {
+    public Persona(String nombre, String apellido, int edad, String nacionalidad, String rol){
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
         this.rol = rol;
-        this.metrajes = metrajes;
+        this.metrajesId = metrajesId;
     }
 
     // Getters and Setters
@@ -69,12 +69,12 @@ public class Persona {
         this.rol = rol;
     }
 
-    public List<Metraje> getMetrajes() {
-        return metrajes;
+    public List<String> getMetrajesId() {
+        return metrajesId;
     }
 
-    public void setMetrajes(List<Metraje> metrajes) {
-        this.metrajes = metrajes;
+    public void setMetrajes(List<String> metrajesId) {
+        this.metrajesId = metrajesId;
     }
 
 }

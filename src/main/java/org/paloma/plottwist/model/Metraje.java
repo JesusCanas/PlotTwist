@@ -1,26 +1,30 @@
 package org.paloma.plottwist.model;
 
 import org.springframework.data.annotation.Id;
-import java.time.LocalDate;
+import java.time.Year;
 import java.util.List;
+
+enum Genero {
+    ACCION, AVENTURA, COMEDIA, DRAMA, FANTASIA, HORROR, MISTERIO, ROMANCE, CIENCIA_FICCION, SUSPENSE, THRILLER
+}
 
 public abstract class Metraje {
     @Id
     private String id;
     private String titulo;
-    private LocalDate anyo;
-    private String genero;
+    private Year anyo;
+    private Genero genero;
     private String director;
     private double valoracion;
-    private List<Persona> actores;
-
-    public Metraje(String titulo, LocalDate anyo, String genero, String creador, double valoracion, List<Persona> personas) {
+    private List<String> actoresId;
+    
+    public Metraje(String titulo, Year anyo, Genero genero, String creador, double valoracion, List<String> actores) {
         this.titulo = titulo;
         this.anyo = anyo;
         this.genero = genero;
         this.director = creador;
         this.valoracion = valoracion;
-        this.actores = personas;
+        this.actoresId = actores;
     }
 
     // Getters and Setters
@@ -36,19 +40,19 @@ public abstract class Metraje {
         this.titulo = titulo;
     }
 
-    public LocalDate getAnyo() {
+    public Year getAnyo() {
         return anyo;
     }
 
-    public void setAnyo(LocalDate anyo) {
+    public void setAnyo(Year anyo) {
         this.anyo = anyo;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 
@@ -68,12 +72,12 @@ public abstract class Metraje {
         this.valoracion = valoracion;
     }
 
-    public List<Persona> getActores() {
-        return actores;
+    public List<String> getActoresId() {
+        return actoresId;
     }
 
-    public void setActores(List<Persona> personas) {
-        this.actores = personas;
+    public void setActoresId(List<String> actores) {
+        this.actoresId = actores;
     }
 
     

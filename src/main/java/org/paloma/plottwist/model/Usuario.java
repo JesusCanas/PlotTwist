@@ -1,7 +1,7 @@
 package org.paloma.plottwist.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.time.LocalDate;
+import java.time.Year;
 import java.util.List;
 
 @Document(collection = "usuarios")
@@ -11,10 +11,10 @@ public class Usuario {
     private String nombre;
     private String contrasenya;
     private String correo;
-    private LocalDate fechaRegistro;
+    private Year fechaRegistro;
     private List<Metraje> listaMetrajes;
 
-    public Usuario(String nombre, String contrasenya, String correo, LocalDate fechaRegistro, List<Metraje> listaMetrajes) {
+    public Usuario(String nombre, String contrasenya, String correo, Year fechaRegistro, List<Metraje> listaMetrajes) {
         this.nombre = nombre;
         this.contrasenya = contrasenya;
         this.correo = correo;
@@ -51,11 +51,11 @@ public class Usuario {
         this.contrasenya = password;
     }
 
-    public LocalDate getFechaRegistro() {
+    public Year getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(LocalDate fechaRegistro) {
+    public void setFechaRegistro(Year fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
