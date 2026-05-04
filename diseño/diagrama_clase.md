@@ -6,9 +6,9 @@ classDiagram
         -String titulo
         -date anyo
         -String genero
-        -String creador
+        -Persona director
         -double valoracion
-        -List <Persona> personas
+        -List <Persona> actores
         +getId() int
         +setId(int)
         +getTitulo() String
