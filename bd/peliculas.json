@@ -1,0 +1,223 @@
+[
+  {
+    "id": 1,
+    "titulo": "Pulp Fiction",
+    "anyo": 1994,
+    "genero": "Crimen",
+    "creador": "Quentin Tarantino",
+    "valoracion": 8.9,
+    "sinopsis": "Historias entrelazadas de crimen en Los Ángeles.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/1/poster.jpg",
+    "duracion": 154
+  },
+  {
+    "id": 2,
+    "titulo": "El último samurái",
+    "anyo": 2003,
+    "genero": "Drama histórico",
+    "creador": "Edward Zwick",
+    "valoracion": 7.8,
+    "sinopsis": "Un soldado estadounidense se integra en la cultura samurái.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/2/poster.jpg",
+    "duracion": 154
+  },
+  {
+    "id": 3,
+    "titulo": "Inception",
+    "anyo": 2010,
+    "genero": "Ciencia ficción",
+    "creador": "Christopher Nolan",
+    "valoracion": 8.8,
+    "sinopsis": "Un ladrón que roba secretos a través de los sueños.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/3/poster.jpg",
+    "duracion": 148
+  },
+  {
+    "id": 4,
+    "titulo": "Spirited Away",
+    "anyo": 2001,
+    "genero": "Animación",
+    "creador": "Hayao Miyazaki",
+    "valoracion": 9.3,
+    "sinopsis": "Una niña entra en un mundo mágico lleno de espíritus.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/4/poster.jpg",
+    "duracion": 125
+  },
+  {
+    "id": 5,
+    "titulo": "My Neighbor Totoro",
+    "anyo": 1988,
+    "genero": "Animación",
+    "creador": "Hayao Miyazaki",
+    "valoracion": 8.2,
+    "sinopsis": "Dos niñas descubren criaturas mágicas en el bosque.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/5/poster.jpg",
+    "duracion": 86
+  },
+  {
+    "id": 6,
+    "titulo": "Princess Mononoke",
+    "anyo": 1997,
+    "genero": "Animación",
+    "creador": "Hayao Miyazaki",
+    "valoracion": 8.4,
+    "sinopsis": "Conflicto entre humanos y espíritus del bosque.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/6/poster.jpg",
+    "duracion": 134
+  },
+  {
+    "id": 7,
+    "titulo": "Howl's Moving Castle",
+    "anyo": 2004,
+    "genero": "Animación",
+    "creador": "Hayao Miyazaki",
+    "valoracion": 8.2,
+    "sinopsis": "Una joven atrapada en un cuerpo de anciana busca romper una maldición.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/7/poster.jpg",
+    "duracion": 119
+  },
+  {
+    "id": 8,
+    "titulo": "The Wind Rises",
+    "anyo": 2013,
+    "genero": "Animación",
+    "creador": "Hayao Miyazaki",
+    "valoracion": 7.8,
+    "sinopsis": "Historia del diseñador de aviones Jiro Horikoshi.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/8/poster.jpg",
+    "duracion": 126
+  },
+  {
+    "id": 9,
+    "titulo": "Akira",
+    "anyo": 1988,
+    "genero": "Ciencia ficción",
+    "creador": "Katsuhiro Otomo",
+    "valoracion": 8.0,
+    "sinopsis": "Neo-Tokyo y un experimento que desata el caos.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/9/poster.jpg",
+    "duracion": 124
+  },
+  {
+    "id": 10,
+    "titulo": "The Lion King",
+    "anyo": 1994,
+    "genero": "Animación",
+    "creador": "Roger Allers",
+    "valoracion": 8.5,
+    "sinopsis": "Un joven león debe reclamar su lugar como rey.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/10/poster.jpg",
+    "duracion": 88
+  },
+  {
+    "id": 11,
+    "titulo": "Toy Story",
+    "anyo": 1995,
+    "genero": "Animación",
+    "creador": "John Lasseter",
+    "valoracion": 8.3,
+    "sinopsis": "Los juguetes cobran vida cuando los humanos no están.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/11/poster.jpg",
+    "duracion": 81
+  },
+  {
+    "id": 12,
+    "titulo": "Spider-Man: Into the Spider-Verse",
+    "anyo": 2018,
+    "genero": "Animación",
+    "creador": "Peter Ramsey",
+    "valoracion": 8.4,
+    "sinopsis": "Varios Spider-Man de diferentes dimensiones se unen.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/12/poster.jpg",
+    "duracion": 117
+  },
+  {
+    "id": 13,
+    "titulo": "The Matrix",
+    "anyo": 1999,
+    "genero": "Ciencia ficción",
+    "creador": "Lana Wachowski",
+    "valoracion": 8.7,
+    "sinopsis": "Un hacker descubre la verdad sobre su realidad.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/13/poster.jpg",
+    "duracion": 136
+  },
+  {
+    "id": 14,
+    "titulo": "Interstellar",
+    "anyo": 2014,
+    "genero": "Ciencia ficción",
+    "creador": "Christopher Nolan",
+    "valoracion": 8.6,
+    "sinopsis": "Viaje espacial para salvar a la humanidad.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/14/poster.jpg",
+    "duracion": 169
+  },
+  {
+    "id": 15,
+    "titulo": "Your Name",
+    "anyo": 2016,
+    "genero": "Animación",
+    "creador": "Makoto Shinkai",
+    "valoracion": 8.4,
+    "sinopsis": "Dos jóvenes intercambian cuerpos misteriosamente.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/15/poster.jpg",
+    "duracion": 106
+  },
+  {
+    "id": 16,
+    "titulo": "The Dark Knight",
+    "anyo": 2008,
+    "genero": "Acción",
+    "creador": "Christopher Nolan",
+    "valoracion": 9.0,
+    "sinopsis": "Batman enfrenta al Joker en Gotham.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/16/poster.jpg",
+    "duracion": 152
+  },
+  {
+    "id": 17,
+    "titulo": "The Lord of the Rings: The Fellowship of the Ring",
+    "anyo": 2001,
+    "genero": "Fantasía",
+    "creador": "Peter Jackson",
+    "valoracion": 8.8,
+    "sinopsis": "Un grupo emprende un viaje para destruir un anillo poderoso.",
+    "tipo": "pelicula",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/17/poster.jpg",
+    "duracion": 178
+  },
+  {
+    "id": 18,
+    "titulo": "Coco",
+    "anyo": 2017,
+    "genero": "Animación",
+    "creador": "Lee Unkrich",
+    "valoracion": 8.4,
+    "sinopsis": "Un niño viaja al mundo de los muertos para descubrir su historia familiar.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/18/poster.jpg",
+    "duracion": 105
+  },
+  {
+    "id": 19,
+    "titulo": "Lionheart",
+    "anyo":1990,
+    "genero": "Acción",
+    "creador": "Sheldon Lettich",
+    "valoracion": 6.4,
+    "sinopsis": "Un desertor de la Legión Extranjera lucha en peleas clandestinas en EE. UU. para ayudar a su familia.",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/19/poster.jpg",
+    "duracion": 105
+  },
+   {
+    "id": 20,
+    "titulo": "El show de Truman",
+    "anyo":1998,
+    "genero": "Comedia",
+    "creador": "Peter Weir",
+    "valoracion": 9.4,
+    "sinopsis": "Un hombre vive atrapado en una serie de televisión",
+    "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/19/poster.jpg",
+    "duracion": 103
+  }
+]

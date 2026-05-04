@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "nombre": "Carlos García",
+    "email": "carlos.garcia@email.com",
+    "password": "hash_seguro_1",
+    "fechaRegistro": "2026-01-10"
+  },
+  {
+    "id": 2,
+    "nombre": "María López",
+    "email": "maria.lopez@email.com",
+    "password": "hash_seguro_2",
+    "fechaRegistro": "2026-01-12"
+  },
+  {
+    "id": 3,
+    "nombre": "Javier Martínez",
+    "email": "javier.martinez@email.com",
+    "password": "hash_seguro_3",
+    "fechaRegistro": "2026-01-15"
+  },
+  {
+    "id": 4,
+    "nombre": "Lucía Fernández",
+    "email": "lucia.fernandez@email.com",
+    "password": "hash_seguro_4",
+    "fechaRegistro": "2026-01-18"
+  },
+  {
+    "id": 5,
+    "nombre": "David Rodríguez",
+    "email": "david.rodriguez@email.com",
+    "password": "hash_seguro_5",
+    "fechaRegistro": "2026-01-20"
+  },
+  {
+    "id": 6,
+    "nombre": "Ana Gómez",
+    "email": "ana.gomez@email.com",
+    "password": "hash_seguro_6",
+    "fechaRegistro": "2026-01-22"
+  },
+  {
+    "id": 7,
+    "nombre": "Pablo Sánchez",
+    "email": "pablo.sanchez@email.com",
+    "password": "hash_seguro_7",
+    "fechaRegistro": "2026-01-25"
+  },
+  {
+    "id": 8,
+    "nombre": "Elena Torres",
+    "email": "elena.torres@email.com",
+    "password": "hash_seguro_8",
+    "fechaRegistro": "2026-01-28"
+  },
+  {
+    "id": 9,
+    "nombre": "Sergio Ramírez",
+    "email": "sergio.ramirez@email.com",
+    "password": "hash_seguro_9",
+    "fechaRegistro": "2026-02-01"
+  },
+  {
+    "id": 10,
+    "nombre": "Laura Sánchez",
+    "email": "laura.sanchez@email.com",
+    "password": "hash_seguro_10",
+    "fechaRegistro": "2026-02-03"
+  },
+  {
+    "id": 11,
+    "nombre": "Miguel Torres",
+    "email": "miguel.torres@email.com",
+    "password": "hash_seguro_11",
+    "fechaRegistro": "2026-02-05"
+  },
+  {
+    "id": 12,
+    "nombre": "Isabel Navarro",
+    "email": "isabel.navarro@email.com",
+    "password": "hash_seguro_12",
+    "fechaRegistro": "2026-02-08"
+  },
+  {
+    "id": 13,
+    "nombre": "Antonio Ruiz",
+    "email": "antonio.ruiz@email.com",
+    "password": "hash_seguro_13",
+    "fechaRegistro": "2026-02-10"
+  },
+  {
+    "id": 14,
+    "nombre": "Carmen Díaz",
+    "email": "carmen.diaz@email.com",
+    "password": "hash_seguro_14",
+    "fechaRegistro": "2026-02-12"
+  },
+  {
+    "id": 15,
+    "nombre": "José Herrera",
+    "email": "jose.herrera@email.com",
+    "password": "hash_seguro_15",
+    "fechaRegistro": "2026-02-15"
+  },
+  {
+    "id": 16,
+    "nombre": "Paula Martín",
+    "email": "paula.martin@email.com",
+    "password": "hash_seguro_16",
+    "fechaRegistro": "2026-02-18"
+  },
+  {
+    "id": 17,
+    "nombre": "Daniel Romero",
+    "email": "daniel.romero@email.com",
+    "password": "hash_seguro_17",
+    "fechaRegistro": "2026-02-20"
+  },
+  {
+    "id": 18,
+    "nombre": "Andrea Jiménez",
+    "email": "andrea.jimenez@email.com",
+    "password": "hash_seguro_18",
+    "fechaRegistro": "2026-02-22"
+  },
+  {
+    "id": 19,
+    "nombre": "Francisco Morales",
+    "email": "francisco.morales@email.com",
+    "password": "hash_seguro_19",
+    "fechaRegistro": "2026-02-25"
+  },
+  {
+    "id": 20,
+    "nombre": "Sofía Castro",
+    "email": "sofia.castro@email.com",
+    "password": "hash_seguro_20",
+    "fechaRegistro": "2026-02-28"
+  }
+]
