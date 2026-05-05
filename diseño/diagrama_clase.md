@@ -1,28 +1,27 @@
 # Ver los peliculas y series
 ```mermaid
 classDiagram
-    class Metraje{
-        -int id
+    class Metraje {
+        -String id
         -String titulo
-        -date anyo
-        -String genero
+        -Year anyo
+        -List<Genero> generos
         -Persona director
         -double valoracion
-        -List <Persona> actores
-        +getId() int
-        +setId(int)
+        -List<String> actoresId
+        +getId() String
         +getTitulo() String
         +setTitulo(String)
-        +getAnyo() date
-        +setAnyo(date)
-        +getGenero() String
-        +setGenero(String)
-        +getCreador() String
-        +setCreador(String)
+        +getAnyo() Year
+        +setAnyo(Year)
+        +getGeneros() List<Genero>
+        +setGeneros(List<Genero>)
+        +getDirector() Persona
+        +setDirector(Persona)
         +getValoracion() double
         +setValoracion(double)
-        +getPersonas() List<Persona>
-        +setPersonas(List<Persona>)
+        +getActoresId() List<String>
+        +setActoresId(List<String>)
     }
 
     class Pelicula {
@@ -32,26 +31,26 @@ classDiagram
     }
 
     class Serie {
-        -int numTemporadas
+        -int numeroTemporadas
         -int numEpisodios
         -int duracionEpisodio
-        -Enum estado
-        +getNumTemporadas() int
-        +setNumTemporadas(int)
+        -Estado estado
+        +getNumeroTemporadas() int
+        +setNumeroTemporadas(int)
         +getNumEpisodios() int
         +setNumEpisodios(int)
         +getDuracionEpisodio() int
         +setDuracionEpisodio(int)
-        +getEstado() Enum
-        +setEstado(Enum)
+        +getEstado() Estado
+        +setEstado(Estado)
     }
     class Persona {
-        - String nombre
-        - String apellido
-        - int edad
-        - String Nacionalidad
-        - String rol
-        - List<Metraje> metrajes
+        -String nombre
+        -String apellido
+        -int edad
+        -String nacionalidad
+        -String rol
+        -List<String> metrajesId
         +getNombre() String
         +setNombre(String)
         +getApellido() String
@@ -62,82 +61,95 @@ classDiagram
         +setNacionalidad(String)
         +getRol() String
         +setRol(String)
-        +getMetrajes() List<Metraje>
-        +setMetrajes(List<Metraje>)
+        +getMetrajesId() List<String>
+        +setMetrajesId(List<String>)
     }
 
-    class PeliculaDAO {
-        -List<Pelicula> peliculas 
-        +obtenerPorTitulo(String titulo)  List<Pelicula>
-        +mostrarDestacados(int num) List<Pelicula>
-        +obtenerPorGenero(String genero) List<Pelicula>
-        +obtenerPersonas() List<Persona>
-        +obtenerPorValoracion(int valoracion) List<Pelicula>
+    class PeliculasDAO {
+        -List<Pelicula> peliculas
+        +obtenerPeliculasTodas() List<Pelicula>
+        +obtenerPeliculasFiltradas(String nombre, List<Genero> generos, Year anio, Double valoracion) List<Pelicula>
+        +obtenerDestacados(int cantidad) List<Pelicula>
+        +obtenerPorFecha(int cantidad) List<Pelicula>
+        +obtenerPeliculaPorId(String id) Pelicula
     }
 
-    class SerieDAO {
-        -List<Serie> series 
-        +obtenerPorTitulo(String titulo) List<Serie>
-        +mostrarDestacados(int num) List<Serie>
-        +obtenerPorGenero(String genero)  List<Serie>
-        +obtenerPersonas() List<Persona>
-        +obtenerPorValoracion(int valoracion) List<Serie>
+    class SeriesDAO {
+        -List<Serie> series
+        +obtenerSeriesTodas() List<Serie>
+        +obtenerSeriesFiltradas(String nombre, List<Genero> generos, Year anio, Double valoracion) List<Serie>
+        +obtenerDestacados(int cantidad) List<Serie>
+        +obtenerPorFecha(int cantidad) List<Serie>
+        +obtenerSeriePorId(String id) Serie
     }
 
-    class PeliculaController {
-        <<RestController>>
-        -PeliculaDAO peliDao
-        +obtenerPorTitulo(String titulo)  List<Pelicula>
-        +mostrarDestacados(int num)  List<Pelicula>
-        +obtenerPorGenero(String genero)  List<Pelicula>
-        +obtenerPersonas()  List<Persona>
-        +obtenerPorValoracion(int valoracion)  List<Pelicula>
-    }
-
-      class SerieController {
-        <<RestController>>
-        -SerieDAO serieDao
-        +obtenerPorTitulo(String titulo) List<Serie>
-        +mostrarDestacados(int num) List<Serie>
-        +obtenerPorGenero(String genero)  List<Serie>
-        +obtenerPersonas() List<Persona>
-        +obtenerPorValoracion(int valoracion) List<Serie>
-    }
-
-    class MetrajeApiApplication {
+    class PlottwistApplication {
         <<SpringBootApplication>>
         +main(String[] args)
     }
 
     class Usuario {
-        - String nombre
-        - String contraseña
-        - String correo
-        - Date fechaRegistro 
-        - List<Metraje> metrajes
+        -String id
+        -String nombre
+        -String contrasenya
+        -String correo
+        -Year fechaRegistro
+        -List<Metraje> listaMetrajes
+        +getId() String
         +getNombre() String
         +setNombre(String)
-        +getContraseña() String
-        +setContraseña(String)
         +getCorreo() String
         +setCorreo(String)
-        +getFechaRegistro() Date
-        +setFechaRegistro(Date)
-        +getMetrajes() List<Metraje>
-        +setMetrajes(List<Metraje>)
+        +getContrasenya() String
+        +setContrasenya(String)
+        +getFechaRegistro() Year
+        +setFechaRegistro(Year)
+        +getListaMetrajes() List<Metraje>
+        +setListaMetrajes(List<Metraje>)
     }
 
     Metraje <|-- Pelicula
-    Metraje <|-- Serie 
-    Metraje <--> Persona
-    SerieDAO --> Serie 
-    SerieController --> SerieDAO 
-    PeliculaDAO --> Pelicula 
-    PeliculaController --> PeliculaDAO 
-    MetrajeApiApplication ..> PeliculaController 
-    MetrajeApiApplication ..> SerieController 
-    Usuario --> Metraje
+    Metraje <|-- Serie
+    Metraje o-- Persona : director
+    Usuario --> Metraje : listaMetrajes
+    PeliculasDAO --> Pelicula
+    SeriesDAO --> Serie
+    OrdenPorValoracion --> Metraje
+    OrdenPorFecha --> Metraje
+    Serie --> Estado
+    Metraje ..> Genero
+    PlottwistApplication ..> PeliculasDAO
+    PlottwistApplication ..> SeriesDAO
 
+    class OrdenPorValoracion {
+        +compare(Metraje m1, Metraje m2) int
+    }
 
-    
+    class OrdenPorFecha {
+        +compare(Metraje m1, Metraje m2) int
+    }
+
+    class Genero {
+        <<enumeration>>
+        +ACCION
+        +AVENTURA
+        +COMEDIA
+        +DRAMA
+        +FANTASIA
+        +HORROR
+        +MISTERIO
+        +ROMANCE
+        +CIENCIA_FICCION
+        +SUSPENSE
+        +THRILLER
+    }
+
+    class Estado {
+        <<enumeration>>
+        +EMISION
+        +FINALIZADA
+        +CANCELADA
+    }
+
 ```
+

@@ -3,22 +3,23 @@ package org.paloma.plottwist.model;
 import org.springframework.data.annotation.Id;
 import java.time.Year;
 import java.util.List;
+import java.util.Comparator;
 
 public abstract class Metraje {
     @Id
     private String id;
     private String titulo;
     private Year anyo;
-    private Genero genero;
-    private String director;
+    private List<Genero> generos;
+    private Persona director;
     private double valoracion;
     private List<String> actoresId;
     
-    public Metraje(String titulo, Year anyo, Genero genero, String creador, double valoracion, List<String> actores) {
+    public Metraje(String titulo, Year anyo, List<Genero> generos, Persona director, double valoracion, List<String> actores) {
         this.titulo = titulo;
         this.anyo = anyo;
-        this.genero = genero;
-        this.director = creador;
+        this.generos = generos;
+        this.director = director;
         this.valoracion = valoracion;
         this.actoresId = actores;
     }
@@ -44,20 +45,20 @@ public abstract class Metraje {
         this.anyo = anyo;
     }
 
-    public Genero getGenero() {
-        return genero;
+    public List<Genero> getGeneros() {
+        return generos;
     }
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
+    public void setGeneros(List<Genero> generos) {
+        this.generos = generos;
     }
 
-    public String getDirector() {
+    public Persona getDirector() {
         return director;
     }
 
-    public void setDirector(String creador) {
-        this.director = creador;
+    public void setDirector(Persona director) {
+        this.director = director;
     }
 
     public double getValoracion() {
@@ -76,6 +77,11 @@ public abstract class Metraje {
         this.actoresId = actores;
     }
 
-    
+}
 
+public static class OrdenPorValoracion implements Comparator<Metraje> {
+    @Override
+    public int compare(Metraje m1, Metraje m2) {
+        return Double.compare(m2.getValoracion(), m1.getValoracion());
+    }
 }
