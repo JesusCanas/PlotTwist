@@ -7,6 +7,7 @@ enum estado {
         EMISION, FINALIZADA, CANCELADA
 }
 
+
 @Document(collection = "series")
 public class Serie extends Metraje {
 
