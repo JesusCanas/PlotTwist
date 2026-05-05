@@ -4,10 +4,6 @@ import org.springframework.data.annotation.Id;
 import java.time.Year;
 import java.util.List;
 
-enum Genero {
-    ACCION, AVENTURA, COMEDIA, DRAMA, FANTASIA, HORROR, MISTERIO, ROMANCE, CIENCIA_FICCION, SUSPENSE, THRILLER
-}
-
 public abstract class Metraje {
     @Id
     private String id;

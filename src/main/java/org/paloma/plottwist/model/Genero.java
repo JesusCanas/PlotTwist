@@ -1,0 +1,5 @@
+package org.paloma.plottwist.model;
+
+public enum Genero {
+    ACCION, AVENTURA, COMEDIA, DRAMA, FANTASIA, HORROR, MISTERIO, ROMANCE, CIENCIA_FICCION, SUSPENSE, THRILLER
+}
