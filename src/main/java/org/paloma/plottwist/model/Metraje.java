@@ -3,7 +3,6 @@ package org.paloma.plottwist.model;
 import org.springframework.data.annotation.Id;
 import java.time.Year;
 import java.util.List;
-import java.util.Comparator;
 
 public abstract class Metraje {
     @Id
@@ -77,11 +76,4 @@ public abstract class Metraje {
         this.actoresId = actores;
     }
 
-}
-
-public static class OrdenPorValoracion implements Comparator<Metraje> {
-    @Override
-    public int compare(Metraje m1, Metraje m2) {
-        return Double.compare(m2.getValoracion(), m1.getValoracion());
-    }
 }

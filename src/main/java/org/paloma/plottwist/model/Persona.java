@@ -15,7 +15,7 @@ public class Persona {
     private String rol;
     private List<String> metrajesId;
 
-    public Persona(String nombre, String apellido, int edad, String nacionalidad, String rol){
+    public Persona(String nombre, String apellido, int edad, String nacionalidad, String rol, List<String> metrajesId) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;

@@ -8,8 +8,8 @@ public class Pelicula extends Metraje {
 
     private int duracion;
 
-    public Pelicula(String titulo, Year anyo, Genero genero, String creador, double valoracion, List<String> actoresId, int duracion) {
-        super(titulo, anyo, genero, creador, valoracion, actoresId);
+    public Pelicula(String titulo, Year anyo, List<Genero> generos, Persona director, double valoracion, List<String> actoresId, int duracion) {
+        super(titulo, anyo, generos, director, valoracion, actoresId);
         this.duracion = duracion;
     }
 
