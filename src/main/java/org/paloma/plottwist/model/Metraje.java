@@ -15,11 +15,9 @@ public abstract class Metraje {
     private double valoracion;
     private List<String> actoresId;
     
-    public Metraje(String titulo, Year anyo, List<Genero> generos, Persona director, double valoracion, List<String> actores) {
+    public Metraje(String titulo, Year anyo, Genero genero, String creador, double valoracion, List<String> actores) {
         this.titulo = titulo;
         this.anyo = anyo;
-        this.generos = generos;
-        this.director = director;
         this.valoracion = valoracion;
         this.actoresId = actores;
     }
@@ -79,9 +77,4 @@ public abstract class Metraje {
 
 }
 
-public static class OrdenPorValoracion implements Comparator<Metraje> {
-    @Override
-    public int compare(Metraje m1, Metraje m2) {
-        return Double.compare(m2.getValoracion(), m1.getValoracion());
-    }
-}
+
