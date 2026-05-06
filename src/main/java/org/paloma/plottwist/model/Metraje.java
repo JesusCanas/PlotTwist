@@ -3,7 +3,6 @@ package org.paloma.plottwist.model;
 import org.springframework.data.annotation.Id;
 import java.time.Year;
 import java.util.List;
-import java.util.Comparator;
 
 public abstract class Metraje {
     @Id
@@ -76,5 +75,3 @@ public abstract class Metraje {
     }
 
 }
-
-
