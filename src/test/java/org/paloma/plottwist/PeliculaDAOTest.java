@@ -9,6 +9,8 @@ import org.paloma.plottwist.dao.PeliculasDAO;
 import org.paloma.plottwist.model.Genero;
 import org.paloma.plottwist.model.Pelicula;
 
+import java.time.Year;
+
 import java.util.List;
 
 public class PeliculaDAOTest {
@@ -16,7 +18,7 @@ public class PeliculaDAOTest {
     private PeliculasDAO dao;
 
     @BeforeEach
-    void setUp() {
+    void inicializarDAO() {
         // Inicializamos el DAO antes de cada test.
         // Como el constructor rellena la lista, tendremos 10 películas listas.
         dao = new PeliculasDAO();
@@ -29,22 +31,44 @@ public class PeliculaDAOTest {
     }
 
     @Test
-    void testFiltrarPorNombre() {
-        List<Pelicula> resultado = dao.obtenerPeliculasFiltradas("Inception", null, null, null);
+    void testObtenerPeliculasFiltradas() {
+        // Filtrar por nombre
+        List<Pelicula> filtradasPorNombre = dao.obtenerPeliculasFiltradas("Inception", null, null, null);
+        
+        // Verificamos que se encuentre exactamente la película buscada
+        assertFalse(filtradasPorNombre.isEmpty(), "Debería encontrar la película 'Inception'.");
+        assertEquals("Inception", filtradasPorNombre.get(0).getTitulo());
 
-        assertFalse(resultado.isEmpty());
-        assertTrue(resultado.get(0).getTitulo().contains("Inception"), "Título esperado: 'Inception'");
-    }
+        // Filtrar por género
+        List<Pelicula> filtradasPorGenero = dao.obtenerPeliculasFiltradas(null, List.of(Genero.ACCION), null, null);
 
-    @Test
-    void testFiltrarPorGenero() {
-        List<Genero> generosBusqueda = List.of(Genero.CIENCIA_FICCION);
-        List<Pelicula> resultado = dao.obtenerPeliculasFiltradas(null, generosBusqueda, null, null);
+        // Verificamos que la lista no sea nula y contenga elementos
+        assertNotNull(filtradasPorGenero);
+        assertFalse(filtradasPorGenero.isEmpty(), "La lista de pelis de acción no debería estar vacía.");
 
-        // Inception, Jurassic Park y 2001 son de ciencia ficción, así que esperamos al menos esas 3.
-        assertTrue(resultado.size() >= 3);
-        for (Pelicula p : resultado) {
-            assertTrue(p.getGeneros().contains(Genero.CIENCIA_FICCION), "Las películas devueltas deberían tener el género ciencia ficción");
+        // Comprobamos que realmente son del género esperado
+        for (Pelicula p : filtradasPorGenero) {
+            assertTrue(p.getGeneros().contains(Genero.ACCION), "Se encontró una película que no es de acción: " + p.getTitulo());
+        }
+
+        // Filtrar por año
+        List<Pelicula> filtradasPorAnio = dao.obtenerPeliculasFiltradas(null, null, Year.of(1994), null);
+        
+        // Verificamos que la película sea del año correcto y tenga el título esperado
+        assertEquals(1, filtradasPorAnio.size(), "Debería haber exactamente 1 película de 1994.");
+        assertEquals("The Shawshank Redemption", filtradasPorAnio.get(0).getTitulo());
+
+        // Filtrar por valoración
+        List<Pelicula> filtradasPorValoracion = dao.obtenerPeliculasFiltradas(null, null, null, 9.0);
+
+        // Comprobamos que hay resultados
+        assertNotNull(filtradasPorValoracion);
+        assertFalse(filtradasPorValoracion.isEmpty(), "Debería haber películas con nota +9.0.");
+
+        // Validamos que todas cumplan el rango
+        for (Pelicula p : filtradasPorValoracion) {
+            double v = p.getValoracion();
+            assertTrue(v >= 9.0 && v < 10.0, "Valoración fuera de rango (9-10): " + v);
         }
     }
 
@@ -53,19 +77,28 @@ public class PeliculaDAOTest {
         int cantidad = 3;
         List<Pelicula> destacados = dao.obtenerDestacados(cantidad);
 
-        assertEquals(cantidad, destacados.size(), "Debería devolver la cantidad solicitada de películas destacadas.");
+        assertEquals(cantidad, destacados.size(), "Debería devolver la cantidad solicitada de películas destacadas. En este caso, " + cantidad);
 
         // El Padrino (9.2) debería ser la primera, al ser la mejor valorada.
         assertEquals("The Godfather", destacados.get(0).getTitulo());
 
         // Verificamos que las valoraciones estén en orden descendente.
-        assertTrue(destacados.get(0).getValoracion() >= destacados.get(1).getValoracion());
+        assertTrue(destacados.get(0).getValoracion() >= destacados.get(1).getValoracion(), "Las valoraciones no están en orden descendente.");
     }
 
     @Test
-    void testObtenerPeliculaPorIdInexistente() {
-        Pelicula p = dao.obtenerPeliculaPorId("idInexistente)");
-        assertNull(p, "Debería devolver un null para un ID que no existe.");
+    void testObtenerPeliculaPorId() {
+        String idExistente = "507f1f77bcf86cd799439033"; // ID de prueba, este es el ID de la peli "The Godfather"
+        Pelicula pelicula = dao.obtenerPeliculaPorId(idExistente);
+
+        // Verificamos que se haya encontrado la película y que el título sea correcto.
+        assertNotNull(pelicula, "Debería encontrar la película con el ID existente.");
+        assertEquals("The Godfather", pelicula.getTitulo(), "El título debería ser 'The Godfather'.");
+
+        // Prueba con un ID que no existe
+        String idInexistente = "EsteIDNoExiste"; // ID que no existe
+        Pelicula peliculaNoEncontrada = dao.obtenerPeliculaPorId(idInexistente);
+        assertNull(peliculaNoEncontrada, "Debería devolver null para un ID que no existe.");
     }
 
 }
