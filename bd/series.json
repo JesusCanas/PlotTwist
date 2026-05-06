@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "titulo": "Breaking Bad",
     "anyo": 2008,
     "genero": "THRILLER",
@@ -13,7 +12,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 2,
     "titulo": "Stranger Things",
     "anyo": 2016,
     "genero": "CIENCIA_FICCION",
@@ -26,7 +24,6 @@
     "estado": "EMISION"
   },
   {
-    "id": 3,
     "titulo": "Game of Thrones",
     "anyo": 2011,
     "genero": "FANTASIA",
@@ -39,7 +36,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 4,
     "titulo": "Dark",
     "anyo": 2017,
     "genero": "CIENCIA_FICCION",
@@ -52,7 +48,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 5,
     "titulo": "The Office",
     "anyo": 2005,
     "genero": "COMEDIA",
@@ -65,7 +60,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 6,
     "titulo": "Friends",
     "anyo": 1994,
     "genero": "COMEDIA",
@@ -78,7 +72,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 7,
     "titulo": "La Casa de Papel",
     "anyo": 2017,
     "genero": "THRILLER",
@@ -91,7 +84,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 8,
     "titulo": "Black Mirror",
     "anyo": 2011,
     "genero": "CIENCIA_FICCION",
@@ -104,7 +96,6 @@
     "estado": "EMISION"
   },
   {
-    "id": 9,
     "titulo": "Narcos",
     "anyo": 2015,
     "genero": "THRILLER",
@@ -117,7 +108,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 10,
     "titulo": "The Mandalorian",
     "anyo": 2019,
     "genero": "CIENCIA_FICCION",
@@ -130,7 +120,6 @@
     "estado": "EMISION"
   },
   {
-    "id": 11,
     "titulo": "Peaky Blinders",
     "anyo": 2013,
     "genero": "THRILLER",
@@ -143,7 +132,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 12,
     "titulo": "Better Call Saul",
     "anyo": 2015,
     "genero": "DRAMA",
@@ -156,7 +144,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 13,
     "titulo": "The Boys",
     "anyo": 2019,
     "genero": "ACCION",
@@ -169,7 +156,6 @@
     "estado": "EMISION"
   },
   {
-    "id": 14,
     "titulo": "Vikings",
     "anyo": 2013,
     "genero": "AVENTURA",
@@ -182,7 +168,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 15,
     "titulo": "House of the Dragon",
     "anyo": 2022,
     "genero": "FANTASIA",
@@ -195,7 +180,6 @@
     "estado": "EMISION"
   },
   {
-    "id": 16,
     "titulo": "Westworld",
     "anyo": 2016,
     "genero": "CIENCIA_FICCION",
@@ -208,7 +192,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 17,
     "titulo": "Sherlock",
     "anyo": 2010,
     "genero": "MISTERIO",
@@ -221,7 +204,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 18,
     "titulo": "Euphoria",
     "anyo": 2019,
     "genero": "DRAMA",
@@ -234,7 +216,6 @@
     "estado": "EMISION"
   },
   {
-    "id": 19,
     "titulo": "The Crown",
     "anyo": 2016,
     "genero": "DRAMA",
@@ -247,7 +228,6 @@
     "estado": "FINALIZADA"
   },
   {
-    "id": 20,
     "titulo": "House M.D.",
     "anyo": 2004,
     "genero": "DRAMA",

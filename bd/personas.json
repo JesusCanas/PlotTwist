@@ -1,139 +1,119 @@
 [
   {
-    "id": 1,
     "nombre": "Quentin Tarantino",
     "fechaNacimiento": "1963-03-27",
     "nacionalidad": "Estados Unidos",
     "rol": "director"
   },
   {
-    "id": 2,
     "nombre": "Leonardo DiCaprio",
     "fechaNacimiento": "1974-11-11",
     "nacionalidad": "Estados Unidos",
     "rol": "actor"
   },
   {
-    "id": 3,
     "nombre": "Christopher Nolan",
     "fechaNacimiento": "1970-07-30",
     "nacionalidad": "Reino Unido",
     "rol": "director"
   },
   {
-    "id": 4,
     "nombre": "Brad Pitt",
     "fechaNacimiento": "1963-12-18",
     "nacionalidad": "Estados Unidos",
     "rol": "actor"
   },
   {
-    "id": 5,
     "nombre": "Steven Spielberg",
     "fechaNacimiento": "1946-12-18",
     "nacionalidad": "Estados Unidos",
     "rol": "director"
   },
   {
-    "id": 6,
     "nombre": "Keanu Reeves",
     "fechaNacimiento": "1964-09-02",
     "nacionalidad": "Canadá",
     "rol": "actor"
   },
   {
-    "id": 7,
     "nombre": "Hayao Miyazaki",
     "fechaNacimiento": "1941-01-05",
     "nacionalidad": "Japón",
     "rol": "director"
   },
   {
-    "id": 8,
     "nombre": "Christian Bale",
     "fechaNacimiento": "1974-01-30",
     "nacionalidad": "Reino Unido",
     "rol": "actor"
   },
   {
-    "id": 9,
     "nombre": "Martin Scorsese",
     "fechaNacimiento": "1942-11-17",
     "nacionalidad": "Estados Unidos",
     "rol": "director"
   },
   {
-    "id": 10,
     "nombre": "Scarlett Johansson",
     "fechaNacimiento": "1984-11-22",
     "nacionalidad": "Estados Unidos",
     "rol": "actor"
   },
   {
-    "id": 11,
     "nombre": "Peter Jackson",
     "fechaNacimiento": "1961-10-31",
     "nacionalidad": "Nueva Zelanda",
     "rol": "director"
   },
   {
-    "id": 12,
     "nombre": "Bryan Cranston",
     "fechaNacimiento": "1956-03-07",
     "nacionalidad": "Estados Unidos",
     "rol": "actor"
   },
   {
-    "id": 13,
     "nombre": "David Fincher",
     "fechaNacimiento": "1962-08-28",
     "nacionalidad": "Estados Unidos",
     "rol": "director"
   },
   {
-    "id": 14,
     "nombre": "Benedict Cumberbatch",
     "fechaNacimiento": "1976-07-19",
     "nacionalidad": "Reino Unido",
     "rol": "actor"
   },
   {
-    "id": 15,
     "nombre": "Denis Villeneuve",
     "fechaNacimiento": "1967-10-03",
     "nacionalidad": "Canadá",
     "rol": "director"
   },
   {
-    "id": 16,
     "nombre": "Pedro Pascal",
     "fechaNacimiento": "1975-04-02",
     "nacionalidad": "Chile",
     "rol": "actor"
   },
   {
-    "id": 17,
     "nombre": "James Cameron",
     "fechaNacimiento": "1954-08-16",
     "nacionalidad": "Canadá",
     "rol": "director"
   },
   {
-    "id": 18,
     "nombre": "Emma Stone",
     "fechaNacimiento": "1988-11-06",
     "nacionalidad": "Estados Unidos",
     "rol": "actor"
   },
   {
-    "id": 19,
     "nombre": "Ridley Scott",
     "fechaNacimiento": "1937-11-30",
     "nacionalidad": "Reino Unido",
     "rol": "director"
   },
   {
-    "id": 20,
     "nombre": "Tom Holland",
     "fechaNacimiento": "1996-06-01",
     "nacionalidad": "Reino Unido",
