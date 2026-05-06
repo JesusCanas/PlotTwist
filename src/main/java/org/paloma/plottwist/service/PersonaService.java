@@ -1,3 +1,4 @@
+/*
 package org.paloma.plottwist.service;
 
 import org.paloma.plottwist.model.Persona;
@@ -29,3 +30,4 @@ public class PersonaService {
         return repository.findByRol(rol);
     }
 }
+*/

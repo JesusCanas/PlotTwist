@@ -1,3 +1,4 @@
+/*
 package org.paloma.plottwist.repository;
 
 import org.paloma.plottwist.model.Genero;
@@ -18,3 +19,4 @@ public interface SerieRepository extends MongoRepository<Serie, String> {
     
     List<Serie> findByAnyo(Year anyo);
 }
+*/

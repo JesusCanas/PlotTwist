@@ -14,11 +14,13 @@ public abstract class Metraje {
     private double valoracion;
     private List<String> actoresId;
     
-    public Metraje(String titulo, Year anyo, List<Genero> generos2, Persona director2, double valoracion, List<String> actores) {
+    public Metraje(String titulo, Year anyo, List<Genero> generos, Persona director, double valoracion, List<String> actores) {
         this.titulo = titulo;
         this.anyo = anyo;
         this.valoracion = valoracion;
         this.actoresId = actores;
+        this.director = director;
+        this.generos = generos;
     }
 
     // Getters and Setters
