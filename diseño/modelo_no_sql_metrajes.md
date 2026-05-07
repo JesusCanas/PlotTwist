@@ -61,7 +61,7 @@ Se trata de un modelo polimórfico, donde todos los documentos comparten una est
   "idActores":["ObjectId('9283538')","ObjectId('92835433')"],
   "valoracion": 8.8,
   "sinopsis": "Un ladrón que roba secretos a través de los sueños.",
-  "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/2/poster.jpg",
+  "imagen": "https://s3.amazonaws.com/bucket/metrajes/series/2/poster.jpg",
   "numTemporadas": 3,
   "numEpisodios": 26,
   "duracionEpisodio": 50,
@@ -75,16 +75,22 @@ Esta colección almacena información sobre las personas relacionadas con los me
 Se utiliza un modelo polimórfico mediante un atributo discriminador rol, que indica el tipo de persona.
 
 ### 🔹 Atributos
-`id`: Identificador único
-`nombre`: Nombre completo
-`fechaNacimiento`: Fecha de nacimiento
-`nacionalidad`: País de origen
+- `nombre`: Nombre completo
+- `apellido`: Apellido
+- `fechaNacimiento`: Fecha de nacimiento
+- `nacionalidad`: País de origen
+- `imagen`: URL del poster o imagen principal del metraje almacenada en Amazon S3. Este atributo no guarda el archivo directamente, sino la dirección (URL) que permite acceder a la imagen desde el frontend.
+- `idMetrajes`: metrajes que contiene ese director y acto
+- 
 ### ✔️ Ejemplo
 ```json
 {
-  "nombre": "Quentin Tarantino",
+  "nombre": "Quentin",
+  "apellido":"Tarantino",
   "fechaNacimiento": "1963-03-27",
+  "biografia":"Quentin Tarantino (Knoxville, 1963) es un aclamado director, guionista y productor estadounidense, conocido por revolucionar el cine independiente de los 90 con su estilo único: diálogos ingeniosos, narrativas no lineales y violencia estilizada. Autodidacta y ex-empleado de videoclub, saltó a la fama con Reservoir Dogs y Pulp Fiction",
   "nacionalidad": "Estados Unidos",
+  "imagen":"https://s3.amazonaws.com/bucket/personas/director/2/poster.jpg",
 }
 ```
 ---
@@ -92,10 +98,10 @@ Se utiliza un modelo polimórfico mediante un atributo discriminador rol, que in
 Esta colección almacena la información de los usuarios de la aplicación.
 
 ### 🔹 Atributos
-`nombre`: Nombre del usuario
-`email`: Correo electrónico (único)
-`password`: Contraseña cifrada
-`fechaRegistro`: Fecha de creación de la cuenta
+- `nombre`: Nombre del usuario
+- `email`: Correo electrónico (único)
+- `password`: Contraseña cifrada
+- `fechaRegistro`: Fecha de creación de la cuentar
 ### ✔️ Ejemplo
 ```json
 {
