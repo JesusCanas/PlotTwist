@@ -180,18 +180,6 @@
     "estado": "EMISION"
   },
   {
-    "titulo": "Westworld",
-    "anyo": 2016,
-    "genero": "CIENCIA_FICCION",
-    "creador": "Jonathan Nolan",
-    "valoracion": 8.6,
-    "sinopsis": "Un parque habitado por androides conscientes.",
-    "numTemporadas": 4,
-    "numEpisodios": 36,
-    "duracionEpisodio": 58,
-    "estado": "FINALIZADA"
-  },
-  {
     "titulo": "Sherlock",
     "anyo": 2010,
     "genero": "MISTERIO",
@@ -238,5 +226,17 @@
     "numEpisodios": 177,
     "duracionEpisodio": 44,
     "estado": "FINALIZADA"
-  }
+  },
+  {
+  "titulo": "Futurama",
+  "anyo": 1999,
+  "genero": "CIENCIA_FICCION",
+  "creador": "Matt Groening",
+  "valoracion": 8.5,
+  "sinopsis": "Un repartidor de pizza se congela por accidente y despierta mil años en el futuro.",
+  "numTemporadas": 11,
+  "numEpisodios": 160,
+  "duracionEpisodio": 22,
+  "estado": "EMISION"
+}
 ]
