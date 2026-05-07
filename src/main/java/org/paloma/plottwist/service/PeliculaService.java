@@ -30,10 +30,14 @@ public class PeliculaService {
         }
 
         if(anio != null) {
-                query.addCriteria(Criteria.where("anyo"));
+                query.addCriteria(Criteria.where("anyo").eq(anio.getValue()));
         }
 
+        if(valoracion != null) {
+                query.addCriteria(Criteria.where("valoracion").gte(valoracion).lt(valoracion + 1));
+        }
 
+        return mongoTemplate.find(query, Pelicula.class);
      }
     
 }
