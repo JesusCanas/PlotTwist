@@ -1,2 +1,2 @@
 Mario!64
-mongodb+srv://admin:Mario!64@plottwist.7fbserw.mongodb.net/?appName=plottwist
+mongodb+srv://admin:<db_password>@servidorbasedatos.d7bzjyr.mongodb.net/?appName=servidorBaseDatos
