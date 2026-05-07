@@ -1,4 +1,5 @@
 package org.paloma.plottwist.model;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.Year;
 import java.util.List;
@@ -12,8 +13,8 @@ public class Serie extends Metraje {
     private Estado estado;
 
 
-    public Serie(String titulo, Year anyo, List<Genero> generos, Persona director, double valoracion, List<String> actoresId, int numeroTemporadas, int numEpisodios, int duracionEpisodio, Estado estado) {
-        super(titulo, anyo, generos, director, valoracion, actoresId);
+    public Serie(String titulo, Year anyo, List<Genero> generos, ObjectId idDirector, double valoracion, List<ObjectId> idsActores, int numeroTemporadas, int numEpisodios, int duracionEpisodio, Estado estado) {
+        super(titulo, anyo, generos, idDirector, valoracion, idsActores);
         this.numeroTemporadas = numeroTemporadas;
         this.numEpisodios = numEpisodios;
         this.duracionEpisodio = duracionEpisodio;

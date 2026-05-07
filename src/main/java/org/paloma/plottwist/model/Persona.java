@@ -1,4 +1,5 @@
 package org.paloma.plottwist.model;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -10,17 +11,18 @@ public class Persona {
     private String id;
     private String nombre;
     private String apellido;
-    private int edad;
+    private String biografia;
+    private LocalDate fechaDeNacimiento;
     private String nacionalidad;
-    private String rol;
     private List<String> metrajesId;
 
-    public Persona(String nombre, String apellido, int edad, String nacionalidad, String rol, List<String> metrajesId) {
+    public Persona(String nombre, String apellido, String biografia, LocalDate fechaDeNacimiento, String nacionalidad,
+            List<String> metrajesId) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
+        this.biografia = biografia;
+        this.fechaDeNacimiento = fechaDeNacimiento;
         this.nacionalidad = nacionalidad;
-        this.rol = rol;
         this.metrajesId = metrajesId;
     }
 
@@ -45,12 +47,20 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getBiografia() {
+        return biografia;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
+    }
+
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
+    }
+
+    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
     public String getNacionalidad() {
@@ -61,19 +71,11 @@ public class Persona {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
     public List<String> getMetrajesId() {
         return metrajesId;
     }
 
-    public void setMetrajes(List<String> metrajesId) {
+    public void setMetrajesId(List<String> metrajesId) {
         this.metrajesId = metrajesId;
     }
 

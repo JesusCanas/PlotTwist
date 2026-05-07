@@ -6,9 +6,9 @@ classDiagram
         -String titulo
         -Year anyo
         -List<Genero> generos
-        -Persona director
+        -ObjectId idDirector
         -double valoracion
-        -List<String> actoresId
+        -List<ObjectId> idsActores
         +getId() String
         +getTitulo() String
         +setTitulo(String)
@@ -16,12 +16,14 @@ classDiagram
         +setAnyo(Year)
         +getGeneros() List<Genero>
         +setGeneros(List<Genero>)
-        +getDirector() Persona
-        +setDirector(Persona)
+        +getIdDirector() ObjectId
+        +setIdDirector(ObjectId)
         +getValoracion() double
         +setValoracion(double)
-        +getActoresId() List<String>
-        +setActoresId(List<String>)
+        +getIdsActores() List<ObjectId>
+        +setIdsActores(List<ObjectId>)
+        +getDirector() Persona
+        +setDirector(Persona)
     }
 
     class Pelicula {
@@ -47,9 +49,9 @@ classDiagram
     class Persona {
         -String nombre
         -String apellido
-        -int edad
+        -String biografia
+        -LocalDate fechaDeNacimiento
         -String nacionalidad
-        -String rol
         -List<String> metrajesId
         +getNombre() String
         +setNombre(String)

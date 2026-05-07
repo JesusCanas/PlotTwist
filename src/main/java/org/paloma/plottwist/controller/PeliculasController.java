@@ -5,6 +5,7 @@ import java.util.List;
 import org.paloma.plottwist.dao.PeliculasDAO;
 import org.paloma.plottwist.model.Genero;
 import org.paloma.plottwist.model.Pelicula;
+import org.paloma.plottwist.repository.PeliculaRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/peliculas")
 public class PeliculasController {
+
+    private PeliculaRepository repository;
+
     PeliculasDAO peliculasDAOejemplo = new PeliculasDAO();
 
     @GetMapping("/mostrarTodo")
@@ -23,10 +27,10 @@ public class PeliculasController {
     @GetMapping("/mostrarFiltrado")
     public List<Pelicula> obtenerPeliculasFiltradas(
             @RequestParam(required = false) String nombre,
-            @RequestParam(required = false) Double valoracion, 
+            @RequestParam(required = false) Double valoracion,
             @RequestParam(required = false) String anyo,
             @RequestParam(required = false) List<Genero> generos) {
-        
+
         Year anyoYear = (anyo != null) ? Year.parse(anyo) : null;
         return peliculasDAOejemplo.obtenerPeliculasFiltradas(nombre, generos, anyoYear, valoracion);
     }
@@ -45,4 +49,10 @@ public class PeliculasController {
     public Pelicula obtenerPeliculaPorId(@RequestParam String id) {
         return peliculasDAOejemplo.obtenerPeliculaPorId(id);
     }
+
+    @GetMapping("MostrarBDTodo")
+    public List<Pelicula> obtenerTodo() {
+        return repository.findAll();
+    }
+
 }
