@@ -1,29 +1,34 @@
-# Ver los peliculas y series
+Aquí tienes el diagrama actualizado con `MongoConfig`:
+
 ```mermaid
 classDiagram
+    class MongoConfig {
+        <<Configuration>>
+        +mongoClient() MongoClient
+        +mongoTemplate() MongoTemplate
+    }
+
     class Metraje {
         -String id
         -String titulo
         -Year anyo
-        -List<Genero> generos
+        -List~Genero~ generos
         -ObjectId idDirector
         -double valoracion
-        -List<ObjectId> idsActores
+        -List~ObjectId~ idsActores
         +getId() String
         +getTitulo() String
         +setTitulo(String)
         +getAnyo() Year
         +setAnyo(Year)
-        +getGeneros() List<Genero>
-        +setGeneros(List<Genero>)
+        +getGeneros() List~Genero~
+        +setGeneros(List~Genero~)
         +getIdDirector() ObjectId
         +setIdDirector(ObjectId)
         +getValoracion() double
         +setValoracion(double)
-        +getIdsActores() List<ObjectId>
-        +setIdsActores(List<ObjectId>)
-        +getDirector() Persona
-        +setDirector(Persona)
+        +getIdsActores() List~ObjectId~
+        +setIdsActores(List~ObjectId~)
     }
 
     class Pelicula {
@@ -46,42 +51,39 @@ classDiagram
         +getEstado() Estado
         +setEstado(Estado)
     }
+
     class Persona {
         -String nombre
         -String apellido
         -String biografia
         -LocalDate fechaDeNacimiento
         -String nacionalidad
-        -List<String> metrajesId
+        -List~String~ metrajesId
         +getNombre() String
         +setNombre(String)
         +getApellido() String
         +setApellido(String)
-        +getEdad() int
-        +setEdad(int)
         +getNacionalidad() String
         +setNacionalidad(String)
-        +getRol() String
-        +setRol(String)
-        +getMetrajesId() List<String>
-        +setMetrajesId(List<String>)
+        +getMetrajesId() List~String~
+        +setMetrajesId(List~String~)
     }
 
     class PeliculasDAO {
-        -List<Pelicula> peliculas
-        +obtenerPeliculasTodas() List<Pelicula>
-        +obtenerPeliculasFiltradas(String nombre, List<Genero> generos, Year anio, Double valoracion) List<Pelicula>
-        +obtenerDestacados(int cantidad) List<Pelicula>
-        +obtenerPorFecha(int cantidad) List<Pelicula>
+        -List~Pelicula~ peliculas
+        +obtenerPeliculasTodas() List~Pelicula~
+        +obtenerPeliculasFiltradas(String nombre, List~Genero~ generos, Year anio, Double valoracion) List~Pelicula~
+        +obtenerDestacados(int cantidad) List~Pelicula~
+        +obtenerPorFecha(int cantidad) List~Pelicula~
         +obtenerPeliculaPorId(String id) Pelicula
     }
 
     class SeriesDAO {
-        -List<Serie> series
-        +obtenerSeriesTodas() List<Serie>
-        +obtenerSeriesFiltradas(String nombre, List<Genero> generos, Year anio, Double valoracion) List<Serie>
-        +obtenerDestacados(int cantidad) List<Serie>
-        +obtenerPorFecha(int cantidad) List<Serie>
+        -List~Serie~ series
+        +obtenerSeriesTodas() List~Serie~
+        +obtenerSeriesFiltradas(String nombre, List~Genero~ generos, Year anio, Double valoracion) List~Serie~
+        +obtenerDestacados(int cantidad) List~Serie~
+        +obtenerPorFecha(int cantidad) List~Serie~
         +obtenerSeriePorId(String id) Serie
     }
 
@@ -96,7 +98,7 @@ classDiagram
         -String contrasenya
         -String correo
         -Year fechaRegistro
-        -List<Metraje> listaMetrajes
+        -List~Metraje~ listaMetrajes
         +getId() String
         +getNombre() String
         +setNombre(String)
@@ -106,22 +108,9 @@ classDiagram
         +setContrasenya(String)
         +getFechaRegistro() Year
         +setFechaRegistro(Year)
-        +getListaMetrajes() List<Metraje>
-        +setListaMetrajes(List<Metraje>)
+        +getListaMetrajes() List~Metraje~
+        +setListaMetrajes(List~Metraje~)
     }
-
-    Metraje <|-- Pelicula
-    Metraje <|-- Serie
-    Metraje o-- Persona : director
-    Usuario --> Metraje : listaMetrajes
-    PeliculasDAO --> Pelicula
-    SeriesDAO --> Serie
-    OrdenPorValoracion --> Metraje
-    OrdenPorFecha --> Metraje
-    Serie --> Estado
-    Metraje ..> Genero
-    PlottwistApplication ..> PeliculasDAO
-    PlottwistApplication ..> SeriesDAO
 
     class OrdenPorValoracion {
         +compare(Metraje m1, Metraje m2) int
@@ -153,5 +142,18 @@ classDiagram
         +CANCELADA
     }
 
+    Metraje <|-- Pelicula
+    Metraje <|-- Serie
+    Metraje o-- Persona : director
+    Usuario --> Metraje : listaMetrajes
+    PeliculasDAO --> Pelicula
+    SeriesDAO --> Serie
+    OrdenPorValoracion --> Metraje
+    OrdenPorFecha --> Metraje
+    Serie --> Estado
+    Metraje ..> Genero
+    PlottwistApplication ..> PeliculasDAO
+    PlottwistApplication ..> SeriesDAO
+    PlottwistApplication ..> MongoConfig
+    MongoConfig ..> MongoTemplate
 ```
-
