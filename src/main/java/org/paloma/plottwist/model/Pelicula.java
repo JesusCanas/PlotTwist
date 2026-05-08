@@ -1,5 +1,4 @@
 package org.paloma.plottwist.model;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
@@ -8,8 +7,8 @@ public class Pelicula extends Metraje {
 
     private int duracion;
 
-    public Pelicula(String titulo, int anyo, List<Genero> generos, ObjectId idDirector, double valoracion, List<ObjectId> idsActores, int duracion) {
-        super(titulo, anyo, generos, idDirector, valoracion, idsActores);
+    public Pelicula(String titulo, int anyo, List<Genero> generos, String sinopsis, String imagenURL, String idDirector, double valoracion, List<String> idsActores, int duracion) {
+        super(titulo, anyo, generos, sinopsis, imagenURL, idDirector, valoracion, idsActores);
         this.duracion = duracion;
     }
 

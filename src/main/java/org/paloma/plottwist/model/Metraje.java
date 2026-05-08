@@ -2,6 +2,12 @@ package org.paloma.plottwist.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,18 +16,29 @@ public abstract class Metraje {
     private String id;
     private String titulo;
     private int anyo;
+    @Field("genero")
     private List<Genero> generos;
-    private ObjectId idDirector;
+    private String sinopsis;
+    @Field("imagen")
+    private String imagenURL;
+    @JsonInclude
+    private String idDirector;
+    @Transient
     private Persona director;
     private double valoracion;
-    private List<ObjectId> idsActores;
+    @Field("idActores")
+    @JsonIgnore
+    private List<String> idsActores;
+    @Transient
     private List<Persona> actores;
 
-    public Metraje(String titulo, int anyo, List<Genero> generos, ObjectId idDirector,
-            double valoracion, List<ObjectId> idsActores) {
+    public Metraje(String titulo, int anyo, List<Genero> generos, String sinopsis, String imagenURL, String idDirector,
+            double valoracion, List<String> idsActores) {
         this.titulo = titulo;
         this.anyo = anyo;
         this.generos = generos;
+        this.sinopsis = sinopsis;
+        this.imagenURL = imagenURL;
         this.idDirector = idDirector;
         this.director = null;
         this.valoracion = valoracion;
@@ -62,11 +79,19 @@ public abstract class Metraje {
         this.generos = generos;
     }
 
-    public ObjectId getIdDirector() {
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+
+    public String getIdDirector() {
         return idDirector;
     }
 
-    public void setIdDirector(ObjectId idDirector) {
+    public void setIdDirector(String idDirector) {
         this.idDirector = idDirector;
     }
 
@@ -86,11 +111,11 @@ public abstract class Metraje {
         this.valoracion = valoracion;
     }
 
-    public List<ObjectId> getIdsActores() {
+    public List<String> getIdsActores() {
         return idsActores;
     }
 
-    public void setIdsActores(List<ObjectId> idsActores) {
+    public void setIdsActores(List<String> idsActores) {
         this.idsActores = idsActores;
     }
 
