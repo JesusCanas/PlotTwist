@@ -1,7 +1,6 @@
 package org.paloma.plottwist.dao;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +25,7 @@ public class SeriesDAO {
                 LocalDate.of(1962, 8, 28), "Estadounidense", new ArrayList<>());
         ObjectId idDirector1 = new ObjectId();
         List<ObjectId> idsActores1 = List.of("507f1f77bcf86cd799439101", "507f1f77bcf86cd799439102", "507f1f77bcf86cd799439103").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie1 = new Serie("Stranger Things", Year.of(2016), List.of(Genero.DRAMA, Genero.CIENCIA_FICCION, Genero.MISTERIO),
+        Serie serie1 = new Serie("Stranger Things", 2016, List.of(Genero.DRAMA, Genero.CIENCIA_FICCION, Genero.MISTERIO),
                 idDirector1, 8.7, idsActores1, 4, 34, 50, Estado.EMISION);
         serie1.setDirector(director1);
         series.add(serie1);
@@ -35,7 +34,7 @@ public class SeriesDAO {
                 LocalDate.of(1967, 2, 10), "Estadounidense", new ArrayList<>());
         ObjectId idDirector2 = new ObjectId();
         List<ObjectId> idsActores2 = List.of("507f1f77bcf86cd799439104", "507f1f77bcf86cd799439105").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie2 = new Serie("Breaking Bad", Year.of(2008), List.of(Genero.DRAMA, Genero.SUSPENSE, Genero.MISTERIO), idDirector2,
+        Serie serie2 = new Serie("Breaking Bad", 2008, List.of(Genero.DRAMA, Genero.SUSPENSE, Genero.MISTERIO), idDirector2,
                 9.5, idsActores2, 5, 62, 49, Estado.FINALIZADA);
         serie2.setDirector(director2);
         series.add(serie2);
@@ -44,7 +43,7 @@ public class SeriesDAO {
                 LocalDate.of(1970, 9, 25), "Estadounidense", new ArrayList<>());
         ObjectId idDirector3 = new ObjectId();
         List<ObjectId> idsActores3 = List.of("507f1f77bcf86cd799439106", "507f1f77bcf86cd799439107").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie3 = new Serie("Game of Thrones", Year.of(2011), List.of(Genero.AVENTURA, Genero.FANTASIA, Genero.DRAMA),
+        Serie serie3 = new Serie("Game of Thrones", 2011, List.of(Genero.AVENTURA, Genero.FANTASIA, Genero.DRAMA),
                 idDirector3, 9.3, idsActores3, 8, 73, 57, Estado.FINALIZADA);
         serie3.setDirector(director3);
         series.add(serie3);
@@ -53,7 +52,7 @@ public class SeriesDAO {
                 LocalDate.of(1963, 6, 13), "Estadounidense", new ArrayList<>());
         ObjectId idDirector4 = new ObjectId();
         List<ObjectId> idsActores4 = List.of("507f1f77bcf86cd799439108", "507f1f77bcf86cd799439109").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie4 = new Serie("The Office", Year.of(2005), List.of(Genero.COMEDIA, Genero.DRAMA), idDirector4, 8.8,
+        Serie serie4 = new Serie("The Office", 2005, List.of(Genero.COMEDIA, Genero.DRAMA), idDirector4, 8.8,
                 idsActores4, 9, 201, 22, Estado.FINALIZADA);
         serie4.setDirector(director4);
         series.add(serie4);
@@ -62,7 +61,7 @@ public class SeriesDAO {
                 LocalDate.of(1963, 3, 10), "Británico", new ArrayList<>());
         ObjectId idDirector5 = new ObjectId();
         List<ObjectId> idsActores5 = List.of("507f1f77bcf86cd799439110", "507f1f77bcf86cd799439111").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie5 = new Serie("The Crown", Year.of(2016), List.of(Genero.DRAMA, Genero.ROMANCE), idDirector5, 8.7,
+        Serie serie5 = new Serie("The Crown", 2016, List.of(Genero.DRAMA, Genero.ROMANCE), idDirector5, 8.7,
                 idsActores5, 6, 60, 58, Estado.EMISION);
         serie5.setDirector(director5);
         series.add(serie5);
@@ -71,7 +70,7 @@ public class SeriesDAO {
                 LocalDate.of(1971, 3, 3), "Británico", new ArrayList<>());
         ObjectId idDirector6 = new ObjectId();
         List<ObjectId> idsActores6 = List.of("507f1f77bcf86cd799439112", "507f1f77bcf86cd799439113").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie6 = new Serie("Black Mirror", Year.of(2011), List.of(Genero.CIENCIA_FICCION, Genero.MISTERIO, Genero.DRAMA), idDirector6,
+        Serie serie6 = new Serie("Black Mirror", 2011, List.of(Genero.CIENCIA_FICCION, Genero.MISTERIO, Genero.DRAMA), idDirector6,
                 8.8, idsActores6, 6, 22, 60, Estado.EMISION);
         serie6.setDirector(director6);
         series.add(serie6);
@@ -80,7 +79,7 @@ public class SeriesDAO {
                 LocalDate.of(1940, 12, 30), "Estadounidense", new ArrayList<>());
         ObjectId idDirector7 = new ObjectId();
         List<ObjectId> idsActores7 = List.of("507f1f77bcf86cd799439114", "507f1f77bcf86cd799439115").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie7 = new Serie("Friends", Year.of(1994), List.of(Genero.COMEDIA, Genero.ROMANCE), idDirector7, 8.9,
+        Serie serie7 = new Serie("Friends", 1994, List.of(Genero.COMEDIA, Genero.ROMANCE), idDirector7, 8.9,
                 idsActores7, 10, 236, 22, Estado.FINALIZADA);
         serie7.setDirector(director7);
         series.add(serie7);
@@ -89,7 +88,7 @@ public class SeriesDAO {
                 LocalDate.of(1966, 10, 19), "Estadounidense", new ArrayList<>());
         ObjectId idDirector8 = new ObjectId();
         List<ObjectId> idsActores8 = List.of("507f1f77bcf86cd799439116", "507f1f77bcf86cd799439117").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie8 = new Serie("The Mandalorian", Year.of(2019), List.of(Genero.AVENTURA, Genero.CIENCIA_FICCION), idDirector8,
+        Serie serie8 = new Serie("The Mandalorian", 2019, List.of(Genero.AVENTURA, Genero.CIENCIA_FICCION), idDirector8,
                 8.7, idsActores8, 3, 24, 35, Estado.EMISION);
         serie8.setDirector(director8);
         series.add(serie8);
@@ -98,7 +97,7 @@ public class SeriesDAO {
                 LocalDate.of(1980, 6, 10), "Estadounidense", new ArrayList<>());
         ObjectId idDirector9 = new ObjectId();
         List<ObjectId> idsActores9 = List.of("507f1f77bcf86cd799439118", "507f1f77bcf86cd799439119").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie9 = new Serie("The Witcher", Year.of(2019), List.of(Genero.FANTASIA, Genero.AVENTURA, Genero.ACCION), idDirector9,
+        Serie serie9 = new Serie("The Witcher", 2019, List.of(Genero.FANTASIA, Genero.AVENTURA, Genero.ACCION), idDirector9,
                 8.2, idsActores9, 3, 24, 60, Estado.EMISION);
         serie9.setDirector(director9);
         series.add(serie9);
@@ -107,7 +106,7 @@ public class SeriesDAO {
                 LocalDate.of(1966, 6, 27), "Estadounidense", new ArrayList<>());
         ObjectId idDirector10 = new ObjectId();
         List<ObjectId> idsActores10 = List.of("507f1f77bcf86cd799439120", "507f1f77bcf86cd799439121").stream().map(ObjectId::new).collect(Collectors.toList());
-        Serie serie10 = new Serie("Lost", Year.of(2004), List.of(Genero.DRAMA, Genero.MISTERIO, Genero.SUSPENSE), idDirector10,
+        Serie serie10 = new Serie("Lost", 2004, List.of(Genero.DRAMA, Genero.MISTERIO, Genero.SUSPENSE), idDirector10,
                 8.3, idsActores10, 6, 121, 44, Estado.FINALIZADA);
         serie10.setDirector(director10);
         series.add(serie10);
@@ -117,7 +116,7 @@ public class SeriesDAO {
         return series;
     }
 
-    public List<Serie> obtenerSeriesFiltradas(String nombre, List<Genero> generos, Year anio, Double valoracion) {
+    public List<Serie> obtenerSeriesFiltradas(String nombre, List<Genero> generos, Integer anio, Double valoracion) {
         ArrayList<Serie> listaFiltrada = new ArrayList<>();
         for (Serie busqueda : series) {
             if (nombre != null && !busqueda.getTitulo().toLowerCase().contains(nombre.toLowerCase())) {
@@ -138,7 +137,7 @@ public class SeriesDAO {
                 }
             }
 
-            if (anio != null && !busqueda.getAnyo().equals(anio)) {
+            if (anio != null && busqueda.getAnyo() != anio) {
                 continue;
             }
 

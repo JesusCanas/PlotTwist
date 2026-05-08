@@ -1,7 +1,6 @@
 /*
 package org.paloma.plottwist.service;
 
-import java.time.Year;
 import java.util.List;
 
 import org.paloma.plottwist.model.Genero;
@@ -25,7 +24,7 @@ public class SerieService {
      public List<Serie> porValoracion(Double valoracion) {
         return repository.findByValoracionGreaterThan(valoracion);
     }
-    public List<Serie> porAnyo(Year anyo) {
+    public List<Serie> porAnyo(Integer anyo) {
         return repository.findByAnyo(anyo);
     }
 

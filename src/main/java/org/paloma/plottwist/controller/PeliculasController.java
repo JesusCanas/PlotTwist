@@ -1,6 +1,5 @@
 package org.paloma.plottwist.controller;
 
-import java.time.Year;
 import java.util.List;
 import org.paloma.plottwist.dao.PeliculasDAO;
 import org.paloma.plottwist.model.Genero;
@@ -15,7 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/peliculas")
 public class PeliculasController {
 
-    private PeliculaRepository repository;
+    private final PeliculaRepository repository;
+
+    public PeliculasController(PeliculaRepository repository) {
+        this.repository = repository;
+    }
 
     PeliculasDAO peliculasDAOejemplo = new PeliculasDAO();
 
@@ -31,8 +34,8 @@ public class PeliculasController {
             @RequestParam(required = false) String anyo,
             @RequestParam(required = false) List<Genero> generos) {
 
-        Year anyoYear = (anyo != null) ? Year.parse(anyo) : null;
-        return peliculasDAOejemplo.obtenerPeliculasFiltradas(nombre, generos, anyoYear, valoracion);
+        Integer anyoInt = (anyo != null) ? Integer.parseInt(anyo) : null;
+        return peliculasDAOejemplo.obtenerPeliculasFiltradas(nombre, generos, anyoInt, valoracion);
     }
 
     @GetMapping("/obtenerDestacados")
@@ -50,7 +53,7 @@ public class PeliculasController {
         return peliculasDAOejemplo.obtenerPeliculaPorId(id);
     }
 
-    @GetMapping("MostrarBDTodo")
+    @GetMapping("/mostrarBDTodo")
     public List<Pelicula> obtenerTodo() {
         return repository.findAll();
     }

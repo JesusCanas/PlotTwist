@@ -1,7 +1,6 @@
 
 package org.paloma.plottwist.service;
 
-import java.time.Year;
 import java.util.List;
 
 import org.paloma.plottwist.model.Genero;
@@ -18,7 +17,7 @@ public class PeliculaService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-     public List<Pelicula> obtenerPeliculasFiltradas(String nombre, List<Genero> generos, Year anio, Double valoracion) {
+     public List<Pelicula> obtenerPeliculasFiltradas(String nombre, List<Genero> generos, Integer anio, Double valoracion) {
         Query query = new Query();
 
         if (nombre != null) {
@@ -30,7 +29,7 @@ public class PeliculaService {
         }
 
         if(anio != null) {
-                query.addCriteria(Criteria.where("anyo").eq(anio.getValue()));
+                query.addCriteria(Criteria.where("anyo").eq(anio));
         }
 
         if(valoracion != null) {

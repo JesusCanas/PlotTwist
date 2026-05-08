@@ -1,6 +1,5 @@
 package org.paloma.plottwist.controller;
 
-import java.time.Year;
 import java.util.List;
 import org.paloma.plottwist.dao.SeriesDAO;
 import org.paloma.plottwist.model.Genero;
@@ -25,7 +24,7 @@ public class SeriesController {
             @RequestParam(required = false) Double valoracion, @RequestParam(required = false) String anyo,
             @RequestParam(required = false) List<Genero> generos) {
         if(anyo != null) {
-            return listaEjemplo.obtenerSeriesFiltradas(nombre, generos, Year.parse(anyo), valoracion);
+            return listaEjemplo.obtenerSeriesFiltradas(nombre, generos, Integer.parseInt(anyo), valoracion);
         }
         return listaEjemplo.obtenerSeriesFiltradas(nombre, generos, null, valoracion);
     }

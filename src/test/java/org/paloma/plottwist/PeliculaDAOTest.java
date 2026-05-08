@@ -9,8 +9,6 @@ import org.paloma.plottwist.dao.PeliculasDAO;
 import org.paloma.plottwist.model.Genero;
 import org.paloma.plottwist.model.Pelicula;
 
-import java.time.Year;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -57,14 +55,14 @@ public class PeliculaDAOTest {
         }
 
         // Filtrar por año
-        Year anyoBusqueda = Year.of(1994);
+        Integer anyoBusqueda = 1994;
         List<Pelicula> filtradasPorAnio = dao.obtenerPeliculasFiltradas(null, null, anyoBusqueda, null);
 
         // Verificamos que se hayan encontrado películas del año esperado
         assertNotNull(filtradasPorAnio, "La lista de películas filtradas por año no debería ser nula.");
         assertFalse(filtradasPorAnio.isEmpty(), "Debería encontrar al menos una película de 1994.");
         for (Pelicula p : filtradasPorAnio) {
-            assertEquals(anyoBusqueda, p.getAnyo(), "La película " + p.getTitulo() + " no es del año esperado.");
+            assertEquals(anyoBusqueda.intValue(), p.getAnyo(), "La película " + p.getTitulo() + " no es del año esperado.");
         }
 
         // Filtrar por valoración

@@ -2,7 +2,6 @@ package org.paloma.plottwist.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,7 @@ public abstract class Metraje {
     @Id
     private String id;
     private String titulo;
-    private Year anyo;
+    private int anyo;
     private List<Genero> generos;
     private ObjectId idDirector;
     private Persona director;
@@ -18,7 +17,7 @@ public abstract class Metraje {
     private List<ObjectId> idsActores;
     private List<Persona> actores;
 
-    public Metraje(String titulo, Year anyo, List<Genero> generos, ObjectId idDirector,
+    public Metraje(String titulo, int anyo, List<Genero> generos, ObjectId idDirector,
             double valoracion, List<ObjectId> idsActores) {
         this.titulo = titulo;
         this.anyo = anyo;
@@ -47,11 +46,11 @@ public abstract class Metraje {
         this.titulo = titulo;
     }
 
-    public Year getAnyo() {
+    public int getAnyo() {
         return anyo;
     }
 
-    public void setAnyo(Year anyo) {
+    public void setAnyo(int anyo) {
         this.anyo = anyo;
     }
 
