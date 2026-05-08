@@ -1,4 +1,3 @@
-Aquí tienes el diagrama actualizado con `MongoConfig`:
 
 ```mermaid
 classDiagram
@@ -155,5 +154,4 @@ classDiagram
     PlottwistApplication ..> PeliculasDAO
     PlottwistApplication ..> SeriesDAO
     PlottwistApplication ..> MongoConfig
-    MongoConfig ..> MongoTemplate
 ```
