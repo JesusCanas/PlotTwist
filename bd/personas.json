@@ -6,7 +6,7 @@
     "fechaNacimiento": "1963-03-27",
     "nacionalidad": "Estados Unidos",
     "biografia": "Quentin Tarantino (Knoxville, 1963) es un aclamado director, guionista y productor estadounidense, conocido por revolucionar el cine independiente de los 90 con su estilo único: diálogos ingeniosos, narrativas no lineales y violencia estilizada. Autodidacta y ex-empleado de videoclub, saltó a la fama con Reservoir Dogs y Pulp Fiction.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/1/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/1/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc128"]
   },
   {
@@ -16,7 +16,7 @@
     "fechaNacimiento": "1974-11-11",
     "nacionalidad": "Estados Unidos",
     "biografia": "Leonardo DiCaprio (Los Ángeles, 1974) es uno de los actores más reconocidos de Hollywood, ganador del Oscar por El Renacido. Conocido por sus papeles en Titanic, Inception y El Lobo de Wall Street.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/1/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/1/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc12a"]
   },
   {
@@ -26,7 +26,7 @@
     "fechaNacimiento": "1970-07-30",
     "nacionalidad": "Reino Unido",
     "biografia": "Christopher Nolan (Londres, 1970) es un director y guionista británico-estadounidense conocido por sus complejas narrativas y espectaculares producciones. Autor de Inception, Interstellar y la trilogía de Batman.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/2/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/2/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc12a", "69faf9e879601c0e70abc137", "69faf9e879601c0e70abc135"]
   },
   {
@@ -46,7 +46,7 @@
     "fechaNacimiento": "1946-12-18",
     "nacionalidad": "Estados Unidos",
     "biografia": "Steven Spielberg (Cincinnati, 1946) es uno de los directores más influyentes de la historia del cine. Creador de clásicos como Tiburón, E.T., Jurassic Park y La Lista de Schindler.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/3/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/3/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -56,7 +56,7 @@
     "fechaNacimiento": "1964-09-02",
     "nacionalidad": "Canadá",
     "biografia": "Keanu Reeves (Beirut, 1964) es un actor canadiense conocido mundialmente por su papel de Neo en la saga Matrix y por la saga John Wick.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/3/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/3/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc134"]
   },
   {
@@ -66,7 +66,7 @@
     "fechaNacimiento": "1941-01-05",
     "nacionalidad": "Japón",
     "biografia": "Hayao Miyazaki (Tokio, 1941) es el cofundador del Studio Ghibli y uno de los animadores más célebres del mundo. Creador de El viaje de Chihiro, Mi vecino Totoro y El castillo ambulante.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/4/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/4/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc12b", "69faf9e879601c0e70abc12c", "69faf9e879601c0e70abc12d", "69faf9e879601c0e70abc12e", "69faf9e879601c0e70abc12f"]
   },
   {
@@ -76,7 +76,7 @@
     "fechaNacimiento": "1974-01-30",
     "nacionalidad": "Reino Unido",
     "biografia": "Christian Bale (Gales, 1974) es un actor británico conocido por su extrema dedicación a los roles. Famoso por Batman Begins, El Maquinista y La gran apuesta.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/4/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/4/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc137"]
   },
   {
@@ -86,7 +86,7 @@
     "fechaNacimiento": "1942-11-17",
     "nacionalidad": "Estados Unidos",
     "biografia": "Martin Scorsese (Nueva York, 1942) es un director icónico del cine estadounidense. Responsable de obras como Taxi Driver, Goodfellas y El lobo de Wall Street.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/5/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/5/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -96,7 +96,7 @@
     "fechaNacimiento": "1984-11-22",
     "nacionalidad": "Estados Unidos",
     "biografia": "Scarlett Johansson (Nueva York, 1984) es una de las actrices más taquilleras del mundo. Conocida por su papel de Viuda Negra en el Universo Marvel y por Lost in Translation.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/5/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/5/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -106,7 +106,7 @@
     "fechaNacimiento": "1961-10-31",
     "nacionalidad": "Nueva Zelanda",
     "biografia": "Peter Jackson (Nueva Zelanda, 1961) es el director de la trilogía de El Señor de los Anillos y El Hobbit, revolucionando el cine de fantasía épica.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/6/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/6/poster.jpg",
     "idMetrajes": ["69faf9e879601c0e70abc138"]
   },
   {
@@ -116,7 +116,7 @@
     "fechaNacimiento": "1956-03-07",
     "nacionalidad": "Estados Unidos",
     "biografia": "Bryan Cranston (Hollywood, 1956) es un actor estadounidense mundialmente reconocido por su papel de Walter White en Breaking Bad, uno de los personajes más icónicos de la televisión.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/6/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/6/poster.jpg",
     "idMetrajes": ["69fafa6279601c0e70abc13c"]
   },
   {
@@ -126,7 +126,7 @@
     "fechaNacimiento": "1962-08-28",
     "nacionalidad": "Estados Unidos",
     "biografia": "David Fincher (Denver, 1962) es un director estadounidense conocido por su estilo oscuro y meticuloso. Autor de Seven, El club de la lucha y La red social.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/7/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/7/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -136,7 +136,7 @@
     "fechaNacimiento": "1976-07-19",
     "nacionalidad": "Reino Unido",
     "biografia": "Benedict Cumberbatch (Londres, 1976) es un actor británico conocido por interpretar a Sherlock Holmes en la serie Sherlock y al Doctor Strange en el Universo Marvel.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/7/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/7/poster.jpg",
     "idMetrajes": ["69fafa6279601c0e70abc14c"]
   },
   {
@@ -146,7 +146,7 @@
     "fechaNacimiento": "1967-10-03",
     "nacionalidad": "Canadá",
     "biografia": "Denis Villeneuve (Quebec, 1967) es un director canadiense reconocido por sus obras de ciencia ficción como Arrival, Blade Runner 2049 y Dune.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/8/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/8/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -156,7 +156,7 @@
     "fechaNacimiento": "1975-04-02",
     "nacionalidad": "Chile",
     "biografia": "Pedro Pascal (Santiago de Chile, 1975) es un actor chileno-estadounidense conocido por The Mandalorian, The Last of Us y Game of Thrones.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/8/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/8/poster.jpg",
     "idMetrajes": ["69fafa6279601c0e70abc145"]
   },
   {
@@ -166,7 +166,7 @@
     "fechaNacimiento": "1954-08-16",
     "nacionalidad": "Canadá",
     "biografia": "James Cameron (Ontario, 1954) es un director y productor canadiense conocido por dirigir las películas más taquilleras de la historia: Titanic y Avatar.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/9/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/9/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -176,7 +176,7 @@
     "fechaNacimiento": "1988-11-06",
     "nacionalidad": "Estados Unidos",
     "biografia": "Emma Stone (Arizona, 1988) es una actriz estadounidense ganadora del Oscar por La La Land. Reconocida también por Birdman y Poor Things.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/9/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/9/poster.jpg",
     "idMetrajes": []
   },
   {
@@ -186,7 +186,7 @@
     "fechaNacimiento": "1937-11-30",
     "nacionalidad": "Reino Unido",
     "biografia": "Ridley Scott (South Shields, 1937) es un director británico autor de películas icónicas como Alien, Blade Runner, Gladiator y The Martian.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/director/10/poster.jpg",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/10/poster.jpg",
     "idMetrajes": []
   },
   {
