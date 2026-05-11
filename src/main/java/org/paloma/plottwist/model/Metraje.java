@@ -1,12 +1,10 @@
 package org.paloma.plottwist.model;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,7 @@ public abstract class Metraje {
     private String sinopsis;
     @Field("imagen")
     private String imagenURL;
-    @JsonInclude
+    @JsonIgnore
     private String idDirector;
     @Transient
     private Persona director;

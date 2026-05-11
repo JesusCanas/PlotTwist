@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.paloma.plottwist.model.Genero;
 import org.paloma.plottwist.model.Pelicula;
+import org.paloma.plottwist.repository.PeliculaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -16,6 +17,9 @@ public class PeliculaService {
     
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private PeliculaRepository repository;
 
      public List<Pelicula> obtenerPeliculasFiltradas(String nombre, List<Genero> generos, Integer anio, Double valoracion) {
         Query query = new Query();
@@ -39,5 +43,8 @@ public class PeliculaService {
         return mongoTemplate.find(query, Pelicula.class);
      }
     
+     public List<Pelicula> hola() {
+        return null;
+     }
 }
 

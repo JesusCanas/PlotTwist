@@ -1,4 +1,4 @@
-/*
+
 package org.paloma.plottwist.repository;
 
 import org.paloma.plottwist.model.Persona;
@@ -16,4 +16,3 @@ public interface PersonaRepository extends MongoRepository<Persona, String> {
     List <Persona> findByNacionalidad(String nacionalidad);
     List <Persona> findByRol(String rol); 
 }
-*/
