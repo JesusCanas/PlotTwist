@@ -111,9 +111,8 @@ nav img:last-child {
     font-weight: 600;
     cursor: pointer;
     overflow: hidden;
-    width: 11.25rem;
+    width: 12%;
     margin: 0.75rem;
-    display: block;
 }
 
 .card img {
@@ -163,3 +162,4 @@ nav img:last-child {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
+
