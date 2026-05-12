@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de peliculas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <img src="../assets/img/logo-icon.png" alt="logo">
+        <img src="../assets/img/logo-texto.png" alt="plottwist">
+    </nav>
+    <h1 class="encabezado">PELÍCULAS</h1>
+    <div class="buscador-seccion">
+        <div class="buscador-contenedor">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </div>
+
+    <div class="filtros">
+        <select class="filtro-select">
+            <option value="">Valoración</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
+
+        <select class="filtro-select" multiple size="1">
+            <option value="ACCION">Acción</option>
+            <option value="THRILLER">Thriller</option>
+            <option value="DRAMA">Drama</option>
+            <option value="COMEDIA">Comedia</option>
+            <option value="FANTASIA">Fantasía</option>
+            <option value="CIENCIA_FICCION">Ciencia Ficción</option>
+            <option value="ROMANCE">Romance</option>
+            <option value="MISTERIO">Misterio</option>
+        </select>
+
+        <select class="filtro-select">
+            <option value="">Año</option>
+        </select>
+    </div>
+
+    <div class="peliculas">
+        <article class="card">
+            <img src="https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/peliculas/1/poster.jpg" alt="Pulp Fiction">
+            <p>PULP FICTION</p>
+        </article>
+
+        <article class="card">
+            <img src="https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/peliculas/3/poster.jpg" alt="Inception">
+            <p>INCEPTION</p>
+        </article>
+
+        <article class="card">
+            <img src="https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/peliculas/16/poster.jpg" alt="The Dark Knight">
+            <p>THE DARK KNIGHT</p>
+        </article>
+
+        <article class="card">
+            <img src="https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/peliculas/4/poster.jpg" alt="Spirited Away">
+            <p>SPIRITED AWAY</p>
+        </article>
+    </div>
+</body>
+
+</html>

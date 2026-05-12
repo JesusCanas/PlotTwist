@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0d0d0d;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 4.5rem;
+    background: #0d0d0d;
+    border-bottom: 0.06rem solid rgba(124, 77, 255, 0.5);
+    position: relative;
+}
+
+nav img:first-child {
+    width: 3rem;
+    height: 3rem;
+}
+
+nav img:last-child {
+    width: 17.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* BUSCADOR */
+.buscador-seccion {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 2rem 1rem;
+}
+
+.buscador-contenedor {
+    position: relative;
+    width: 30rem;
+}
+
+.buscador-contenedor input {
+    width: 100%;
+    background: transparent;
+    border: 0.09rem solid #7c4dff;
+    border-radius: 2rem;
+    padding: 0.75rem 1.25rem;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.buscador-contenedor input::placeholder {
+    color: #aaaaaa;
+}
+
+/* FILTROS */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.5rem 2rem 1.5rem;
+}
+
+.filtro-select {
+    background: transparent;
+    border: 0.09rem solid #7c4dff;
+    border-radius: 2rem;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.filtro-select option {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.filtro-select:hover {
+    background: rgba(124, 77, 255, 0.15);
+}
+
+/* PELÍCULAS Y SERIES */
+.peliculas, .series {
+    padding: 1.5rem 2rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card {
+    float: left;
+    background: #1a1a1a;
+    border: 0.09rem solid #7c4dff;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    width: 11.25rem;
+    margin: 0.75rem;
+    display: block;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+}
+
+.card p {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.card-categoria {
+    float: left;
+    background: transparent;
+    border: 0.09rem solid #7c4dff;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    width: 7.5rem;
+    aspect-ratio: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.75rem;
+}
+
+.card-categoria img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.card-categoria p {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
