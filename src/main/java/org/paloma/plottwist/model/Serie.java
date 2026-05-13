@@ -1,31 +1,34 @@
 package org.paloma.plottwist.model;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
-@Document(collection = "series")
+@Document(collection = "serie")
 public class Serie extends Metraje {
 
-    private int numeroTemporadas;
+    private int numTemporadas;
     private int numEpisodios;
     private int duracionEpisodio;
     private Estado estado;
 
+    public Serie() {
+    }
 
     public Serie(String titulo, int anyo, List<Genero> generos, String sinopsis, String imagenURL, String idDirector, double valoracion, List<String> idsActores, int numeroTemporadas, int numEpisodios, int duracionEpisodio, Estado estado) {
         super(titulo, anyo, generos, sinopsis, imagenURL, idDirector, valoracion, idsActores);
-        this.numeroTemporadas = numeroTemporadas;
+        this.numTemporadas = numeroTemporadas;
         this.numEpisodios = numEpisodios;
         this.duracionEpisodio = duracionEpisodio;
         this.estado = estado;
     }
 
     // Getters and Setters
-    public int getNumeroTemporadas() {
-        return numeroTemporadas;
+    public int getNumTemporadas() {
+        return numTemporadas;
     }
 
-    public void setNumeroTemporadas(int numeroTemporadas) {
-        this.numeroTemporadas = numeroTemporadas;
+    public void setNumTemporadas(int numeroTemporadas) {
+        this.numTemporadas = numeroTemporadas;
     }
 
     public int getNumEpisodios() {

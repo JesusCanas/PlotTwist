@@ -44,6 +44,10 @@ public abstract class Metraje {
         this.actores = new ArrayList<>();
     }
 
+    public Metraje() {
+        
+    }
+
     // Getters and Setters
     public String getId() {
         return id;

@@ -12,6 +12,10 @@ public class Pelicula extends Metraje {
         this.duracion = duracion;
     }
 
+    public Pelicula() {
+        
+    }
+
     // Getters and Setters
     public int getDuracion() {
         return duracion;

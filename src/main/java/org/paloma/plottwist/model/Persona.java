@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "personas")
+@Document(collection = "persona")
 public class Persona {
     @Id
     private String id;
@@ -30,6 +30,10 @@ public class Persona {
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.nacionalidad = nacionalidad;
         this.metrajesId = metrajesId;
+    }
+
+    public Persona() {
+
     }
 
     // Getters and Setters

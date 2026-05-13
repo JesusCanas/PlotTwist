@@ -32,11 +32,12 @@ public class MetrajeService {
     @Autowired
     MongoTemplate mongoTemplate;
 
+    
     public void hidratarMetraje(Metraje metraje) {
         metraje.setActores(repositoryPersona.findAllById(metraje.getIdsActores()));
         repositoryPersona.findById(metraje.getIdDirector()).ifPresent(d -> metraje.setDirector(d));
     }
-
+    
     public <T extends Metraje> List<T> obtenerUnTipoMetrajes(Class<T> clase) {
         return mongoTemplate.findAll(clase);
     }
@@ -65,7 +66,8 @@ public class MetrajeService {
         return mongoTemplate.find(query, clase);
     }
 
-    public List<Metraje> obtenerTodosMetrajesFiltrados(String nombre, List<Genero> generos, Integer anio, Double valoracion) {
+    public List<Metraje> obtenerTodosMetrajesFiltrados(String nombre, List<Genero> generos, Integer anio,
+            Double valoracion) {
         ArrayList<Metraje> metrajesFiltrados = new ArrayList<>();
 
         metrajesFiltrados.addAll(obtenerMetrajesFiltrados(Pelicula.class, nombre, generos, anio, valoracion));
@@ -88,6 +90,9 @@ public class MetrajeService {
         if (metraje == null) {
             metraje = repositorySerie.findById(idMetraje).orElse(null);
         }
+
+        hidratarMetraje(metraje);
+        
         return metraje;
     }
 
