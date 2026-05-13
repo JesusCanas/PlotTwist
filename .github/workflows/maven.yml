@@ -58,8 +58,6 @@ jobs:
 
           path: ./target 
 
- 
-
       - name: Copy JAR to EC2 
 
         uses: appleboy/scp-action@v0.1.7 
@@ -77,8 +75,6 @@ jobs:
           target: "/home/${{ secrets.EC2_API_USER }}/app" 
 
           strip_components: 1 
-
- 
 
       - name: Executing remote ssh commands to deploy 
 
