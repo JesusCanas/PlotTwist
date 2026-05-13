@@ -100,7 +100,7 @@ nav img:last-child {
     width: 100%;
 }
 
-.card {
+.poster {
     float: left;
     background: #1a1a1a;
     border: 0.09rem solid #7c4dff;
@@ -115,20 +115,20 @@ nav img:last-child {
     margin: 0.75rem;
 }
 
-.card img {
+.poster img {
     width: 100%;
     aspect-ratio: 2/3;
     object-fit: cover;
     display: block;
 }
 
-.card p {
+.poster p {
     text-align: center;
     padding: 0.5rem;
     font-size: 0.75rem;
 }
 
-.card-categoria {
+.poster-categoria {
     float: left;
     background: transparent;
     border: 0.09rem solid #7c4dff;
@@ -147,12 +147,12 @@ nav img:last-child {
     height: 22.41em;
 }
 
-.card-categoria img {
+.poster-categoria img {
     width: 5rem;
     height: 5rem;
 }
 
-.card-categoria p {
+.poster-categoria p {
     font-size: 0.75rem;
     font-weight: 600;
 }
