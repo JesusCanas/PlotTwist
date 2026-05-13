@@ -17,6 +17,10 @@ import org.paloma.plottwist.repository.PeliculaRepository;
 import org.paloma.plottwist.repository.PersonaRepository;
 import org.paloma.plottwist.repository.SerieRepository;
 
+/**
+ * Clase metrajeService. Este servicio lo que tiene son diferentes metodos
+ * relacionados a peliculas y series, y estos lo que hacen son querys con codigo
+ */
 @Service
 public class MetrajeService {
 
@@ -32,12 +36,16 @@ public class MetrajeService {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    
+    /**
+     * Método hidratar metraje
+     * 
+     * @param metraje
+     */
     public void hidratarMetraje(Metraje metraje) {
         metraje.setActores(repositoryPersona.findAllById(metraje.getIdsActores()));
         repositoryPersona.findById(metraje.getIdDirector()).ifPresent(d -> metraje.setDirector(d));
     }
-    
+
     public <T extends Metraje> List<T> obtenerUnTipoMetrajes(Class<T> clase) {
         return mongoTemplate.findAll(clase);
     }
@@ -92,7 +100,7 @@ public class MetrajeService {
         }
 
         hidratarMetraje(metraje);
-        
+
         return metraje;
     }
 
