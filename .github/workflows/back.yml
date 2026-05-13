@@ -13,10 +13,6 @@ on:
     branches: [ "main" ]
     paths:
       - 'src/**'
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - 'src/**'
 
 jobs:
   build:
@@ -40,8 +36,8 @@ jobs:
         name: java-app-artifact
         path: target/*.jar
         retention-days: 5
-  deploy: 
 
+  deploy: 
     needs: build # Solo se ejecuta si el build termina con éxito 
 
     runs-on: ubuntu-latest 
