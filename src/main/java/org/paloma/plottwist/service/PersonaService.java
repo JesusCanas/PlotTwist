@@ -14,7 +14,6 @@ import org.paloma.plottwist.model.Pelicula;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service
 public class PersonaService {
 
@@ -24,15 +23,15 @@ public class PersonaService {
     public List<Metraje> metrajesDestacados(int cantidad, Persona persona) {
         ArrayList<Metraje> devolucion = new ArrayList<>();
 
-            Query query = new Query();
+        Query query = new Query();
 
-            query.addCriteria(Criteria.where("id").in(persona.getMetrajesId()));
-            query.limit(cantidad);
+        query.addCriteria(Criteria.where("id").in(persona.getMetrajesId()));
+        query.limit(cantidad);
 
-            devolucion.addAll(mongoTemplate.find(query, Pelicula.class));
-            devolucion.addAll(mongoTemplate.find(query, Serie.class));
+        devolucion.addAll(mongoTemplate.find(query, Pelicula.class));
+        devolucion.addAll(mongoTemplate.find(query, Serie.class));
 
         return devolucion;
     }
-
+    
 }

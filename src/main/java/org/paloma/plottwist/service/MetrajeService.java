@@ -83,6 +83,12 @@ public class MetrajeService {
         return metrajesDestacados;
     }
 
-    
+    public Metraje obtenerDetalles(String idMetraje) {
+        Metraje metraje = repositoryPelicula.findById(idMetraje).orElse(null);
+        if (metraje == null) {
+            metraje = repositorySerie.findById(idMetraje).orElse(null);
+        }
+        return metraje;
+    }
 
 }
