@@ -71,7 +71,7 @@ public class MetrajeService {
      * hara la consulta para la coleccion que decidamos
      * según la clase
      * 
-     * @param <T> Generíco para que java sepa que T tiene que ser un metraje
+     * @param <T>   Generíco para que java sepa que T tiene que ser un metraje
      * @param clase Tipo que queremos: Pelicula.class | Serie.class
      * @return Una lista con todos los datos de la colección especificada
      */
@@ -80,22 +80,28 @@ public class MetrajeService {
     }
 
     /**
-     * Este método devuelve una lista de metrajes de un tipo ("SERIE" o "PELICULA") 
+     * Este método devuelve una lista de metrajes de un tipo ("SERIE" o "PELICULA")
      * con los filtros que seleccionemos.
-     * Primeramente, hay que especificar que tipo de metraje queremos (Pelicula.class o Serie.class). 
+     * Primeramente, hay que especificar que tipo de metraje queremos
+     * (Pelicula.class o Serie.class).
      * Después, tenemos 4 tipos de filtros:
-     * Nombre: buscará metrajes que contenga la secuencia de caracteres que tiene este parámetro
-     * Generos: buscará metrajes que tengan al menos UN género de la lista de géneros que pongamos como parámetro
-     * Anio: buscará metrajes que se hayan estrenado en el año puesto en el parámetro
-     * Valoracion: buscará metrajes con una valoracion entre x.0 y x.9, siendo x la valoración de 0 a 5
+     * Nombre: buscará metrajes que contenga la secuencia de caracteres que tiene
+     * este parámetro
+     * Generos: buscará metrajes que tengan al menos UN género de la lista de
+     * géneros que pongamos como parámetro
+     * Anio: buscará metrajes que se hayan estrenado en el año puesto en el
+     * parámetro
+     * Valoracion: buscará metrajes con una valoracion entre x.0 y x.9, siendo x la
+     * valoración de 0 a 5
      * 
-     * Hay que tener en cuenta que estos métodos no son necesarios. Si no pones uno, simplemente se ignorará
+     * Hay que tener en cuenta que estos métodos no son necesarios. Si no pones uno,
+     * simplemente se ignorará
      * 
      * @param <T>
-     * @param clase Pelicula.class | Serie.class
-     * @param nombre Caracteres que contienen las películas
-     * @param generos Generos de los metrajes a buscar
-     * @param anio Año de los metrajes
+     * @param clase      Pelicula.class | Serie.class
+     * @param nombre     Caracteres que contienen las películas
+     * @param generos    Generos de los metrajes a buscar
+     * @param anio       Año de los metrajes
      * @param valoracion Valoración de los metrajes
      * @return Una lista con metrajes de un tipo con los filtros especificados
      */
@@ -123,6 +129,18 @@ public class MetrajeService {
         return mongoTemplate.find(query, clase);
     }
 
+    /**
+     * Hace lo mismo que obtenerMetrajesFiltrados pero con los dos tipos de metrajes
+     * juntos.
+     * Busca en las dos colecciones los mismos filtros y guarda en una lista las dos
+     * listas de metrajes encontrados con los filtros seleccionados
+     * 
+     * @param nombre
+     * @param generos
+     * @param anio
+     * @param valoracion
+     * @return Lista de las dos listas (Serie y Pelicula) juntas
+     */
     public List<Metraje> obtenerTodosMetrajesFiltrados(String nombre, List<Genero> generos, Integer anio,
             Double valoracion) {
         ArrayList<Metraje> metrajesFiltrados = new ArrayList<>();
@@ -133,6 +151,22 @@ public class MetrajeService {
         return metrajesFiltrados;
     }
 
+    /**
+     * Busca n cantidad de metrajes con las mejores valoraciones
+     * Este metodo está pensado para mostrar n peliculas y n series
+     * en la pagina de inicio.
+     * 
+     * Básicamente, la cantidad que pongamos como parámetro será la cantidad de
+     * objetos que se devolveran de cada tipo.
+     * SIEMPRE se devolverán primero las películas y luego las series
+     * 
+     * EJEMPLO
+     * Si la cantidad es 5, devolverá una lista de 10 objetos, 5 peliculas y 5
+     * series mas destacadas
+     * 
+     * @param cantidad Cantidad de peliculas Y series que se devolverán
+     * @return Lista con n metrajes, n/2 peliculas y n/2 series.
+     */
     public List<Metraje> obtenerDestacados(int cantidad) {
         ArrayList<Metraje> metrajesDestacados = new ArrayList<>();
 
@@ -142,9 +176,16 @@ public class MetrajeService {
         return metrajesDestacados;
     }
 
+    /**
+     * Busca el metraje con el id seleccionado y usa el metodo hidratarMetraje para
+     * obtener todos los detalles del metraje
+     * 
+     * @param idMetraje ID del metraje que queremos
+     * @return El metraje con todos los atributos completos
+     */
     public Metraje obtenerDetalles(String idMetraje) {
         Metraje metraje = repositoryPelicula.findById(idMetraje).orElse(null);
-        if (metraje == null) {
+        if (metraje != null) {
             metraje = repositorySerie.findById(idMetraje).orElse(null);
         }
 
