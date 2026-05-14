@@ -1,7 +1,6 @@
 const urlPeliculas = 'http://98.84.88.91:8082/metrajes/obtenerTipo?tipoMetraje=PELICULA';
 document.addEventListener("DOMContentLoaded",()=>{
     const divPelicula = document.getElementById("pelis");
-    
     fetch(urlPeliculas)
         .then(response => response.json())
         .then(peliculas => {
