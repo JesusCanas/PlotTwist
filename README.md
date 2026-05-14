@@ -1,216 +1,229 @@
-# PlotTwist
+# 🎬 PlotTwist
 
-PlotTwist es un proyecto web para explorar información de películas, series, actores y directores. Incluye una API REST en Spring Boot y un frontend estático con HTML, CSS y JavaScript.
+**PlotTwist** es una aplicación web para la gestión y visualización de películas y series. Permite explorar catálogos de contenido audiovisual, aplicar filtros por género, año y valoración, y obtener información detallada sobre actores y directores.
 
-## Descripción
+## 🛠 Tecnologías Usadas
 
-PlotTwist está diseñado como un sitio informativo de entretenimiento donde se pueden consultar:
-- Películas
-- Series
-- Personas (actores y directores)
-- Detalles de metrajes
+- **Backend**: Spring Boot 4.0.6
+- **Base de Datos**: MongoDB
+- **Lenguaje**: Java 21
+- **Framework Web**: Spring Web MVC
+- **ORM**: Spring Data MongoDB
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Testing**: JUnit 5, Spring Boot Test
+- **Build Tool**: Maven
 
-El proyecto combina:
-- Backend en Java con Spring Boot
-- Base de datos MongoDB
-- Frontend estático con HTML/CSS/JS
+## 📋 Requisitos Previos
 
-## Tecnologías utilizadas
+- **Java**: JDK 21 o superior
+- **Maven**: 3.6+ (viene incluido con Spring Boot)
+- **MongoDB**: Instancia local o remota de MongoDB
+- **Navegador Web**: Cualquier navegador moderno
 
-- Java 21
-- Spring Boot 4.0.6
-- Spring Web MVC
-- Spring Data MongoDB
-- MongoDB Atlas (conexión remota configurada en `MongoConfig.java`)
-- Maven
-- HTML5 / CSS3 / JavaScript vanilla
+## 🚀 Instalación y Configuración
 
-## Estructura del proyecto
-
-### Backend
-
-- `src/main/java/org/paloma/plottwist/PlottwistApplication.java` - Aplicación principal de Spring Boot
-- `src/main/java/org/paloma/plottwist/controller/` - Controladores REST
-  - `PeliculasController.java`
-  - `SeriesController.java`
-- `src/main/java/org/paloma/plottwist/dao/` - DAO de ejemplo en memoria
-  - `PeliculasDAO.java`
-  - `SeriesDAO.java`
-- `src/main/java/org/paloma/plottwist/model/` - Modelos de dominio
-  - `Metraje.java`, `Pelicula.java`, `Serie.java`, `Persona.java`, `Usuario.java`
-  - `Genero.java`, `Estado.java`
-  - `OrdenPorFecha.java`, `OrdenPorValoracion.java`
-- `src/main/java/org/paloma/plottwist/repository/` - Repositorios MongoDB
-  - `PeliculaRepository.java`, `SerieRepository.java`, `PersonaRepository.java`
-- `src/main/java/org/paloma/plottwist/MongoConfig/MongoConfig.java` - Configuración de MongoDB
-- `src/main/resources/application.properties` - Configuración de la aplicación
-
-### Frontend
-
-- `front/index.html` - Página principal
-- `front/paginas/` - Páginas adicionales de navegación
-  - `detalle.html`
-  - `peliculas.html`
-  - `personas.html`
-  - `serie.html`
-- `front/css/` - Estilos
-  - `styles.css`
-  - `detalle.css`
-- `front/js/` - Lógica de cliente (pendiente de implementar)
-  - `api.js`
-  - `peliculas.js`
-  - `series.js`
-  - `personas.js`
-  - `detalle.js`
-- `front/assets/img/` - Imágenes y recursos estáticos
-
-### Datos de ejemplo
-
-- `bd/peliculas.json`
-- `bd/series.json`
-- `bd/personas.json`
-- `bd/usuarios.json`
-
-Estas colecciones ofrecen datos de ejemplo para cargar información de metrajes y personas.
-
-## Instalación y ejecución
-
-### Requisitos previos
-
-- Java 21
-- Maven
-- MongoDB Atlas o instancia MongoDB accesible
-
-### Ejecutar backend
-
-1. Abrir terminal en el directorio raíz del proyecto.
-2. Ejecutar:
-
+### 1. Clonar el repositorio
 ```bash
+git clone <url-del-repositorio>
+cd plottwist
+```
+
+### 2. Configurar MongoDB
+La aplicación se conecta a **MongoDB Atlas** (base de datos en la nube) mediante la configuración personalizada en la clase `MongoConfig.java`. No requiere configuración adicional local.
+
+### 3. Ejecutar la aplicación
+```bash
+# Con Maven Wrapper (recomendado)
 ./mvnw spring-boot:run
+
+# O con Maven instalado
+mvn spring-boot:run
 ```
 
-En Windows:
+### 4. Acceder a la aplicación
+- **Backend API**: http://localhost:8082
+- **Frontend**: Abre `front/index.html` en un servidor web local (ej: Live Server en VS Code)
 
-```powershell
-mvnw.cmd spring-boot:run
+## 📁 Estructura del Proyecto
+
+```
+plottwist/
+├── mvnw & mvnw.cmd          # Maven Wrapper
+├── pom.xml                  # Configuración Maven
+├── README.md                # Este archivo
+├── analisis/                # Documentación de análisis
+│   └── casosdeUso.md
+├── bd/                      # Datos de ejemplo
+│   ├── contraseña_sql.txt
+│   ├── peliculas.json
+│   ├── personas.json
+│   ├── series.json
+│   └── usuarios.json
+├── diseño/                  # Documentación de diseño
+│   ├── diagrama_clase.md
+│   └── modelo_no_sql_metrajes.md
+├── front/                   # Frontend de la aplicación
+│   ├── index.html
+│   ├── assets/
+│   │   └── img/
+│   ├── css/
+│   │   ├── metraje.css
+│   │   ├── persona.css
+│   │   └── styles.css
+│   ├── js/
+│   │   ├── detalle.js
+│   │   ├── main.js
+│   │   ├── peliculas.js
+│   │   ├── personas.js
+│   │   └── series.js
+│   └── paginas/
+│       ├── metraje.html
+│       ├── peliculas.html
+│       ├── personas.html
+│       └── serie.html
+└── src/
+    ├── main/
+    │   ├── java/org/paloma/plottwist/
+    │   │   ├── PlottwistApplication.java    # Clase principal
+    │   │   ├── WebConfig.java               # Configuración CORS
+    │   │   ├── controller/                  # Controladores REST
+    │   │   │   ├── MetrajesController.java
+    │   │   │   └── PersonasController.java
+    │   │   ├── model/                       # Modelos de datos
+    │   │   │   ├── Estado.java
+    │   │   │   ├── Genero.java
+    │   │   │   ├── Metraje.java
+    │   │   │   ├── OrdenPorFecha.java
+    │   │   │   ├── OrdenPorValoracion.java
+    │   │   │   ├── Pelicula.java
+    │   │   │   ├── Persona.java
+    │   │   │   ├── Serie.java
+    │   │   │   ├── TipoMetraje.java
+    │   │   │   └── Usuario.java
+    │   │   ├── MongoConfig/                 # Configuración MongoDB
+    │   │   │   └── MongoConfig.java
+    │   │   ├── repository/                  # Repositorios de datos
+    │   │   │   ├── PeliculaRepository.java
+    │   │   │   ├── PersonaRepository.java
+    │   │   │   └── SerieRepository.java
+    │   │   └── service/                     # Lógica de negocio
+    │   │       ├── MetrajeService.java
+    │   │       └── PersonaService.java
+    │   └── resources/
+    │       └── application.properties       # Configuración de la app
+    └── test/
+        └── java/org/paloma/plottwist/       # Tests
+            ├── MetrajeServiceIntegrationTest.java
+            ├── PeliculaRepositoryIntegrationTest.java
+            └── PlottwistApplicationTests.java
 ```
 
-El backend se iniciará en `http://localhost:8082`.
+## 🔗 Endpoints
 
-### Ejecutar frontend
+### Metrajes Controller (`/metrajes`)
 
-El frontend es una aplicación estática. Puedes abrir `front/index.html` directamente en el navegador o servirla desde un servidor web local.
+#### `GET /obtenerTipo`
+Obtiene todos los metrajes de un tipo específico (películas o series).
 
-Para un servidor ligero de desarrollo, puedes usar Python si lo tienes instalado:
+**Parámetros:**
+- `tipoMetraje` (obligatorio): Tipo de metraje a obtener. Valores: `PELICULA` o `SERIE`
 
+**Ejemplo:**
+```
+GET http://localhost:8082/metrajes/obtenerTipo?tipoMetraje=PELICULA
+```
+
+#### `GET /obtenerFiltrados`
+Obtiene metrajes de un tipo específico aplicando filtros opcionales de búsqueda.
+
+**Parámetros:**
+- `tipoMetraje` (obligatorio): Tipo de metraje a obtener. Valores: `PELICULA` o `SERIE`
+- `nombre` (opcional): Texto a buscar en el título del metraje
+- `generos` (opcional): Lista de géneros separados por coma. Valores: `ACCION`, `DRAMA`, `COMEDIA`, `FANTASIA`, `HORROR`, `MISTERIO`, `ROMANCE`, `CIENCIA_FICCION`, `SUSPENSE`, `THRILLER`
+- `anyo` (opcional): Año de estreno del metraje
+- `valoracion` (opcional): Valoración numérica (1-5). Retorna metrajes con valoración entre x.0 y x.9
+
+**Ejemplo:**
+```
+GET http://localhost:8082/metrajes/obtenerFiltrados?tipoMetraje=PELICULA&generos=ACCION,DRAMA&anyo=2020&valoracion=4
+```
+
+#### `GET /obtenerTodosFiltrados`
+Obtiene películas y series combinadas aplicando los mismos filtros de búsqueda.
+
+**Parámetros:**
+- `nombre` (opcional): Texto a buscar en el título del metraje
+- `generos` (opcional): Lista de géneros separados por coma
+- `anyo` (opcional): Año de estreno del metraje
+- `valoracion` (opcional): Valoración numérica (1-5)
+
+**Ejemplo:**
+```
+GET http://localhost:8082/metrajes/obtenerTodosFiltrados?nombre=batman&generos=ACCION&valoracion=4
+```
+
+#### `GET /obtenerDestacados`
+Obtiene los metrajes más destacados (mejor valorados) de cada tipo.
+
+**Parámetros:**
+- `cantidad` (obligatorio): Número de películas y de series a retornar (total = cantidad × 2)
+
+**Ejemplo:**
+```
+GET http://localhost:8082/metrajes/obtenerDestacados?cantidad=5
+```
+
+#### `GET /obtenerDetalles`
+Obtiene los detalles completos de un metraje específico, incluyendo información del director y actores.
+
+**Parámetros:**
+- `metraje` (obligatorio): ID del metraje a obtener
+
+**Ejemplo:**
+```
+GET http://localhost:8082/metrajes/obtenerDetalles?metraje=507f1f77bcf86cd799439011
+```
+
+### Personas Controller (`/personas`)
+
+#### `GET /mostrarDestacados`
+Obtiene los metrajes más destacados de una persona específica (actor o director).
+
+**Parámetros:**
+- `cantidad` (obligatorio): Número de películas y de series a retornar de la persona
+- `idPersona` (obligatorio): ID de la persona (actor o director) de la que se desean obtener los metrajes
+
+**Ejemplo:**
+```
+GET http://localhost:8082/personas/mostrarDestacados?cantidad=3&idPersona=507f1f77bcf86cd799439012
+```
+
+## 🧪 Tests
+
+El proyecto incluye tests unitarios e de integración:
+
+### Tests Disponibles
+- **PlottwistApplicationTests**: Test básico de carga del contexto de Spring
+- **MetrajeServiceIntegrationTest**: Tests de integración para el servicio de metrajes
+
+### Ejecutar Tests  
 ```bash
-cd front
-python -m http.server 8000
+# Ejecutar todos los tests
+./mvnw test
+
+# Ejecutar tests específicos
+./mvnw test -Dtest=MetrajeServiceIntegrationTest
 ```
 
-Luego abre `http://localhost:8000`.
-
-## API REST
-
-### Endpoints de películas
-
-- `GET /peliculas/mostrarTodo` - Devuelve todas las películas del DAO de ejemplo
-- `GET /peliculas/mostrarFiltrado` - Filtra películas por parámetros opcionales:
-  - `nombre`
-  - `valoracion`
-  - `anyo`
-  - `generos`
-- `GET /peliculas/obtenerDestacados?cantidad={n}` - Devuelve las `n` películas mejor valoradas
-- `GET /peliculas/obtenerPorFecha?cantidad={n}` - Devuelve las `n` películas más recientes
-- `GET /peliculas/obtenerPeliculaPorId?id={id}` - Devuelve una película por su id
-- `GET /peliculas/mostrarBDTodo` - Devuelve todas las películas almacenadas en MongoDB
-
-### Endpoints de series
-
-- `GET /series/mostrarTodo` - Devuelve todas las series del DAO de ejemplo
-- `GET /series/mostrarFiltrado` - Filtra series por parámetros opcionales:
-  - `nombre`
-  - `valoracion`
-  - `anyo`
-  - `generos`
-- `GET /series/obtenerDestacados?cantidad={n}` - Devuelve las `n` series mejor valoradas
-- `GET /series/obtenerPorFecha?cantidad={n}` - Devuelve las `n` series más recientes
-- `GET /series/obtenerSeriePorId?id={id}` - Devuelve una serie por su id
-
-## Estado actual del proyecto
-
-- Backend en Spring Boot funcional con controladores REST y modelos bien definidos.
-- DAO de ejemplo en memoria para películas y series.
-- Repositorios MongoDB presentes, con integración de Spring Data.
-- Frontend estructurado en HTML/CSS/JS, pero los archivos JavaScript necesitan conexión al backend.
-- La página principal y las páginas de detalle ya existen, aunque requieren implementación de la lógica cliente.
-
-## Consideraciones importantes
-
-### Seguridad
-
-- La configuración actual incluye credenciales y conexión MongoDB en código en `MongoConfig.java`; esto debe migrarse a variables de entorno o a `application.properties` seguro.
-- Los datos de usuarios en `bd/usuarios.json` incluyen contraseñas de ejemplo. Es recomendable usar hashing seguro y no almacenar contraseñas en claro.
-
-### Mejoras recomendadas
-
-- Implementar la conexión entre frontend y backend con `fetch` o AJAX.
-- Completar `front/js/api.js`, `front/js/peliculas.js`, `front/js/series.js`, `front/js/personas.js` y `front/js/detalle.js`.
-- Añadir autenticación de usuarios y manejo de sesiones.
-- Implementar comentarios, valoraciones y listas personalizadas.
-- Añadir paginación y búsqueda avanzada.
-- Migrar datos de `bd/*.json` a MongoDB de forma automática o mediante scripts de carga.
-
-## Estructura de datos clave
-
-### Película
-- `id`
-- `titulo`
-- `anyo`
-- `generos`
-- `sinopsis`
-- `imagenURL`
-- `duracion`
-- `valoracion`
-- `idDirector`
-- `idsActores`
-
-### Serie
-- `id`
-- `titulo`
-- `anyo`
-- `generos`
-- `sinopsis`
-- `imagenURL`
-- `numTemporadas`
-- `numEpisodios`
-- `duracionEpisodio`
-- `estado`
-- `valoracion`
-- `idDirector`
-- `idsActores`
-
-### Persona
-- `id`
-- `nombre`
-- `apellido`
-- `fechaNacimiento`
-- `nacionalidad`
-- `biografia`
-- `imagenURL`
-- `metrajesId`
-
-## Contribuir
-
-Si deseas ampliar PlotTwist, estos son los puntos ideales para empezar:
-
-1. Completar el frontend y enlazarlo con la API.
-2. Añadir autenticación e inicio de sesión.
-3. Implementar gestión de usuarios, comentarios y valoraciones.
-4. Crear scripts de carga de datos a MongoDB.
-5. Añadir pruebas unitarias y de integración en el backend.
+### Cobertura de Tests
+Los tests cubren:
+- ✅ Lógica de negocio de servicios
+- ✅ Consultas a base de datos
+- ✅ Hidratación de objetos relacionados
+- ✅ Filtros y búsquedas
+- ✅ Ordenamiento por valoración
 
 ---
 
-Gracias por usar PlotTwist. Este README recoge el estado actual del proyecto y las recomendaciones para su evolución.
+**Desarrollado por**: MiguelSg77, JesusCanas y AdrianStephano  
+**Versión**: 1.0
