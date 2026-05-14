@@ -1,4 +1,4 @@
-package org.paloma.plottwist; // Ajustado a tu estructura de la imagen image_aeda9e.png
+package org.paloma.plottwist;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -10,8 +10,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*") 
+                .allowedOrigins("http://127.0.0.1:5500") // Aquí ponemos tu Live Server específico
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*");
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
