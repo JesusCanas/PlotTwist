@@ -41,6 +41,8 @@ public class PersonaService {
      * series que tenga la lista.
      * El id es de la persona de la que queremos sacar los metrajes
      * 
+     * SIEMPRE se devuelve primero películas y luego series
+     * 
      * @param cantidad  Cantidad de metrajes (peliculas y series)
      * @param idPersona ID de la persona en la BD
      * @return una lista de n metrajes, n/2 peliculas y n/2 series

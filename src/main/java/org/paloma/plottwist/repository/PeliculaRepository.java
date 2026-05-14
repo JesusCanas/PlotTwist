@@ -21,10 +21,10 @@ public interface PeliculaRepository extends MongoRepository<Pelicula, String> {
 
     /**
      * Declarar este método sirve para que Spring detecte el nombre y haga la
-     * consulta en base al atributo especificado
-     * Básicamente, eeste método ordena todos los datos de la colección "pelicula"
+     * consulta en base al atributo especificado.
+     * Básicamente, este método ordena todos los datos de la colección "pelicula"
      * de mayor a menor en base a sus valoraciones
-     * y recoge n datos, los cuales seleccionarmos con el parametro pageable
+     * y recoge n datos, los cuales seleccionaremos con el parámetro pageable
      * 
      * @param pageable Numero de datos que vamos a recoger
      * @return Una lista con los datos recogidos en la colección

@@ -21,10 +21,10 @@ public interface SerieRepository extends MongoRepository<Serie, String> {
 
     /**
      * Declarar este método sirve para que Spring detecte el nombre y haga la
-     * consulta en base al atributo especificado
-     * Básicamente, eeste método ordena todos los datos de la colección "serie"
+     * consulta en base al atributo especificado.
+     * Básicamente, este método ordena todos los datos de la colección "serie"
      * de mayor a menor en base a sus valoraciones
-     * y recoge n datos, los cuales seleccionarmos con el parametro pageable
+     * y recoge n datos, los cuales seleccionaremos con el parámetro pageable
      * 
      * @param pageable Numero de datos que vamos a recoger
      * @return Una lista con los datos recogidos en la colección
@@ -32,9 +32,8 @@ public interface SerieRepository extends MongoRepository<Serie, String> {
     List<Serie> findTopByOrderByValoracionDesc(Pageable pageable);
 
     /**
-     * Este metodó ordenara por el año de salida las series de mayor a menor y
-     * devolverá
-     * una lista de todas las series ordenadas
+     * Este método ordenará por el año de salida las series de mayor a menor y
+     * devolverá una lista de todas las series ordenadas
      * 
      * @return Lista de series ordenada por año
      */

@@ -158,6 +158,7 @@ public class MetrajeService {
      * 
      * Básicamente, la cantidad que pongamos como parámetro será la cantidad de
      * objetos que se devolveran de cada tipo.
+     * 
      * SIEMPRE se devolverán primero las películas y luego las series
      * 
      * EJEMPLO
