@@ -20,7 +20,6 @@ import org.paloma.plottwist.repository.SerieRepository;
 import org.paloma.plottwist.service.MetrajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
 
 @SpringBootTest
 public class MetrajeServiceIntegrationTest {
@@ -62,7 +61,8 @@ public class MetrajeServiceIntegrationTest {
     public void testObtenerMetrajesFiltradosPelicula() {
         // Arrange
         String suffix = UUID.randomUUID().toString();
-        Pelicula pelicula = new Pelicula("Test Movie " + suffix, 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 4.5, Arrays.asList("act1"), 120);
+        Pelicula pelicula = new Pelicula("Test Movie " + suffix, 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url",
+                "dir1", 4.5, Arrays.asList("act1"), 120);
         Pelicula savedPelicula = peliculaRepository.save(pelicula);
         peliculaIds.add(savedPelicula.getId());
 
@@ -76,34 +76,73 @@ public class MetrajeServiceIntegrationTest {
 
     @Test
     public void testObtenerDestacados() {
-        // Arrange
-        Pelicula pelicula = new Pelicula("Top Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 1000.0, Arrays.asList("act1"), 120);
-        Serie serie = new Serie("Top Serie", 2021, Arrays.asList(Genero.DRAMA), "Sinopsis", "url", "dir2", 999.0, Arrays.asList("act2"), 2, 20, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
-        Pelicula savedPelicula = peliculaRepository.save(pelicula);
-        Serie savedSerie = serieRepository.save(serie);
-        peliculaIds.add(savedPelicula.getId());
-        serieIds.add(savedSerie.getId());
+        // Arrange: Crear listas usando sintaxis clásica o constructor directo
+        List<Genero> generosAccion = new ArrayList<>();
+        generosAccion.add(Genero.ACCION);
+
+        List<Genero> generosDrama = new ArrayList<>();
+        generosDrama.add(Genero.DRAMA);
+
+        List<String> actoresPelicula = new ArrayList<>();
+        actoresPelicula.add("act1");
+
+        List<String> actoresSerie = new ArrayList<>();
+        actoresSerie.add("act2");
+
+        // Guardar 2 películas para que el repositorio pueda devolver hasta 2
+        Pelicula pelicula1 = new Pelicula("Top Movie 1", 2020, generosAccion, "Sinopsis", "url", "dir1", 1000.0,
+                actoresPelicula, 120);
+        Pelicula pelicula2 = new Pelicula("Top Movie 2", 2022, generosAccion, "Sinopsis", "url", "dir3", 950.0,
+                actoresPelicula, 110);
+
+        // Guardar 2 series para que el repositorio pueda devolver hasta 2
+        Serie serie1 = new Serie("Top Serie 1", 2021, generosDrama, "Sinopsis", "url", "dir2", 999.0, actoresSerie, 2,
+                20, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
+        Serie serie2 = new Serie("Top Serie 2", 2023, generosDrama, "Sinopsis", "url", "dir4", 899.0, actoresSerie, 1,
+                10, 50, org.paloma.plottwist.model.Estado.FINALIZADA);
+
+        peliculaIds.add(peliculaRepository.save(pelicula1).getId());
+        peliculaIds.add(peliculaRepository.save(pelicula2).getId());
+        serieIds.add(serieRepository.save(serie1).getId());
+        serieIds.add(serieRepository.save(serie2).getId());
 
         // Act
         List<Metraje> result = metrajeService.obtenerDestacados(2);
 
-        // Assert
-        assertEquals(4, result.size());
-        assertTrue(result.stream().anyMatch(m -> m.getValoracion() == 1000.0));
-        assertTrue(result.stream().anyMatch(m -> m.getValoracion() == 999.0));
+        // Assert: Verificación de tamaño
+        assertEquals(4, result.size(), "El tamaño de la lista de destacados debería ser 4 (2 películas y 2 series)");
+
+        // Assert: Verificación de contenido usando un bucle for clásico
+        boolean tieneValoracion1000 = false;
+        boolean tieneValoracion999 = false;
+
+        for (int i = 0; i < result.size(); i++) {
+            Metraje m = result.get(i);
+            if (m.getValoracion() == 1000.0) {
+                tieneValoracion1000 = true;
+            }
+            if (m.getValoracion() == 999.0) {
+                tieneValoracion999 = true;
+            }
+        }
+
+        assertTrue(tieneValoracion1000, "La lista de destacados debería contener una película con valoración 1000.0");
+        assertTrue(tieneValoracion999, "La lista de destacados debería contener una serie con valoración 999.0");
     }
 
     @Test
     public void testHidratarMetraje() {
         // Arrange
-        Persona director = new Persona("Director", "Name", "Bio", java.time.LocalDate.of(1970, 1, 1), "USA", Arrays.asList());
+        Persona director = new Persona("Director", "Name", "Bio", java.time.LocalDate.of(1970, 1, 1), "USA",
+                Arrays.asList());
         Persona actor = new Persona("Actor", "Name", "Bio", java.time.LocalDate.of(1980, 1, 1), "USA", Arrays.asList());
         Persona savedDirector = personaRepository.save(director);
         Persona savedActor = personaRepository.save(actor);
         personaIds.add(savedDirector.getId());
         personaIds.add(savedActor.getId());
 
-        Pelicula pelicula = new Pelicula("Hydrate Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", savedDirector.getId(), 4.0, Arrays.asList(savedActor.getId()), 120);
+        Pelicula pelicula = new Pelicula("Hydrate Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url",
+                savedDirector.getId(), 4.0, Arrays.asList(savedActor.getId()), 120);
 
         // Act
         metrajeService.hidratarMetraje(pelicula);
