@@ -1,5 +1,4 @@
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const boton_pelicula = document.getElementById('pelicula-contenedor');
     const boton_serie = document.getElementById('serie-contenedor');
