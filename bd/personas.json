@@ -1,6 +1,5 @@
 [
   {
-    "_id": "69fafabc79601c0e70abc150",
     "nombre": "Quentin",
     "apellido": "Tarantino",
     "fechaNacimiento": "1963-03-27",
@@ -10,7 +9,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc128"]
   },
   {
-    "_id": "69fafabc79601c0e70abc151",
     "nombre": "Leonardo",
     "apellido": "DiCaprio",
     "fechaNacimiento": "1974-11-11",
@@ -20,7 +18,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc12a"]
   },
   {
-    "_id": "69fafabc79601c0e70abc152",
     "nombre": "Christopher",
     "apellido": "Nolan",
     "fechaNacimiento": "1970-07-30",
@@ -30,7 +27,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc12a", "69faf9e879601c0e70abc137", "69faf9e879601c0e70abc135"]
   },
   {
-    "_id": "69fafabc79601c0e70abc153",
     "nombre": "Brad",
     "apellido": "Pitt",
     "fechaNacimiento": "1963-12-18",
@@ -40,7 +36,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc154",
     "nombre": "Steven",
     "apellido": "Spielberg",
     "fechaNacimiento": "1946-12-18",
@@ -50,7 +45,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc155",
     "nombre": "Keanu",
     "apellido": "Reeves",
     "fechaNacimiento": "1964-09-02",
@@ -60,7 +54,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc134"]
   },
   {
-    "_id": "69fafabc79601c0e70abc156",
     "nombre": "Hayao",
     "apellido": "Miyazaki",
     "fechaNacimiento": "1941-01-05",
@@ -70,7 +63,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc12b", "69faf9e879601c0e70abc12c", "69faf9e879601c0e70abc12d", "69faf9e879601c0e70abc12e", "69faf9e879601c0e70abc12f"]
   },
   {
-    "_id": "69fafabc79601c0e70abc157",
     "nombre": "Christian",
     "apellido": "Bale",
     "fechaNacimiento": "1974-01-30",
@@ -80,7 +72,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc137"]
   },
   {
-    "_id": "69fafabc79601c0e70abc158",
     "nombre": "Martin",
     "apellido": "Scorsese",
     "fechaNacimiento": "1942-11-17",
@@ -90,7 +81,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc159",
     "nombre": "Scarlett",
     "apellido": "Johansson",
     "fechaNacimiento": "1984-11-22",
@@ -100,7 +90,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc15a",
     "nombre": "Peter",
     "apellido": "Jackson",
     "fechaNacimiento": "1961-10-31",
@@ -110,7 +99,6 @@
     "idMetrajes": ["69faf9e879601c0e70abc138"]
   },
   {
-    "_id": "69fafabc79601c0e70abc15b",
     "nombre": "Bryan",
     "apellido": "Cranston",
     "fechaNacimiento": "1956-03-07",
@@ -120,7 +108,6 @@
     "idMetrajes": ["69fafa6279601c0e70abc13c"]
   },
   {
-    "_id": "69fafabc79601c0e70abc15c",
     "nombre": "David",
     "apellido": "Fincher",
     "fechaNacimiento": "1962-08-28",
@@ -130,7 +117,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc15d",
     "nombre": "Benedict",
     "apellido": "Cumberbatch",
     "fechaNacimiento": "1976-07-19",
@@ -140,7 +126,6 @@
     "idMetrajes": ["69fafa6279601c0e70abc14c"]
   },
   {
-    "_id": "69fafabc79601c0e70abc15e",
     "nombre": "Denis",
     "apellido": "Villeneuve",
     "fechaNacimiento": "1967-10-03",
@@ -150,7 +135,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc15f",
     "nombre": "Pedro",
     "apellido": "Pascal",
     "fechaNacimiento": "1975-04-02",
@@ -160,7 +144,6 @@
     "idMetrajes": ["69fafa6279601c0e70abc145"]
   },
   {
-    "_id": "69fafabc79601c0e70abc160",
     "nombre": "James",
     "apellido": "Cameron",
     "fechaNacimiento": "1954-08-16",
@@ -170,7 +153,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc161",
     "nombre": "Emma",
     "apellido": "Stone",
     "fechaNacimiento": "1988-11-06",
@@ -180,7 +162,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc162",
     "nombre": "Ridley",
     "apellido": "Scott",
     "fechaNacimiento": "1937-11-30",
@@ -190,7 +171,6 @@
     "idMetrajes": []
   },
   {
-    "_id": "69fafabc79601c0e70abc163",
     "nombre": "Tom",
     "apellido": "Holland",
     "fechaNacimiento": "1996-06-01",
