@@ -19,7 +19,17 @@ import org.paloma.plottwist.repository.SerieRepository;
 
 /**
  * Clase metrajeService. Este servicio lo que tiene son diferentes metodos
- * relacionados a peliculas y series, y estos lo que hacen son querys con codigo
+ * relacionados a peliculas y series, y estos lo que hacen son querys a la
+ * coleccion "serie" y coleccion "pelicula",
+ * para devolver distintos tipos de datos de estos dos.
+ * Las consultas de las dos colecciones se han unido ya que tienen los mismos
+ * metodos para las dos colecciones.
+ * 
+ * Es por ello que varios métodos tienen el parametro "tipoMetraje", que
+ * dictamina si queremos buscar en la colección "serie" o "pelicula"
+ * 
+ * @author MiguelSg77
+ * @version 1.0
  */
 @Service
 public class MetrajeService {
@@ -37,9 +47,15 @@ public class MetrajeService {
     MongoTemplate mongoTemplate;
 
     /**
-     * Método hidratar metraje
+     * Método hidratar metraje.
+     * Un metraje viene con listas o atributos de otros objetos, pero para
+     * guardarlos, necesitamos encontrar dichos objetos, ya que no vienen incluidos,
+     * y para hacer eso necesitamos un metodo que consulte otra vez la Base de Datos
+     * para buscar los atributos que faltan gracias a los ids que si vienen con el
+     * objeto
+     * metraje.
      * 
-     * @param metraje
+     * @param metraje El metraje que quieres hidratar
      */
     public void hidratarMetraje(Metraje metraje) {
         metraje.setActores(repositoryPersona.findAllById(metraje.getIdsActores()));
