@@ -71,7 +71,7 @@ public class MetrajeService {
      * hara la consulta para la coleccion que decidamos
      * según la clase
      * 
-     * @param <T>
+     * @param <T> Generíco para que java sepa que T tiene que ser un metraje
      * @param clase Tipo que queremos: Pelicula.class | Serie.class
      * @return Una lista con todos los datos de la colección especificada
      */
@@ -79,6 +79,26 @@ public class MetrajeService {
         return mongoTemplate.findAll(clase);
     }
 
+    /**
+     * Este método devuelve una lista de metrajes de un tipo ("SERIE" o "PELICULA") 
+     * con los filtros que seleccionemos.
+     * Primeramente, hay que especificar que tipo de metraje queremos (Pelicula.class o Serie.class). 
+     * Después, tenemos 4 tipos de filtros:
+     * Nombre: buscará metrajes que contenga la secuencia de caracteres que tiene este parámetro
+     * Generos: buscará metrajes que tengan al menos UN género de la lista de géneros que pongamos como parámetro
+     * Anio: buscará metrajes que se hayan estrenado en el año puesto en el parámetro
+     * Valoracion: buscará metrajes con una valoracion entre x.0 y x.9, siendo x la valoración de 0 a 5
+     * 
+     * Hay que tener en cuenta que estos métodos no son necesarios. Si no pones uno, simplemente se ignorará
+     * 
+     * @param <T>
+     * @param clase Pelicula.class | Serie.class
+     * @param nombre Caracteres que contienen las películas
+     * @param generos Generos de los metrajes a buscar
+     * @param anio Año de los metrajes
+     * @param valoracion Valoración de los metrajes
+     * @return Una lista con metrajes de un tipo con los filtros especificados
+     */
     public <T extends Metraje> List<T> obtenerMetrajesFiltrados(Class<T> clase, String nombre, List<Genero> generos,
             Integer anio,
             Double valoracion) {
