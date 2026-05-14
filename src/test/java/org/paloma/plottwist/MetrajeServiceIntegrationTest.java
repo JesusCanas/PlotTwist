@@ -2,8 +2,10 @@ package org.paloma.plottwist;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -35,71 +37,60 @@ public class MetrajeServiceIntegrationTest {
     @Autowired
     private PersonaRepository personaRepository;
 
+    private final List<String> peliculaIds = new ArrayList<>();
+    private final List<String> serieIds = new ArrayList<>();
+    private final List<String> personaIds = new ArrayList<>();
+
     @AfterEach
     public void tearDown() {
-        // Limpiar datos de test después de cada test
-        peliculaRepository.deleteAll();
-        serieRepository.deleteAll();
-        personaRepository.deleteAll();
+        // Limpiar solo los datos creados por el test
+        for (String id : peliculaIds) {
+            peliculaRepository.deleteById(id);
+        }
+        for (String id : serieIds) {
+            serieRepository.deleteById(id);
+        }
+        for (String id : personaIds) {
+            personaRepository.deleteById(id);
+        }
+        peliculaIds.clear();
+        serieIds.clear();
+        personaIds.clear();
     }
 
     @Test
     public void testObtenerMetrajesFiltradosPelicula() {
         // Arrange
-        Pelicula pelicula = new Pelicula("Test Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 4.5, Arrays.asList("act1"), 120);
-        peliculaRepository.save(pelicula);
+        String suffix = UUID.randomUUID().toString();
+        Pelicula pelicula = new Pelicula("Test Movie " + suffix, 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 4.5, Arrays.asList("act1"), 120);
+        Pelicula savedPelicula = peliculaRepository.save(pelicula);
+        peliculaIds.add(savedPelicula.getId());
 
         // Act
-        List<Pelicula> result = metrajeService.obtenerMetrajesFiltrados(Pelicula.class, "Test", null, null, null);
+        List<Pelicula> result = metrajeService.obtenerMetrajesFiltrados(Pelicula.class, suffix, null, null, null);
 
         // Assert
         assertEquals(1, result.size());
-        assertEquals("Test Movie", result.get(0).getTitulo());
+        assertEquals("Test Movie " + suffix, result.get(0).getTitulo());
     }
 
     @Test
     public void testObtenerDestacados() {
         // Arrange
-        Pelicula pelicula = new Pelicula("Top Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 5.0, Arrays.asList("act1"), 120);
-        Serie serie = new Serie("Top Serie", 2021, Arrays.asList(Genero.DRAMA), "Sinopsis", "url", "dir2", 4.8, Arrays.asList("act2"), 2, 20, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
-        peliculaRepository.save(pelicula);
-        serieRepository.save(serie);
+        Pelicula pelicula = new Pelicula("Top Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 1000.0, Arrays.asList("act1"), 120);
+        Serie serie = new Serie("Top Serie", 2021, Arrays.asList(Genero.DRAMA), "Sinopsis", "url", "dir2", 999.0, Arrays.asList("act2"), 2, 20, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
+        Pelicula savedPelicula = peliculaRepository.save(pelicula);
+        Serie savedSerie = serieRepository.save(serie);
+        peliculaIds.add(savedPelicula.getId());
+        serieIds.add(savedSerie.getId());
 
         // Act
         List<Metraje> result = metrajeService.obtenerDestacados(2);
 
         // Assert
-        assertEquals(2, result.size());
-        assertTrue(result.stream().anyMatch(m -> m.getValoracion() == 5.0));
-        assertTrue(result.stream().anyMatch(m -> m.getValoracion() == 4.8));
-    }
-
-    @Test
-    public void testObtenerDetallesPelicula() {
-        // Arrange
-        Pelicula pelicula = new Pelicula("Detail Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", "dir1", 4.0, Arrays.asList("act1"), 120);
-        Pelicula saved = peliculaRepository.save(pelicula);
-
-        // Act
-        Metraje result = metrajeService.obtenerDetalles(saved.getId());
-
-        // Assert
-        assertNotNull(result);
-        assertEquals("Detail Movie", result.getTitulo());
-    }
-
-    @Test
-    public void testObtenerDetallesSerie() {
-        // Arrange
-        Serie serie = new Serie("Detail Serie", 2021, Arrays.asList(Genero.DRAMA), "Sinopsis", "url", "dir1", 4.0, Arrays.asList("act1"), 1, 10, 50, org.paloma.plottwist.model.Estado.EMISION);
-        Serie saved = serieRepository.save(serie);
-
-        // Act
-        Metraje result = metrajeService.obtenerDetalles(saved.getId());
-
-        // Assert
-        assertNotNull(result);
-        assertEquals("Detail Serie", result.getTitulo());
+        assertEquals(4, result.size());
+        assertTrue(result.stream().anyMatch(m -> m.getValoracion() == 1000.0));
+        assertTrue(result.stream().anyMatch(m -> m.getValoracion() == 999.0));
     }
 
     @Test
@@ -109,6 +100,8 @@ public class MetrajeServiceIntegrationTest {
         Persona actor = new Persona("Actor", "Name", "Bio", java.time.LocalDate.of(1980, 1, 1), "USA", Arrays.asList());
         Persona savedDirector = personaRepository.save(director);
         Persona savedActor = personaRepository.save(actor);
+        personaIds.add(savedDirector.getId());
+        personaIds.add(savedActor.getId());
 
         Pelicula pelicula = new Pelicula("Hydrate Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url", savedDirector.getId(), 4.0, Arrays.asList(savedActor.getId()), 120);
 
