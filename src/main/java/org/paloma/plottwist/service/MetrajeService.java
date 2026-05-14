@@ -62,6 +62,19 @@ public class MetrajeService {
         repositoryPersona.findById(metraje.getIdDirector()).ifPresent(d -> metraje.setDirector(d));
     }
 
+    /**
+     * Este metodo devuelve una lista de todos los metrajes de un tipo que queramos
+     * ("SERIE" o "PELICULA").
+     * Hace una consulta a una coleccion específica, recogiendo cada uno de los
+     * datos. Para decirle que colección queremos,
+     * debemos escoger una de estas dos clases: Pelicula.class y Serie.class. Esto
+     * hara la consulta para la coleccion que decidamos
+     * según la clase
+     * 
+     * @param <T>
+     * @param clase Tipo que queremos: Pelicula.class | Serie.class
+     * @return Una lista con todos los datos de la colección especificada
+     */
     public <T extends Metraje> List<T> obtenerUnTipoMetrajes(Class<T> clase) {
         return mongoTemplate.findAll(clase);
     }
