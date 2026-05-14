@@ -7,22 +7,34 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(peliculas => {
-            console.log(peliculas);
+            console.log("Datos recibidos:", peliculas);
             
-            peliculas.forEach(element => {
+            peliculas.forEach((element, index) => {
                 const divPosterPelis = document.createElement('div');
                 divPosterPelis.classList.add("poster");
 
                 const imgPeliculas = document.createElement('img');
-                imgPeliculas.src = element.imagen;
-                imgPeliculas.alt = element.nombre; 
+                const numeroCarpeta = index + 1;
+                
+                // Generamos la URL dinámica
+                const urlImagen = `https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/peliculas/${numeroCarpeta}/poster.jpg`;
+                
+                // Esto te permite ver en la consola qué URL está fallando
+                console.log(`Cargando imagen ${numeroCarpeta}:`, urlImagen);
+
+                imgPeliculas.src = urlImagen;
+                imgPeliculas.alt = element.titulo; 
+
                 const tituloPelicula = document.createElement('p'); 
-                tituloPelicula.textContent = element.nombre;
+                tituloPelicula.textContent = element.titulo;
                 tituloPelicula.classList.add("titulo-texto");
+
                 divPosterPelis.appendChild(imgPeliculas);
                 divPosterPelis.appendChild(tituloPelicula);
-                divPosterPelis.appendChild(imgPeliculas);
-                divPelicula.appendChild(divPosterPelis);
+                
+                if(divPelicula) {
+                    divPelicula.appendChild(divPosterPelis);
+                }
             });
         })
         .catch(error => console.error("Error al obtener pelis:", error));
