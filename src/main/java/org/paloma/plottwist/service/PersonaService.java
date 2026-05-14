@@ -15,6 +15,14 @@ import org.paloma.plottwist.model.Pelicula;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase PersonaService.
+ * Este servicio se centra en metodos a la colección personas, haciendo querys a
+ * la base de datos de esta coleccion
+ * 
+ * @author MiguelSg77
+ * @version 1.0
+ */
 @Service
 public class PersonaService {
 
@@ -24,15 +32,26 @@ public class PersonaService {
     @Autowired
     private PersonaRepository repositoryPersona;
 
+    /**
+     * Busca n cantidad de metrajes de cada tipo (Serie y Pelicula) de una persona
+     * en base a su id.
+     * Este método sirve para mostrar la cantidad de peliculas y series que queramos
+     * para los detalles de una persona (director o actor)
+     * La cantidad que pongamos será la cantidad de peliculas y la cantidad de
+     * series que tenga la lista.
+     * El id es de la persona de la que queremos sacar los metrajes
+     * 
+     * @param cantidad  Cantidad de metrajes (peliculas y series)
+     * @param idPersona ID de la persona en la BD
+     * @return una lista de n metrajes, n/2 peliculas y n/2 series
+     */
     public List<Metraje> metrajesDestacados(int cantidad, String idPersona) {
         ArrayList<Metraje> devolucion = new ArrayList<>();
         Persona persona;
 
         Query query = new Query();
-        
-        System.out.println("Buscando persona con ID: " + idPersona);
+
         persona = repositoryPersona.findById(idPersona).orElse(null);
-        System.out.println("Persona encontrada: " + persona);
 
         query.addCriteria(Criteria.where("_id").in(persona.getMetrajesId()));
 
@@ -43,5 +62,5 @@ public class PersonaService {
 
         return devolucion;
     }
-    
+
 }
