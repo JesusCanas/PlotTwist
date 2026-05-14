@@ -8,9 +8,27 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Pageable;
 
+/**
+ * Interfaz del repositorio de la coleccion "pelicula"
+ * Extiende MongoRepository para que SpringBoot pueda hacer consultas en la base
+ * de datos Mongo con el codigo java
+ * 
+ * @author MiguelSg77
+ * @version 1.0
+ */
 @Repository
 public interface PeliculaRepository extends MongoRepository<Pelicula, String> {
-   
+
+    /**
+     * Declarar este método sirve para que Spring detecte el nombre y haga la
+     * consulta en base al atributo especificado
+     * Básicamente, eeste método ordena todos los datos de la colección "pelicula"
+     * de mayor a menor en base a sus valoraciones
+     * y recoge n datos, los cuales seleccionarmos con el parametro pageable
+     * 
+     * @param pageable Numero de datos que vamos a recoger
+     * @return Una lista con los datos recogidos en la colección
+     */
     List<Pelicula> findTopByOrderByValoracionDesc(Pageable pageable);
 
 }
