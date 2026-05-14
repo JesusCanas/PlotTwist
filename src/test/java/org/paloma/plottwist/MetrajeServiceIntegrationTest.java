@@ -3,9 +3,7 @@ package org.paloma.plottwist;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -42,7 +40,6 @@ public class MetrajeServiceIntegrationTest {
 
     @AfterEach
     public void tearDown() {
-        // Limpiar solo los datos creados por el test
         for (String id : peliculaIds) {
             peliculaRepository.deleteById(id);
         }
@@ -58,48 +55,125 @@ public class MetrajeServiceIntegrationTest {
     }
 
     @Test
+    public void testHidratarMetraje() {
+        // Arrange
+        List<String> premiosVacios = new ArrayList<>();
+        Persona director = new Persona("Director", "Name", "Bio", java.time.LocalDate.of(1970, 1, 1), "USA", premiosVacios);
+        Persona actor = new Persona("Actor", "Name", "Bio", java.time.LocalDate.of(1980, 1, 1), "USA", premiosVacios);
+        
+        Persona savedDirector = personaRepository.save(director);
+        Persona savedActor = personaRepository.save(actor);
+        personaIds.add(savedDirector.getId());
+        personaIds.add(savedActor.getId());
+
+        List<Genero> generos = new ArrayList<>();
+        generos.add(Genero.ACCION);
+        
+        List<String> actoresIds = new ArrayList<>();
+        actoresIds.add(savedActor.getId());
+
+        Pelicula pelicula = new Pelicula("Hydrate Movie", 2020, generos, "Sinopsis", "url", savedDirector.getId(), 4.0, actoresIds, 120);
+
+        // Act
+        metrajeService.hidratarMetraje(pelicula);
+
+        // Assert
+        assertNotNull(pelicula.getDirector(), "El director no debería ser nulo después de hidratar");
+        assertEquals("Director", pelicula.getDirector().getNombre(), "El nombre del director no coincide");
+        assertEquals(1, pelicula.getActores().size(), "Debería haber un actor después de hidratar");
+        assertEquals("Actor", pelicula.getActores().get(0).getNombre(), "El nombre del actor no coincide");
+    }
+
+    @Test
+    public void testObtenerUnTipoMetrajes() {
+        // Arrange
+        List<Genero> generos = new ArrayList<>();
+        generos.add(Genero.COMEDIA);
+        List<String> actores = new ArrayList<>();
+        actores.add("act1");
+
+        Pelicula pelicula = new Pelicula("Pelicula Unica Tipo", 2024, generos, "Sinopsis", "url", "dir1", 3.0, actores, 90);
+        Pelicula saved = peliculaRepository.save(pelicula);
+        peliculaIds.add(saved.getId());
+
+        // Act
+        List<Pelicula> result = metrajeService.obtenerUnTipoMetrajes(Pelicula.class);
+
+        // Assert
+        boolean encontrado = false;
+        for (Pelicula p : result) {
+            if (p.getTitulo().equals("Pelicula Unica Tipo")) {
+                encontrado = true;
+            }
+        }
+        assertTrue(encontrado, "No se encontró la película esperada");
+    }
+
+    @Test
     public void testObtenerMetrajesFiltradosPelicula() {
         // Arrange
-        String suffix = UUID.randomUUID().toString();
-        Pelicula pelicula = new Pelicula("Test Movie " + suffix, 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url",
-                "dir1", 4.5, Arrays.asList("act1"), 120);
+        List<Genero> generos = new ArrayList<>();
+        generos.add(Genero.ACCION);
+        List<String> actores = new ArrayList<>();
+        actores.add("act1");
+
+        Pelicula pelicula = new Pelicula("Pelicula Filtrada Buscar", 2020, generos, "Sinopsis", "url", "dir1", 4.5, actores, 120);
         Pelicula savedPelicula = peliculaRepository.save(pelicula);
         peliculaIds.add(savedPelicula.getId());
 
         // Act
-        List<Pelicula> result = metrajeService.obtenerMetrajesFiltrados(Pelicula.class, suffix, null, null, null);
+        List<Pelicula> result = metrajeService.obtenerMetrajesFiltrados(Pelicula.class, "Filtrada", null, null, null);
 
         // Assert
-        assertEquals(1, result.size());
-        assertEquals("Test Movie " + suffix, result.get(0).getTitulo());
+        assertEquals(1, result.size(), "Se esperaba 1 película filtrada");
+        assertEquals("Pelicula Filtrada Buscar", result.get(0).getTitulo(), "El título de la película no coincide");
+    }
+
+    @Test
+    public void testObtenerTodosMetrajesFiltrados() {
+        // Arrange
+        List<Genero> generos = new ArrayList<>();
+        generos.add(Genero.HORROR);
+        List<String> actores = new ArrayList<>();
+        actores.add("act");
+
+        Pelicula p = new Pelicula("Metraje Compartido Especial", 2019, generos, "Sinopsis", "url", "dir", 4.2, actores, 100);
+        Serie s = new Serie("Metraje Compartido Especial", 2019, generos, "Sinopsis", "url", "dir", 4.2, actores, 1, 10, 40, org.paloma.plottwist.model.Estado.FINALIZADA);
+
+        peliculaIds.add(peliculaRepository.save(p).getId());
+        serieIds.add(serieRepository.save(s).getId());
+
+        // Act
+        List<Metraje> result = metrajeService.obtenerTodosMetrajesFiltrados("Compartido", null, null, null);
+
+        // Assert
+        int count = 0;
+        for (Metraje m : result) {
+            if (m.getTitulo().contains("Compartido")) {
+                count++;
+            }
+        }
+        assertEquals(2, count, "Se esperaban 2 metrajes con el título 'Compartido'");
     }
 
     @Test
     public void testObtenerDestacados() {
-        // Arrange: Crear listas usando sintaxis clásica o constructor directo
+        // Arrange
         List<Genero> generosAccion = new ArrayList<>();
         generosAccion.add(Genero.ACCION);
-
         List<Genero> generosDrama = new ArrayList<>();
         generosDrama.add(Genero.DRAMA);
-
+        List<Genero> generosHorror = new ArrayList<>();
+        generosHorror.add(Genero.HORROR);
         List<String> actoresPelicula = new ArrayList<>();
         actoresPelicula.add("act1");
-
         List<String> actoresSerie = new ArrayList<>();
         actoresSerie.add("act2");
 
-        // Guardar 2 películas para que el repositorio pueda devolver hasta 2
-        Pelicula pelicula1 = new Pelicula("Top Movie 1", 2020, generosAccion, "Sinopsis", "url", "dir1", 1000.0,
-                actoresPelicula, 120);
-        Pelicula pelicula2 = new Pelicula("Top Movie 2", 2022, generosAccion, "Sinopsis", "url", "dir3", 950.0,
-                actoresPelicula, 110);
-
-        // Guardar 2 series para que el repositorio pueda devolver hasta 2
-        Serie serie1 = new Serie("Top Serie 1", 2021, generosDrama, "Sinopsis", "url", "dir2", 999.0, actoresSerie, 2,
-                20, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
-        Serie serie2 = new Serie("Top Serie 2", 2023, generosDrama, "Sinopsis", "url", "dir4", 899.0, actoresSerie, 1,
-                10, 50, org.paloma.plottwist.model.Estado.FINALIZADA);
+        Pelicula pelicula1 = new Pelicula("Top Movie 1", 2020, generosAccion, "Sinopsis", "url", "dir1", 1000.0, actoresPelicula, 120);
+        Pelicula pelicula2 = new Pelicula("Top Movie 2", 2022, generosAccion, "Sinopsis", "url", "dir3", 950.0, actoresPelicula, 110);
+        Serie serie1 = new Serie("Top Serie 1", 2021, generosDrama, "Sinopsis", "url", "dir2", 999.0, actoresSerie, 2, 20, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
+        Serie serie2 = new Serie("Top Serie 2", 2023, generosDrama, "Sinopsis", "url", "dir4", 899.0, actoresSerie, 1, 10, 50, org.paloma.plottwist.model.Estado.FINALIZADA);
 
         peliculaIds.add(peliculaRepository.save(pelicula1).getId());
         peliculaIds.add(peliculaRepository.save(pelicula2).getId());
@@ -109,15 +183,13 @@ public class MetrajeServiceIntegrationTest {
         // Act
         List<Metraje> result = metrajeService.obtenerDestacados(2);
 
-        // Assert: Verificación de tamaño
-        assertEquals(4, result.size(), "El tamaño de la lista de destacados debería ser 4 (2 películas y 2 series)");
+        // Assert
+        assertEquals(4, result.size(), "Se esperaban 4 metrajes destacados");
 
-        // Assert: Verificación de contenido usando un bucle for clásico
         boolean tieneValoracion1000 = false;
         boolean tieneValoracion999 = false;
 
-        for (int i = 0; i < result.size(); i++) {
-            Metraje m = result.get(i);
+        for (Metraje m : result) {
             if (m.getValoracion() == 1000.0) {
                 tieneValoracion1000 = true;
             }
@@ -126,31 +198,34 @@ public class MetrajeServiceIntegrationTest {
             }
         }
 
-        assertTrue(tieneValoracion1000, "La lista de destacados debería contener una película con valoración 1000.0");
-        assertTrue(tieneValoracion999, "La lista de destacados debería contener una serie con valoración 999.0");
+        assertTrue(tieneValoracion1000, "No se encontró un metraje con valoración 1000.0");
+        assertTrue(tieneValoracion999, "No se encontró un metraje con valoración 999.0");
     }
 
     @Test
-    public void testHidratarMetraje() {
+    public void testObtenerDetalles() {
         // Arrange
-        Persona director = new Persona("Director", "Name", "Bio", java.time.LocalDate.of(1970, 1, 1), "USA",
-                Arrays.asList());
-        Persona actor = new Persona("Actor", "Name", "Bio", java.time.LocalDate.of(1980, 1, 1), "USA", Arrays.asList());
-        Persona savedDirector = personaRepository.save(director);
-        Persona savedActor = personaRepository.save(actor);
-        personaIds.add(savedDirector.getId());
-        personaIds.add(savedActor.getId());
+        String idFijoEspecial = "id-estatico-prueba-123";
+        List<Genero> generos = new ArrayList<>();
+        generos.add(Genero.HORROR);
+        List<String> actores = new ArrayList<>();
 
-        Pelicula pelicula = new Pelicula("Hydrate Movie", 2020, Arrays.asList(Genero.ACCION), "Sinopsis", "url",
-                savedDirector.getId(), 4.0, Arrays.asList(savedActor.getId()), 120);
+        Pelicula pelicula = new Pelicula("Movie Base Static", 2022, generos, "Sinopsis", "url", "dir", 4.0, actores, 90);
+        pelicula.setId(idFijoEspecial);
+        
+        Serie serie = new Serie("Serie Ganadora Static", 2022, generos, "Sinopsis", "url", "dir", 4.0, actores, 1, 10, 45, org.paloma.plottwist.model.Estado.FINALIZADA);
+        serie.setId(idFijoEspecial);
+
+        peliculaRepository.save(pelicula);
+        serieRepository.save(serie);
+        peliculaIds.add(idFijoEspecial);
+        serieIds.add(idFijoEspecial);
 
         // Act
-        metrajeService.hidratarMetraje(pelicula);
+        Metraje result = metrajeService.obtenerDetalles(idFijoEspecial);
 
         // Assert
-        assertNotNull(pelicula.getDirector());
-        assertEquals("Director", pelicula.getDirector().getNombre());
-        assertEquals(1, pelicula.getActores().size());
-        assertEquals("Actor", pelicula.getActores().get(0).getNombre());
+        assertNotNull(result);
+        assertEquals("Serie Ganadora Static", result.getTitulo(), "El título del metraje no coincide");
     }
 }
