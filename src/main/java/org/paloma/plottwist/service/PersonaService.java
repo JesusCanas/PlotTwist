@@ -54,6 +54,7 @@ public class PersonaService {
         Query query = new Query();
 
         persona = repositoryPersona.findById(idPersona).orElse(null);
+        if (persona == null) {return devolucion;}
 
         query.addCriteria(Criteria.where("_id").in(persona.getMetrajesId()));
 

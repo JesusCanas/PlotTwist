@@ -8,7 +8,6 @@ import org.paloma.plottwist.model.Serie;
 import org.paloma.plottwist.model.TipoMetraje;
 import org.paloma.plottwist.service.MetrajeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -99,7 +98,7 @@ public class MetrajesController {
      * @param cantidad Número de películas y de series a retornar (total = cantidad * 2)
      * @return Lista con los metrajes más destacados, primero películas y luego series
      */
-    @GetMapping("obtenerDestacados")
+    @GetMapping("/obtenerDestacados")
     public List<Metraje> obtenerDestacados(int cantidad) {
         return serviceMetraje.obtenerDestacados(cantidad);
     }
@@ -112,7 +111,7 @@ public class MetrajesController {
      * @param metraje ID del metraje a obtener
      * @return El metraje con todos sus detalles completos incluyendo director y actores
      */
-    @GetMapping("obtenerDetalles")
+    @GetMapping("/obtenerDetalles")
     public Metraje obtenerDetalles(String metraje) {
         return serviceMetraje.obtenerDetalles(metraje);
     }
