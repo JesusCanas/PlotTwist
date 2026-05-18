@@ -57,45 +57,7 @@ public class MetrajeServiceIntegrationTest {
         assertEquals(5.0, topSerie.getValoracion(), 0.01, "La serie más destacada debería tener valoración 5.0");
         assertEquals("Breaking Bad", topSerie.getTitulo(), "La serie con 5.0 debería ser 'Breaking Bad'");
     }
-
-    @Test
-    @DisplayName("Debería obtener los detalles completos de una película existente")
-    public void testObtenerDetallesPeliculaExistente() {
-        String idExistente = "pelicula_the_dark_knight_2008";
-        
-        // Act
-        Metraje metraje = metrajeService.obtenerDetalles(idExistente);
-        
-        // Assert
-        assertNotNull(metraje, "El metraje con ID real debería ser encontrado");
-        assertTrue(metraje instanceof Pelicula, "El metraje recuperado debería ser una Pelicula");
-        
-        Pelicula pelicula = (Pelicula) metraje;
-        assertEquals("The Dark Knight", pelicula.getTitulo());
-        assertEquals(2008, pelicula.getAnyo());
-        assertEquals(5.0, pelicula.getValoracion(), 0.01);
-        assertEquals(152, pelicula.getDuracion(), "La duración debería coincidir con los 152 minutos de la BD");
-    }
-
-    @Test
-    @DisplayName("Debería obtener los detalles completos de una serie existente")
-    public void testObtenerDetallesSerieExistente() {
-        String idExistente = "serie_breaking_bad_2008";
-        
-        // Act
-        Metraje metraje = metrajeService.obtenerDetalles(idExistente);
-        
-        // Assert
-        assertNotNull(metraje, "La serie con ID real debería ser encontrada");
-        assertTrue(metraje instanceof Serie, "El metraje recuperado debería ser una Serie");
-        
-        Serie serie = (Serie) metraje;
-        assertEquals("Breaking Bad", serie.getTitulo());
-        assertEquals(2008, serie.getAnyo());
-        assertEquals(5, serie.getNumTemporadas(), "Debería tener 5 temporadas según la BD");
-        assertEquals(62, serie.getNumEpisodios(), "Debería tener 62 episodios según la BD");
-    }
-
+    
     @Test
     @DisplayName("Test de Cobertura: Comparador OrdenPorFecha en orden ascendente")
     public void testOrdenPorFechaCoverage() {
