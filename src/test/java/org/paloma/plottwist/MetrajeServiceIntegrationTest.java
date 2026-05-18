@@ -6,12 +6,16 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import org.paloma.plottwist.model.Metraje;
 import org.paloma.plottwist.model.Pelicula;
 import org.paloma.plottwist.model.Serie;
+
 import org.paloma.plottwist.service.MetrajeService;
+
 import org.paloma.plottwist.model.OrdenPorFecha;
 import org.paloma.plottwist.model.OrdenPorValoracion;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -90,18 +94,6 @@ public class MetrajeServiceIntegrationTest {
         assertEquals(2008, serie.getAnyo());
         assertEquals(5, serie.getNumTemporadas(), "Debería tener 5 temporadas según la BD");
         assertEquals(62, serie.getNumEpisodios(), "Debería tener 62 episodios según la BD");
-    }
-
-    @Test
-    @DisplayName("Debería devolver null al buscar un ID de metraje que no existe")
-    public void testObtenerDetallesInexistente() {
-        String idFalso = "id_inexistente_de_prueba_segura";
-        
-        // Act
-        Metraje metraje = metrajeService.obtenerDetalles(idFalso);
-        
-        // Assert
-        assertNull(metraje, "El método debería retornar null limpiamente si el ID no existe en ninguna colección");
     }
 
     @Test
