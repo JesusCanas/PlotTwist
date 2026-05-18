@@ -7,27 +7,50 @@ classDiagram
         +mongoTemplate() MongoTemplate
     }
 
+    class WebConfig {
+        <<Configuration>>
+        +addCorsMappings(CorsRegistry)
+    }
+
+    class PlottwistApplication {
+        <<SpringBootApplication>>
+        +main(String[] args)
+    }
+
     class Metraje {
         -String id
         -String titulo
-        -Year anyo
+        -int anyo
         -List~Genero~ generos
-        -ObjectId idDirector
+        -String sinopsis
+        -String imagenURL
+        -String idDirector
+        -Persona director
         -double valoracion
-        -List~ObjectId~ idsActores
+        -List~String~ idsActores
+        -List~Persona~ actores
         +getId() String
+        +setId(String)
         +getTitulo() String
         +setTitulo(String)
-        +getAnyo() Year
-        +setAnyo(Year)
+        +getAnyo() int
+        +setAnyo(int)
         +getGeneros() List~Genero~
         +setGeneros(List~Genero~)
-        +getIdDirector() ObjectId
-        +setIdDirector(ObjectId)
+        +getSinopsis() String
+        +setSinopsis(String)
+        +getImagenURL() String
+        +setImagenURL(String)
+        +getIdDirector() String
+        +setIdDirector(String)
+        +getDirector() Persona
+        +setDirector(Persona)
         +getValoracion() double
         +setValoracion(double)
-        +getIdsActores() List~ObjectId~
-        +setIdsActores(List~ObjectId~)
+        +getIdsActores() List~String~
+        +setIdsActores(List~String~)
+        +getActores() List~Persona~
+        +setActores(List~Persona~)
     }
 
     class Pelicula {
@@ -37,12 +60,12 @@ classDiagram
     }
 
     class Serie {
-        -int numeroTemporadas
+        -int numTemporadas
         -int numEpisodios
         -int duracionEpisodio
         -Estado estado
-        +getNumeroTemporadas() int
-        +setNumeroTemporadas(int)
+        +getNumTemporadas() int
+        +setNumTemporadas(int)
         +getNumEpisodios() int
         +setNumEpisodios(int)
         +getDuracionEpisodio() int
@@ -52,43 +75,33 @@ classDiagram
     }
 
     class Persona {
+        -String id
         -String nombre
-        -String apellido
-        -String biografia
         -LocalDate fechaDeNacimiento
         -String nacionalidad
+        -String imagenURL
+        -String apellido
+        -String biografia
         -List~String~ metrajesId
+        -List~Metraje~ metrajes
+        +getId() String
+        +setId(String)
         +getNombre() String
         +setNombre(String)
-        +getApellido() String
-        +setApellido(String)
+        +getFechaDeNacimiento() LocalDate
+        +setFechaDeNacimiento(LocalDate)
         +getNacionalidad() String
         +setNacionalidad(String)
+        +getImagenURL() String
+        +setImagenURL(String)
+        +getApellido() String
+        +setApellido(String)
+        +getBiografia() String
+        +setBiografia(String)
         +getMetrajesId() List~String~
         +setMetrajesId(List~String~)
-    }
-
-    class PeliculasDAO {
-        -List~Pelicula~ peliculas
-        +obtenerPeliculasTodas() List~Pelicula~
-        +obtenerPeliculasFiltradas(String nombre, List~Genero~ generos, Year anio, Double valoracion) List~Pelicula~
-        +obtenerDestacados(int cantidad) List~Pelicula~
-        +obtenerPorFecha(int cantidad) List~Pelicula~
-        +obtenerPeliculaPorId(String id) Pelicula
-    }
-
-    class SeriesDAO {
-        -List~Serie~ series
-        +obtenerSeriesTodas() List~Serie~
-        +obtenerSeriesFiltradas(String nombre, List~Genero~ generos, Year anio, Double valoracion) List~Serie~
-        +obtenerDestacados(int cantidad) List~Serie~
-        +obtenerPorFecha(int cantidad) List~Serie~
-        +obtenerSeriePorId(String id) Serie
-    }
-
-    class PlottwistApplication {
-        <<SpringBootApplication>>
-        +main(String[] args)
+        +getMetrajes() List~Metraje~
+        +setMetrajes(List~Metraje~)
     }
 
     class Usuario {
@@ -96,27 +109,19 @@ classDiagram
         -String nombre
         -String contrasenya
         -String correo
-        -Year fechaRegistro
+        -int fechaRegistro
         -List~Metraje~ listaMetrajes
         +getId() String
         +getNombre() String
         +setNombre(String)
-        +getCorreo() String
-        +setCorreo(String)
         +getContrasenya() String
         +setContrasenya(String)
-        +getFechaRegistro() Year
-        +setFechaRegistro(Year)
+        +getCorreo() String
+        +setCorreo(String)
+        +getFechaRegistro() int
+        +setFechaRegistro(int)
         +getListaMetrajes() List~Metraje~
         +setListaMetrajes(List~Metraje~)
-    }
-
-    class OrdenPorValoracion {
-        +compare(Metraje m1, Metraje m2) int
-    }
-
-    class OrdenPorFecha {
-        +compare(Metraje m1, Metraje m2) int
     }
 
     class Genero {
@@ -141,17 +146,86 @@ classDiagram
         +CANCELADA
     }
 
+    class TipoMetraje {
+        <<enumeration>>
+        +PELICULA
+        +SERIE
+    }
+
+    class OrdenPorValoracion {
+        +compare(Metraje m1, Metraje m2) int
+    }
+
+    class OrdenPorFecha {
+        +compare(Metraje m1, Metraje m2) int
+    }
+
+    class MetrajeService {
+        -PersonaRepository repositoryPersona
+        -SerieRepository repositorySerie
+        -PeliculaRepository repositoryPelicula
+        -MongoTemplate mongoTemplate
+        +hidratarMetraje(Metraje metraje)
+        +obtenerUnTipoMetrajes(Class~T~ clase) List~T~
+        +obtenerMetrajesFiltrados(Class~T~ clase, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
+        +obtenerTodosMetrajesFiltrados(String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
+        +obtenerDestacados(int cantidad) List~Metraje~
+        +obtenerDetalles(String idMetraje) Metraje
+    }
+
+    class PersonaService {
+        -MongoTemplate mongoTemplate
+        -PersonaRepository repositoryPersona
+        +metrajesDestacados(int cantidad, String idPersona) List~Metraje~
+    }
+
+    class MetrajesController {
+        -MetrajeService serviceMetraje
+        +obtenerTipo(TipoMetraje tipoMetraje) List~T~
+        +obtenerFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
+        +obtenerTodosFiltrados(String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
+        +obtenerDestacados(int cantidad) List~Metraje~
+        +obtenerDetalles(String metraje) Metraje
+    }
+
+    class PersonasController {
+        -PersonaService servicePersona
+        +mostrarDestacados(int cantidad, String idPersona) List~Metraje~
+    }
+
+    class PeliculaRepository {
+        +findTopByOrderByValoracionDesc(Pageable pageable) List~Pelicula~
+    }
+
+    class SerieRepository {
+        +findTopByOrderByValoracionDesc(Pageable pageable) List~Serie~
+        +findTopByOrderByAnyoDesc() List~Serie~
+    }
+
+    class PersonaRepository {
+    }
+
     Metraje <|-- Pelicula
     Metraje <|-- Serie
     Metraje o-- Persona : director
+    Metraje o-- Persona : actores
+    Persona --> Metraje : metrajes
     Usuario --> Metraje : listaMetrajes
-    PeliculasDAO --> Pelicula
-    SeriesDAO --> Serie
-    OrdenPorValoracion --> Metraje
-    OrdenPorFecha --> Metraje
     Serie --> Estado
     Metraje ..> Genero
-    PlottwistApplication ..> PeliculasDAO
-    PlottwistApplication ..> SeriesDAO
+    MetrajeService --> PersonaRepository
+    MetrajeService --> SerieRepository
+    MetrajeService --> PeliculaRepository
+    MetrajeService --> MongoTemplate
+    PersonaService --> PersonaRepository
+    PersonaService --> MongoTemplate
+    MetrajesController --> MetrajeService
+    MetrajesController ..> TipoMetraje
+    PersonasController --> PersonaService
+    PeliculaRepository --> Pelicula
+    SerieRepository --> Serie
+    PersonaRepository --> Persona
     PlottwistApplication ..> MongoConfig
-```
+    PlottwistApplication ..> WebConfig
+    WebConfig ..> CorsRegistry
+``````
