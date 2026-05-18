@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         divPoster.appendChild(img);
         divPoster.appendChild(titulo);
+        divPoster.addEventListener('click', () => {
+            window.location.href = `detalle-metraje.html?id=${element.id}`;
+        });
         return divPoster;
     }
 
