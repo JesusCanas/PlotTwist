@@ -166,6 +166,14 @@ public abstract class Metraje {
         this.sinopsis = sinopsis;
     }
 
+    public String getImagenURL() {
+        return imagenURL;
+    }
+
+    public void setImagenURL(String imagenURL) {
+        this.imagenURL = imagenURL;
+    }
+
     /**
      * Obtiene el ID del director.
      * 
