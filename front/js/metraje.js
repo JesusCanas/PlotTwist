@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.createElement('img');
         img.src = element.imagenURL;
         img.alt = element.titulo;
+        divPoster.dataset.id = element.id; 
 
         const titulo = document.createElement('p');
         titulo.textContent = element.titulo;
@@ -33,32 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const valoracionVal = selectValoracion.value;
         const generoVal = selectGenero.value;
         const anyoVal = selectAnyo.value;
-
-        let urlPelis = BASE_PELIS;
-        let urlSeries = BASE_SERIES;
+        let url;
+        if(divPelicula){
+            url=BASE_PELIS;
+        }
+        if(divSerie){
+            url=BASE_SERIES
+        }
 
         if (buscadorVal) {
-            urlPelis += `&nombre=${buscadorVal}`;
-            urlSeries += `&nombre=${buscadorVal}`;
+            url += `&nombre=${buscadorVal}`;
         }
         if (valoracionVal) {
-            urlPelis += `&valoracion=${valoracionVal}`;
-            urlSeries += `&valoracion=${valoracionVal}`;
+            url += `&valoracion=${valoracionVal}`;
         }
         if (generoVal) {
-            urlPelis += `&generos=${generoVal}`;
-            urlSeries += `&generos=${generoVal}`;
+            url += `&generos=${generoVal}`;
         }
         if (anyoVal) {
-            urlPelis += `&anyo=${anyoVal}`;
-            urlSeries += `&anyo=${anyoVal}`;
+            url += `&anyo=${anyoVal}`;   
         }
 
         if (divPelicula) {
             while (divPelicula.firstChild) {
                 divPelicula.removeChild(divPelicula.firstChild);
             }
-            const resPelis = await fetch(urlPelis);
+            const resPelis = await fetch(url);
             const dataPelis = await resPelis.json();
             dataPelis.forEach(item => divPelicula.appendChild(crearTarjeta(item, 'peliculas')));
         }
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             while (divSerie.firstChild) {
                 divSerie.removeChild(divSerie.firstChild);
             }
-            const resSeries = await fetch(urlSeries);
+            const resSeries = await fetch(url);
             const dataSeries = await resSeries.json();
             dataSeries.forEach(item => divSerie.appendChild(crearTarjeta(item, 'series')));
         }
