@@ -4,6 +4,7 @@ package org.paloma.plottwist.repository;
 import java.util.List;
 
 import org.paloma.plottwist.model.Pelicula;
+import org.paloma.plottwist.model.Serie;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Pageable;
@@ -30,5 +31,13 @@ public interface PeliculaRepository extends MongoRepository<Pelicula, String> {
      * @return Una lista con los datos recogidos en la colección
      */
     List<Pelicula> findTopByOrderByValoracionDesc(Pageable pageable);
+
+    /**
+     * Este método ordenará por el año de salida las películas de mayor a menor y
+     * devolverá una lista de todas las series ordenadas
+     * 
+     * @return Lista de películas ordenada por año
+     */
+    List<Pelicula> findByOrderByAnyoDesc();
 
 }
