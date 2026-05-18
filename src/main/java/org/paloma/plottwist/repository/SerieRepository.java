@@ -37,6 +37,6 @@ public interface SerieRepository extends MongoRepository<Serie, String> {
      * 
      * @return Lista de series ordenada por año
      */
-    List<Serie> findTopByOrderByAnyoDesc();
+    List<Serie> findByOrderByAnyoDesc();
 
 }

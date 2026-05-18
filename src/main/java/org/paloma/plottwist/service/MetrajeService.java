@@ -7,6 +7,7 @@ import org.paloma.plottwist.model.Genero;
 import org.paloma.plottwist.model.Metraje;
 import org.paloma.plottwist.model.Pelicula;
 import org.paloma.plottwist.model.Serie;
+import org.paloma.plottwist.model.TipoMetraje;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -178,6 +179,27 @@ public class MetrajeService {
     }
 
     /**
+     * Ordena la lista de metrajes (PELICULA o SERIE) de mas reciente a mas antigua
+     * y la devuelve.
+     * 
+     * @param <T>
+     * @param tipoMetraje PELICULA o SERIE
+     * @return Lista ordenada por fecha
+     */
+    public <T extends Metraje> List<T> obtenerPorFecha(TipoMetraje tipoMetraje) {
+        switch (tipoMetraje) {
+            case PELICULA:
+                return (List<T>) repositoryPelicula.findByOrderByAnyoDesc();
+
+            case SERIE:
+                return (List<T>) repositorySerie.findByOrderByAnyoDesc();
+
+            default:
+                return null;
+        }
+    }
+
+    /**
      * Busca el metraje con el id seleccionado y usa el metodo hidratarMetraje para
      * obtener todos los detalles del metraje
      * 
@@ -186,7 +208,7 @@ public class MetrajeService {
      */
     public Metraje obtenerDetalles(String idMetraje) {
         Metraje metraje = repositoryPelicula.findById(idMetraje).orElse(null);
-        if (metraje == null) {
+        if (metraje != null) {
             metraje = repositorySerie.findById(idMetraje).orElse(null);
         }
 

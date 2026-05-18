@@ -104,6 +104,19 @@ public class MetrajesController {
     }
 
     /**
+     * Obtiene la lista de metrajes ordenados por año de estreno, de más reciente a más antiguo.
+     * Delegado al servicio, que devuelve películas o series según el tipo de metraje.
+     * 
+     * @param tipoMetraje Tipo de metraje a listar: PELICULA o SERIE
+     * @param <T> Tipo genérico de metraje devuelto
+     * @return Lista ordenada por año descendente, o null si el tipo no es válido
+     */
+    @GetMapping("/obtenerPorFecha")
+    public <T extends Metraje> List<T> obtenerPorFecha(TipoMetraje tipoMetraje) {
+        return serviceMetraje.obtenerPorFecha(tipoMetraje);
+    }
+
+    /**
      * Obtiene los detalles completos de un metraje específico por su ID.
      * Busca el metraje en ambas colecciones (películas y series) e hidrata todos sus atributos,
      * incluyendo los objetos relacionados de director y actores desde la colección de personas.

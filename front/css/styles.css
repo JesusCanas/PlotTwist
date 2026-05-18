@@ -96,12 +96,12 @@ nav img:last-child {
 /* PELÍCULAS Y SERIES */
 .peliculas, .series {
     padding: 1.5rem 2rem;
-    overflow: hidden;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .poster {
-    float: left;
     background: #1a1a1a;
     border: 0.09rem solid #7c4dff;
     border-radius: 0.75rem;
