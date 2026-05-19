@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const divSerie = document.getElementById("seri");
     let temporizador;
 
-    function crearTarjeta(element, tipo) {
+    function crearTarjeta(element) {
         const divPoster = document.createElement('div');
         divPoster.classList.add("poster");
 
@@ -91,12 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (divPelicula) {
             const res = await fetch(BASE_PELIS);
             const data = await res.json();
-            data.forEach(item => divPelicula.appendChild(crearTarjeta(item, 'peliculas')));
+            data.forEach(item => divPelicula.appendChild(crearTarjeta(item)));
         }
         if (divSerie) {
             const res = await fetch(BASE_SERIES);
             const data = await res.json();
-            data.forEach(item => divSerie.appendChild(crearTarjeta(item, 'series')));
+            data.forEach(item => divSerie.appendChild(crearTarjeta(item)));
         }
     }
 

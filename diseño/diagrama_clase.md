@@ -1,22 +1,5 @@
-
 ```mermaid
 classDiagram
-    class MongoConfig {
-        <<Configuration>>
-        +mongoClient() MongoClient
-        +mongoTemplate() MongoTemplate
-    }
-
-    class WebConfig {
-        <<Configuration>>
-        +addCorsMappings(CorsRegistry)
-    }
-
-    class PlottwistApplication {
-        <<SpringBootApplication>>
-        +main(String[] args)
-    }
-
     class Metraje {
         -String id
         -String titulo
@@ -152,12 +135,17 @@ classDiagram
         +SERIE
     }
 
-    class OrdenPorValoracion {
-        +compare(Metraje m1, Metraje m2) int
+    class PeliculaRepository {
+        +findTopByOrderByValoracionDesc(Pageable pageable) List~Pelicula~
+        +findByOrderByAnyoDesc() List~Pelicula~
     }
 
-    class OrdenPorFecha {
-        +compare(Metraje m1, Metraje m2) int
+    class SerieRepository {
+        +findTopByOrderByValoracionDesc(Pageable pageable) List~Serie~
+        +findByOrderByAnyoDesc() List~Serie~
+    }
+
+    class PersonaRepository {
     }
 
     class MetrajeService {
@@ -166,10 +154,11 @@ classDiagram
         -PeliculaRepository repositoryPelicula
         -MongoTemplate mongoTemplate
         +hidratarMetraje(Metraje metraje)
-        +obtenerUnTipoMetrajes(Class~T~ clase) List~T~
-        +obtenerMetrajesFiltrados(Class~T~ clase, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
+        +obtenerUnTipoMetrajes(TipoMetraje tipoMetraje) List~T~
+        +obtenerMetrajesFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
         +obtenerTodosMetrajesFiltrados(String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
         +obtenerDestacados(int cantidad) List~Metraje~
+        +obtenerPorFecha(TipoMetraje tipoMetraje) List~T~
         +obtenerDetalles(String idMetraje) Metraje
     }
 
@@ -181,28 +170,17 @@ classDiagram
 
     class MetrajesController {
         -MetrajeService serviceMetraje
-        +obtenerTipo(TipoMetraje tipoMetraje) List~T~
-        +obtenerFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
+        +obtenerTipo(TipoMetraje tipoMetraje) List~Metraje~
+        +obtenerFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
         +obtenerTodosFiltrados(String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
         +obtenerDestacados(int cantidad) List~Metraje~
+        +obtenerPorFecha(TipoMetraje tipoMetraje) List~Metraje~
         +obtenerDetalles(String metraje) Metraje
     }
 
     class PersonasController {
         -PersonaService servicePersona
         +mostrarDestacados(int cantidad, String idPersona) List~Metraje~
-    }
-
-    class PeliculaRepository {
-        +findTopByOrderByValoracionDesc(Pageable pageable) List~Pelicula~
-    }
-
-    class SerieRepository {
-        +findTopByOrderByValoracionDesc(Pageable pageable) List~Serie~
-        +findTopByOrderByAnyoDesc() List~Serie~
-    }
-
-    class PersonaRepository {
     }
 
     Metraje <|-- Pelicula
@@ -225,7 +203,4 @@ classDiagram
     PeliculaRepository --> Pelicula
     SerieRepository --> Serie
     PersonaRepository --> Persona
-    PlottwistApplication ..> MongoConfig
-    PlottwistApplication ..> WebConfig
-    WebConfig ..> CorsRegistry
-``````
+```
