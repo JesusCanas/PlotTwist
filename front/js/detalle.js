@@ -1,30 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const parametros = new URLSearchParams(window.location.search)
+    const parametros = new URLSearchParams(window.location.search);
     const id = parametros.get("id");
-   const URL_DETALLE = `http://localhost:8082/metrajes/obtenerDetalles?metraje=${id}`;
+    const URL_DETALLE = `http://localhost:8082/metrajes/obtenerDetalles?metraje=${id}`;
 
     function crear(element) {
         const seccion_poster = document.querySelector(".detalle-poster");
         const seccion_sinopsis = document.querySelector(".detalle-sinopsis");
-        const seccion_info = document.querySelector(".detalle-info");
-        const genero = document.getElementById(".genero-detalle");
+
+        const genero = document.getElementById("genero-detalle");
         const valoracion = document.getElementById("valoracion-detalle");
+        const anyo_detalle = document.getElementById("anyo-detalle");
         const director = document.getElementById("director-detalle");
         const actor = document.getElementById("actor-detalle");
 
-        const img= document.createElement('img');
+        const img = document.createElement('img');
         const titulo = document.createElement("h1");
         img.src = element.imagenURL;
         img.alt = element.titulo;
         titulo.textContent = element.titulo;
-        titulo.id="detalle-titulo";
+        titulo.id = "detalle-titulo";
         seccion_poster.appendChild(img);
         seccion_poster.appendChild(titulo);
 
         const p_sinopsis = document.createElement("p");
-        p_sinopsis = element.sinopsis;
-        
-       
+        p_sinopsis.textContent = element.sinopsis;
+        seccion_sinopsis.appendChild(p_sinopsis);
 
+        element.generos.forEach(g => {
+            const span_genero = document.createElement('span');
+            span_genero.textContent = g;
+            span_genero.classList.add('badge-genero');
+            genero.appendChild(span_genero);
+        });
+
+        valoracion.innerHTML = '<strong>Valoración</strong> ' + element.valoracion;
+        anyo_detalle.innerHTML = '<strong>Año</strong> ' + element.anyo;
+        director.innerHTML = '<strong>Director</strong> ' + element.director;
+        director.addEventListener('click', () => {
+            window.location.href = `persona.html?id=${element.director}`;
+        });
+
+        element.actores.forEach(a => {
+            const span_actor = document.createElement('span');
+            span_actor.textContent = a;
+            span_actor.classList.add('badge-actor');
+            actor.appendChild(span_actor);
+            span_actor.addEventListener('click', () => {
+                window.location.href = `persona.html?id=${a}`;
+            });
+        });
     }
+    fetch(URL_DETALLE)
+        .then(res => res.json())
+        .then(data => crear(data));
 });

@@ -68,3 +68,21 @@
     display: block;
     margin-bottom: 0.25rem;
 }
+.badge-genero {
+    background: rgba(124, 77, 255, 0.2);
+    border: 0.09rem solid #7c4dff;
+    border-radius: 2rem;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.75rem;
+    color: #ffffff;
+    margin-right: 0.5rem;
+}
+.badge-actor {
+    background: rgba(124, 77, 255, 0.2);
+    border: 0.09rem solid #7c4dff;
+    border-radius: 2rem;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.75rem;
+    color: #ffffff;
+    margin-right: 0.5rem;
+}
