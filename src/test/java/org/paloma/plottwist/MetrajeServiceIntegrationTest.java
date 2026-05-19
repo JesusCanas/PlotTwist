@@ -7,13 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import org.paloma.plottwist.model.Metraje;
-import org.paloma.plottwist.model.Pelicula;
-import org.paloma.plottwist.model.Serie;
 
 import org.paloma.plottwist.service.MetrajeService;
-
-import org.paloma.plottwist.model.OrdenPorFecha;
-import org.paloma.plottwist.model.OrdenPorValoracion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -64,47 +59,5 @@ public class MetrajeServiceIntegrationTest {
             assertTrue(primero.getValoracion() >= 0 && primero.getValoracion() <= 5.0, 
                 "La valoración obtenida (" + primero.getValoracion() + ") se sale del rango permitido [0.0, 5.0]");
         }
-    }
-
-    /**
-     * Este test prueba el comparador OrdenPorFecha (en este caso, en orden ascendente).
-     * Comprueba que la lógica interna del comparador ordene correctamente los metrajes
-     * según su año de estreno en orden ascendente, controlando también coincidencias entre fechas.
-     */
-    @Test
-    public void testOrdenPorFechaAscendente() {
-        // Test de Cobertura: Comparador OrdenPorFecha en orden ascendente
-        OrdenPorFecha comparador = new OrdenPorFecha();
-        
-        Pelicula antigua = new Pelicula();
-        antigua.setAnyo(1994);
-        
-        Pelicula reciente = new Pelicula();
-        reciente.setAnyo(2018);
-        
-        assertTrue(comparador.compare(antigua, reciente) < 0, "El año 1994 debería considerarse menor que 2018");
-        assertTrue(comparador.compare(reciente, antigua) > 0, "El año 2018 debería considerarse mayor que 1994");
-        assertEquals(0, comparador.compare(antigua, antigua), "Dos metrajes con el mismo año de estreno deben devolver 0");
-    }
-
-    /**
-     * Este test prueba el comparador OrdenPorValoracion en orden ascendente.
-     * Comprueba que la lógica interna del comparador ordene de forma ascendente
-     * las películas y series según su valoración.
-     */
-    @Test
-    public void testOrdenPorValoracionAscendente() {
-        // Test de Cobertura: Comparador OrdenPorValoracion en orden ascendente
-        OrdenPorValoracion comparador = new OrdenPorValoracion();
-        
-        Pelicula bajaValoracion = new Pelicula();
-        bajaValoracion.setValoracion(2.1);
-        
-        Pelicula altaValoracion = new Pelicula();
-        altaValoracion.setValoracion(5.0);
-        
-        assertTrue(comparador.compare(bajaValoracion, altaValoracion) < 0, "La valoración 2.1 debería ser menor que 5.0");
-        assertTrue(comparador.compare(altaValoracion, bajaValoracion) > 0, "La valoración 5.0 debería ser mayor que 2.1");
-        assertEquals(0, comparador.compare(altaValoracion, altaValoracion), "Dos metrajes con la misma valoración deben devolver 0");
     }
 }

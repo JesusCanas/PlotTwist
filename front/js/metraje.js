@@ -64,5 +64,18 @@ document.addEventListener("DOMContentLoaded", () => {
     selectAnyo.addEventListener("change", filtrar);
     buscador.addEventListener("input", () => debounce(filtrar, 2000));
 
-    filtrar();
+    async function cargarInicial() {
+        if (divPelicula) {
+            const res = await fetch(BASE_PELIS);
+            const data = await res.json();
+            data.forEach(item => divPelicula.appendChild(crearTarjeta(item, 'peliculas')));
+        }
+        if (divSerie) {
+            const res = await fetch(BASE_SERIES);
+            const data = await res.json();
+            data.forEach(item => divSerie.appendChild(crearTarjeta(item, 'series')));
+        }
+    }
+
+    cargarInicial();
 });

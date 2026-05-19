@@ -1,11 +1,24 @@
 # 🎬 PlotTwist
 
-**PlotTwist** es una aplicación web para la gestión y visualización de películas y series. Permite explorar catálogos de contenido audiovisual, aplicar filtros por género, año y valoración, y obtener información detallada sobre actores y directores.
+## 📌 Índice
+- [Sobre el proyecto](#sobre-el-proyecto)
+- [🛠 Tecnologías Usadas](#-tecnologias-usadas)
+- [📋 Requisitos Previos](#-requisitos-previos)
+- [🚀 Instalación y Configuración](#-instalacion-y-configuracion)
+- [📁 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🗂️ Diagrama de Clases](#-diagrama-de-clases)
+- [🔗 Endpoints](#-endpoints)
+- [🧪 Tests](#-tests)
+- [☁️ Despliegue en Cloud (AWS)](#-despliegue-en-cloud-aws)
+
+## Sobre el proyecto
+
+**PlotTwist** es una aplicación web para la gestión y visualización de películas y series. Permite explorar catálogos de contenido audiovisual, aplicar filtros por género, año y valoración, y obtener información detallada sobre actores, directores y metrajes.
 
 ## 🛠 Tecnologías Usadas
 
 - **Backend**: Spring Boot 4.0.6
-- **Base de Datos**: MongoDB
+- **Base de Datos**: MongoDB Atlas
 - **Lenguaje**: Java 21
 - **Framework Web**: Spring Web MVC
 - **ORM**: Spring Data MongoDB
@@ -16,8 +29,8 @@
 ## 📋 Requisitos Previos
 
 - **Java**: JDK 21 o superior
-- **Maven**: 3.6+ (viene incluido con Spring Boot)
-- **MongoDB**: Instancia local o remota de MongoDB
+- **Maven**: 3.6+ o usar `mvnw`
+- **MongoDB**: la conexión está configurada contra MongoDB Atlas en `src/main/java/org/paloma/plottwist/MongoConfig/MongoConfig.java`
 - **Navegador Web**: Cualquier navegador moderno
 
 ## 🚀 Instalación y Configuración
@@ -28,21 +41,27 @@ git clone <url-del-repositorio>
 cd plottwist
 ```
 
-### 2. Configurar MongoDB
-La aplicación se conecta a **MongoDB Atlas** (base de datos en la nube) mediante la configuración personalizada en la clase `MongoConfig.java`. No requiere configuración adicional local.
+### 2. Configurar e iniciar la aplicación
+La aplicación expone la API en el puerto configurado en `src/main/resources/application.properties`:
+```properties
+spring.application.name=plottwist
+server.port=8082
+```
+
+La conexión a MongoDB se define en `MongoConfig.java`.
 
 ### 3. Ejecutar la aplicación
 ```bash
-# Con Maven Wrapper (recomendado)
+# En macOS / Linux
 ./mvnw spring-boot:run
 
-# O con Maven instalado
-mvn spring-boot:run
+# En Windows
+mvnw.cmd spring-boot:run
 ```
 
 ### 4. Acceder a la aplicación
 - **Backend API**: http://localhost:8082
-- **Frontend**: Abre `front/index.html` en un servidor web local (ej: Live Server en VS Code)
+- **Frontend**: abrir `front/index.html` en un servidor web local (por ejemplo, Live Server en VS Code)
 
 ## 📁 Estructura del Proyecto
 
@@ -67,17 +86,18 @@ plottwist/
 │   ├── assets/
 │   │   └── img/
 │   ├── css/
-│   │   ├── metraje.css
+│   │   ├── detalle-metraje.css
 │   │   ├── persona.css
 │   │   └── styles.css
 │   ├── js/
 │   │   ├── detalle.js
 │   │   ├── main.js
+│   │   ├── metraje.js
 │   │   ├── peliculas.js
 │   │   ├── personas.js
 │   │   └── series.js
 │   └── paginas/
-│       ├── metraje.html
+│       ├── detalle-metraje.html
 │       ├── peliculas.html
 │       ├── personas.html
 │       └── serie.html
@@ -85,7 +105,7 @@ plottwist/
     ├── main/
     │   ├── java/org/paloma/plottwist/
     │   │   ├── PlottwistApplication.java    # Clase principal
-    │   │   ├── WebConfig.java               # Configuración CORS
+    │   │   ├── WebConfig.java               # Configuración MVC / CORS
     │   │   ├── controller/                  # Controladores REST
     │   │   │   ├── MetrajesController.java
     │   │   │   └── PersonasController.java
@@ -93,8 +113,6 @@ plottwist/
     │   │   │   ├── Estado.java
     │   │   │   ├── Genero.java
     │   │   │   ├── Metraje.java
-    │   │   │   ├── OrdenPorFecha.java
-    │   │   │   ├── OrdenPorValoracion.java
     │   │   │   ├── Pelicula.java
     │   │   │   ├── Persona.java
     │   │   │   ├── Serie.java
@@ -117,25 +135,10 @@ plottwist/
             ├── PeliculaRepositoryIntegrationTest.java
             └── PlottwistApplicationTests.java
 ```
+
 ## 🗂️ Diagrama de Clases
 ```mermaid
 classDiagram
-    class MongoConfig {
-        <<Configuration>>
-        +mongoClient() MongoClient
-        +mongoTemplate() MongoTemplate
-    }
-
-    class WebConfig {
-        <<Configuration>>
-        +addCorsMappings(CorsRegistry)
-    }
-
-    class PlottwistApplication {
-        <<SpringBootApplication>>
-        +main(String[] args)
-    }
-
     class Metraje {
         -String id
         -String titulo
@@ -271,12 +274,17 @@ classDiagram
         +SERIE
     }
 
-    class OrdenPorValoracion {
-        +compare(Metraje m1, Metraje m2) int
+    class PeliculaRepository {
+        +findTopByOrderByValoracionDesc(Pageable pageable) List~Pelicula~
+        +findByOrderByAnyoDesc() List~Pelicula~
     }
 
-    class OrdenPorFecha {
-        +compare(Metraje m1, Metraje m2) int
+    class SerieRepository {
+        +findTopByOrderByValoracionDesc(Pageable pageable) List~Serie~
+        +findByOrderByAnyoDesc() List~Serie~
+    }
+
+    class PersonaRepository {
     }
 
     class MetrajeService {
@@ -285,10 +293,11 @@ classDiagram
         -PeliculaRepository repositoryPelicula
         -MongoTemplate mongoTemplate
         +hidratarMetraje(Metraje metraje)
-        +obtenerUnTipoMetrajes(Class~T~ clase) List~T~
-        +obtenerMetrajesFiltrados(Class~T~ clase, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
+        +obtenerUnTipoMetrajes(TipoMetraje tipoMetraje) List~T~
+        +obtenerMetrajesFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
         +obtenerTodosMetrajesFiltrados(String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
         +obtenerDestacados(int cantidad) List~Metraje~
+        +obtenerPorFecha(TipoMetraje tipoMetraje) List~T~
         +obtenerDetalles(String idMetraje) Metraje
     }
 
@@ -300,28 +309,17 @@ classDiagram
 
     class MetrajesController {
         -MetrajeService serviceMetraje
-        +obtenerTipo(TipoMetraje tipoMetraje) List~T~
-        +obtenerFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~T~
+        +obtenerTipo(TipoMetraje tipoMetraje) List~Metraje~
+        +obtenerFiltrados(TipoMetraje tipoMetraje, String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
         +obtenerTodosFiltrados(String nombre, List~Genero~ generos, Integer anyo, Double valoracion) List~Metraje~
         +obtenerDestacados(int cantidad) List~Metraje~
+        +obtenerPorFecha(TipoMetraje tipoMetraje) List~Metraje~
         +obtenerDetalles(String metraje) Metraje
     }
 
     class PersonasController {
         -PersonaService servicePersona
         +mostrarDestacados(int cantidad, String idPersona) List~Metraje~
-    }
-
-    class PeliculaRepository {
-        +findTopByOrderByValoracionDesc(Pageable pageable) List~Pelicula~
-    }
-
-    class SerieRepository {
-        +findTopByOrderByValoracionDesc(Pageable pageable) List~Serie~
-        +findTopByOrderByAnyoDesc() List~Serie~
-    }
-
-    class PersonaRepository {
     }
 
     Metraje <|-- Pelicula
@@ -335,20 +333,14 @@ classDiagram
     MetrajeService --> PersonaRepository
     MetrajeService --> SerieRepository
     MetrajeService --> PeliculaRepository
-    MetrajeService --> MongoTemplate
     PersonaService --> PersonaRepository
-    PersonaService --> MongoTemplate
     MetrajesController --> MetrajeService
     MetrajesController ..> TipoMetraje
     PersonasController --> PersonaService
     PeliculaRepository --> Pelicula
     SerieRepository --> Serie
     PersonaRepository --> Persona
-    PlottwistApplication ..> MongoConfig
-    PlottwistApplication ..> WebConfig
-    WebConfig ..> CorsRegistry
-``````
-
+```
 
 ## 🔗 Endpoints
 
@@ -405,6 +397,17 @@ Obtiene los metrajes más destacados (mejor valorados) de cada tipo.
 GET http://localhost:8082/metrajes/obtenerDestacados?cantidad=5
 ```
 
+#### `GET /obtenerPorFecha`
+Obtiene los metrajes ordenados por año de estreno de más reciente a más antiguo.
+
+**Parámetros:**
+- `tipoMetraje` (obligatorio): Tipo de metraje a ordenar. Valores: `PELICULA` o `SERIE`
+
+**Ejemplo:**
+```
+GET http://localhost:8082/metrajes/obtenerPorFecha?tipoMetraje=SERIE
+```
+
 #### `GET /obtenerDetalles`
 Obtiene los detalles completos de un metraje específico, incluyendo información del director y actores.
 
@@ -437,8 +440,9 @@ El proyecto incluye tests unitarios e de integración:
 ### Tests Disponibles
 - **PlottwistApplicationTests**: Test básico de carga del contexto de Spring
 - **MetrajeServiceIntegrationTest**: Tests de integración para el servicio de metrajes
+- **PeliculaRepositoryIntegrationTest**: Tests de repositorio para películas
 
-### Ejecutar Tests  
+### Ejecutar Tests
 ```bash
 # Ejecutar todos los tests
 ./mvnw test
@@ -454,6 +458,7 @@ Los tests cubren:
 - ✅ Hidratación de objetos relacionados
 - ✅ Filtros y búsquedas
 - ✅ Ordenamiento por valoración
+
 
 ## ☁️ Despliegue en Cloud (AWS)
 
