@@ -7,8 +7,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import org.paloma.plottwist.model.Metraje;
-import org.paloma.plottwist.model.Pelicula;
-import org.paloma.plottwist.model.Serie;
 
 import org.paloma.plottwist.service.MetrajeService;
 

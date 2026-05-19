@@ -194,9 +194,7 @@ classDiagram
     MetrajeService --> PersonaRepository
     MetrajeService --> SerieRepository
     MetrajeService --> PeliculaRepository
-    MetrajeService --> MongoTemplate
     PersonaService --> PersonaRepository
-    PersonaService --> MongoTemplate
     MetrajesController --> MetrajeService
     MetrajesController ..> TipoMetraje
     PersonasController --> PersonaService
