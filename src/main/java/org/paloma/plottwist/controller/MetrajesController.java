@@ -3,8 +3,6 @@ package org.paloma.plottwist.controller;
 import java.util.List;
 import org.paloma.plottwist.model.Genero;
 import org.paloma.plottwist.model.Metraje;
-import org.paloma.plottwist.model.Pelicula;
-import org.paloma.plottwist.model.Serie;
 import org.paloma.plottwist.model.TipoMetraje;
 import org.paloma.plottwist.service.MetrajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,17 +29,13 @@ public class MetrajesController {
     /**
      * Obtiene todos los metrajes de un tipo específico (películas o series).
      * Realiza una búsqueda completa en la colección especificada sin aplicar filtros.
-     * El método utiliza generics para retornar el tipo correcto según el tipo de metraje solicitado.
      * 
      * @param tipoMetraje Tipo de metraje a obtener (PELICULA o SERIE)
      * @return Lista con todos los metrajes del tipo especificado
      */
     @GetMapping("/obtenerTipo")
-    public <T extends Metraje> List<T> obtenerTipo(TipoMetraje tipoMetraje) {
-        Class<T> clase;
-
-        clase = (Class<T>) (tipoMetraje == TipoMetraje.PELICULA ? Pelicula.class : Serie.class);
-        return serviceMetraje.obtenerUnTipoMetrajes(clase);
+    public List<Metraje> obtenerTipo(TipoMetraje tipoMetraje) {
+        return serviceMetraje.obtenerUnTipoMetrajes(tipoMetraje);
     }
 
     /**
@@ -57,17 +51,14 @@ public class MetrajesController {
      * @return Lista de metrajes del tipo especificado que cumplen con los filtros
      */
     @GetMapping("/obtenerFiltrados")
-    public <T extends Metraje> List<T> obtenerFiltrados(
+    public List<Metraje> obtenerFiltrados(
             TipoMetraje tipoMetraje,
             @RequestParam(required = false) String nombre,
             @RequestParam(required = false) List<Genero> generos,
             @RequestParam(required = false) Integer anyo,
             @RequestParam(required = false) Double valoracion) {
 
-        Class<T> clase;
-
-        clase = (Class<T>) (tipoMetraje == TipoMetraje.PELICULA ? Pelicula.class : Serie.class);
-        return serviceMetraje.obtenerMetrajesFiltrados(clase, nombre, generos, anyo, valoracion);
+        return serviceMetraje.obtenerMetrajesFiltrados(tipoMetraje, nombre, generos, anyo, valoracion);
     }
 
     /**
@@ -108,11 +99,10 @@ public class MetrajesController {
      * Delegado al servicio, que devuelve películas o series según el tipo de metraje.
      * 
      * @param tipoMetraje Tipo de metraje a listar: PELICULA o SERIE
-     * @param <T> Tipo genérico de metraje devuelto
      * @return Lista ordenada por año descendente, o null si el tipo no es válido
      */
     @GetMapping("/obtenerPorFecha")
-    public <T extends Metraje> List<T> obtenerPorFecha(TipoMetraje tipoMetraje) {
+    public List<Metraje> obtenerPorFecha(TipoMetraje tipoMetraje) {
         return serviceMetraje.obtenerPorFecha(tipoMetraje);
     }
 

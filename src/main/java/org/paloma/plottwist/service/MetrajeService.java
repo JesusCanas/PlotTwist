@@ -72,11 +72,13 @@ public class MetrajeService {
      * hara la consulta para la coleccion que decidamos
      * según la clase
      * 
-     * @param <T>   Generíco para que java sepa que T tiene que ser un metraje
-     * @param clase Tipo que queremos: Pelicula.class | Serie.class
+     * @param tipoMetraje Tipo que queremos: Pelicula.class | Serie.class
      * @return Una lista con todos los datos de la colección especificada
      */
-    public <T extends Metraje> List<T> obtenerUnTipoMetrajes(Class<T> clase) {
+    public <T extends Metraje> List<T> obtenerUnTipoMetrajes(TipoMetraje tipoMetraje) {
+        Class<T> clase;
+
+        clase = (Class<T>) (tipoMetraje == TipoMetraje.PELICULA ? Pelicula.class : Serie.class);
         return mongoTemplate.findAll(clase);
     }
 
@@ -98,18 +100,22 @@ public class MetrajeService {
      * Hay que tener en cuenta que estos métodos no son necesarios. Si no pones uno,
      * simplemente se ignorará
      * 
-     * @param <T>
-     * @param clase      Pelicula.class | Serie.class
-     * @param nombre     Caracteres que contienen las películas
-     * @param generos    Generos de los metrajes a buscar
-     * @param anio       Año de los metrajes
-     * @param valoracion Valoración de los metrajes
+     * @param tipoMetraje Pelicula.class | Serie.class
+     * @param nombre      Caracteres que contienen las películas
+     * @param generos     Generos de los metrajes a buscar
+     * @param anio        Año de los metrajes
+     * @param valoracion  Valoración de los metrajes
      * @return Una lista con metrajes de un tipo con los filtros especificados
      */
-    public <T extends Metraje> List<T> obtenerMetrajesFiltrados(Class<T> clase, String nombre, List<Genero> generos,
+    public <T extends Metraje> List<T> obtenerMetrajesFiltrados(TipoMetraje tipoMetraje, String nombre,
+            List<Genero> generos,
             Integer anio,
             Double valoracion) {
+
+        Class<T> clase;
         Query query = new Query();
+
+        clase = (Class<T>) (tipoMetraje == TipoMetraje.PELICULA ? Pelicula.class : Serie.class);
 
         if (nombre != null) {
             query.addCriteria(Criteria.where("titulo").regex(nombre, "i"));
@@ -146,8 +152,8 @@ public class MetrajeService {
             Double valoracion) {
         ArrayList<Metraje> metrajesFiltrados = new ArrayList<>();
 
-        metrajesFiltrados.addAll(obtenerMetrajesFiltrados(Pelicula.class, nombre, generos, anio, valoracion));
-        metrajesFiltrados.addAll(obtenerMetrajesFiltrados(Serie.class, nombre, generos, anio, valoracion));
+        metrajesFiltrados.addAll(obtenerMetrajesFiltrados(TipoMetraje.PELICULA, nombre, generos, anio, valoracion));
+        metrajesFiltrados.addAll(obtenerMetrajesFiltrados(TipoMetraje.SERIE, nombre, generos, anio, valoracion));
 
         return metrajesFiltrados;
     }
@@ -182,7 +188,6 @@ public class MetrajeService {
      * Ordena la lista de metrajes (PELICULA o SERIE) de mas reciente a mas antigua
      * y la devuelve.
      * 
-     * @param <T>
      * @param tipoMetraje PELICULA o SERIE
      * @return Lista ordenada por fecha
      */
@@ -212,7 +217,9 @@ public class MetrajeService {
             metraje = repositorySerie.findById(idMetraje).orElse(null);
         }
 
-        hidratarMetraje(metraje);
+        if (metraje != null) {
+            hidratarMetraje(metraje);
+        }
 
         return metraje;
     }
