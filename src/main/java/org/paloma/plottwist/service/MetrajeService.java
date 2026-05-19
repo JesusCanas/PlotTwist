@@ -208,7 +208,7 @@ public class MetrajeService {
      */
     public Metraje obtenerDetalles(String idMetraje) {
         Metraje metraje = repositoryPelicula.findById(idMetraje).orElse(null);
-        if (metraje != null) {
+        if (metraje == null) {
             metraje = repositorySerie.findById(idMetraje).orElse(null);
         }
 

@@ -18,7 +18,7 @@
     border: 0.09rem solid #7c4dff;
 }
 
-.detalle-titulo {
+#detalle-titulo {
     margin-top: 1rem;
     font-size: 1.5rem;
     color: #7c4dff;
