@@ -1,569 +1,662 @@
 [
   {
+    "_id": "persona_quentin_tarantino",
     "nombre": "Quentin",
     "apellido": "Tarantino",
     "fechaNacimiento": "1963-03-27",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Quentin Tarantino (Knoxville, 1963) es un aclamado director, guionista y productor estadounidense, conocido por revolucionar el cine independiente de los 90 con su estilo único: diálogos ingeniosos, narrativas no lineales y violencia estilizada. Autodidacta y ex-empleado de videoclub, saltó a la fama con Reservoir Dogs y Pulp Fiction.",
+    "biografia": "Quentin Tarantino (Knoxville, 1963) es un aclamado director, guionista y productor estadounidense, conocido por revolucionar el cine independiente de los 90 con su estilo único: diálogos ingeniosos, narrativas no lineales y violencia estilizada.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/1/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc128"]
+    "idMetrajes": ["pelicula_pulp_fiction_1994"]
   },
   {
-    "nombre": "Leonardo",
-    "apellido": "DiCaprio",
-    "fechaNacimiento": "1974-11-11",
-    "nacionalidad": "Estados Unidos",
-    "biografia": "Leonardo DiCaprio (Los Ángeles, 1974) es uno de los actores más reconocidos de Hollywood, ganador del Oscar por El Renacido. Conocido por sus papeles en Titanic, Inception y El Lobo de Wall Street.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/1/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc12a"]
-  },
-  {
+    "_id": "persona_christopher_nolan",
     "nombre": "Christopher",
     "apellido": "Nolan",
     "fechaNacimiento": "1970-07-30",
     "nacionalidad": "Reino Unido",
-    "biografia": "Christopher Nolan (Londres, 1970) es un director y guionista británico-estadounidense conocido por sus complejas narrativas y espectaculares producciones. Autor de Inception, Interstellar y la trilogía de Batman.",
+    "biografia": "Christopher Nolan (Londres, 1970) es un director y guionista británico-estadounidense conocido por sus complejas narrativas y espectaculares producciones.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/2/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc12a", "69faf9e879601c0e70abc137", "69faf9e879601c0e70abc135"]
+    "idMetrajes": ["pelicula_inception_2010", "pelicula_the_dark_knight_2008", "pelicula_interstellar_2014"]
   },
   {
-    "nombre": "Brad",
-    "apellido": "Pitt",
-    "fechaNacimiento": "1963-12-18",
-    "nacionalidad": "Estados Unidos",
-    "biografia": "Brad Pitt (Oklahoma, 1963) es actor y productor estadounidense, ganador del Oscar por Érase una vez en Hollywood. Reconocido por Fight Club, Se7en y Troya.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/metrajes/personas/actor/2/poster.jpg",
-    "idMetrajes": []
-  },
-  {
+    "_id": "persona_steven_spielberg",
     "nombre": "Steven",
     "apellido": "Spielberg",
     "fechaNacimiento": "1946-12-18",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Steven Spielberg (Cincinnati, 1946) es uno de los directores más influyentes de la historia del cine. Creador de clásicos como Tiburón, E.T., Jurassic Park y La Lista de Schindler.",
+    "biografia": "Steven Spielberg (Cincinnati, 1946) es uno de los directores más influyentes de la historia del cine. Creador de clásicos como Tiburón, E.T. y La Lista de Schindler.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/3/poster.jpg",
-    "idMetrajes": []
+    "idMetrajes": ["pelicula_the_lion_king_1994"]
   },
   {
-    "nombre": "Keanu",
-    "apellido": "Reeves",
-    "fechaNacimiento": "1964-09-02",
-    "nacionalidad": "Canadá",
-    "biografia": "Keanu Reeves (Beirut, 1964) es un actor canadiense conocido mundialmente por su papel de Neo en la saga Matrix y por la saga John Wick.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/3/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc134"]
-  },
-  {
+    "_id": "persona_hayao_miyazaki",
     "nombre": "Hayao",
     "apellido": "Miyazaki",
     "fechaNacimiento": "1941-01-05",
     "nacionalidad": "Japón",
-    "biografia": "Hayao Miyazaki (Tokio, 1941) es el cofundador del Studio Ghibli y uno de los animadores más célebres del mundo. Creador de El viaje de Chihiro, Mi vecino Totoro y El castillo ambulante.",
+    "biografia": "Hayao Miyazaki (Tokio, 1941) es el cofundador del Studio Ghibli y uno de los animadores más célebres del mundo.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/4/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc12b", "69faf9e879601c0e70abc12c", "69faf9e879601c0e70abc12d", "69faf9e879601c0e70abc12e", "69faf9e879601c0e70abc12f"]
+    "idMetrajes": ["pelicula_spirited_away_2001", "pelicula_my_neighbor_totoro_1988", "pelicula_princess_mononoke_1997", "pelicula_howls_moving_castle_2004", "pelicula_the_wind_rises_2013"]
   },
   {
-    "nombre": "Christian",
-    "apellido": "Bale",
-    "fechaNacimiento": "1974-01-30",
-    "nacionalidad": "Reino Unido",
-    "biografia": "Christian Bale (Gales, 1974) es un actor británico conocido por su extrema dedicación a los roles. Famoso por Batman Begins, El Maquinista y La gran apuesta.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/4/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc137"]
-  },
-  {
+    "_id": "persona_martin_scorsese",
     "nombre": "Martin",
     "apellido": "Scorsese",
     "fechaNacimiento": "1942-11-17",
     "nacionalidad": "Estados Unidos",
     "biografia": "Martin Scorsese (Nueva York, 1942) es un director icónico del cine estadounidense. Responsable de obras como Taxi Driver, Goodfellas y El lobo de Wall Street.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/5/poster.jpg",
-    "idMetrajes": []
+    "idMetrajes": ["pelicula_the_departed_2006"]
   },
   {
-    "nombre": "Scarlett",
-    "apellido": "Johansson",
-    "fechaNacimiento": "1984-11-22",
-    "nacionalidad": "Estados Unidos",
-    "biografia": "Scarlett Johansson (Nueva York, 1984) es una de las actrices más taquilleras del mundo. Conocida por su papel de Viuda Negra en el Universo Marvel y por Lost in Translation.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/5/poster.jpg",
-    "idMetrajes": []
-  },
-  {
+    "_id": "persona_peter_jackson",
     "nombre": "Peter",
     "apellido": "Jackson",
     "fechaNacimiento": "1961-10-31",
     "nacionalidad": "Nueva Zelanda",
-    "biografia": "Peter Jackson (Nueva Zelanda, 1961) es el director de la trilogía de El Señor de los Anillos y El Hobbit, revolucionando el cine de fantasía épica.",
+    "biografia": "Peter Jackson (Nueva Zelanda, 1961) es el director de la trilogía de El Señor de los Anillos y El Hobbit.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/6/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc138"]
+    "idMetrajes": ["pelicula_the_lord_of_the_rings_the_fellowship_of_the_ring_2001"]
   },
   {
-    "nombre": "Bryan",
-    "apellido": "Cranston",
-    "fechaNacimiento": "1956-03-07",
-    "nacionalidad": "Estados Unidos",
-    "biografia": "Bryan Cranston (Hollywood, 1956) es un actor estadounidense mundialmente reconocido por su papel de Walter White en Breaking Bad, uno de los personajes más icónicos de la televisión.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/6/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13c"]
-  },
-  {
+    "_id": "persona_david_fincher",
     "nombre": "David",
     "apellido": "Fincher",
     "fechaNacimiento": "1962-08-28",
     "nacionalidad": "Estados Unidos",
     "biografia": "David Fincher (Denver, 1962) es un director estadounidense conocido por su estilo oscuro y meticuloso. Autor de Seven, El club de la lucha y La red social.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/7/poster.jpg",
-    "idMetrajes": []
+    "idMetrajes": ["pelicula_the_dark_knight_2008"]
   },
   {
-    "nombre": "Benedict",
-    "apellido": "Cumberbatch",
-    "fechaNacimiento": "1976-07-19",
-    "nacionalidad": "Reino Unido",
-    "biografia": "Benedict Cumberbatch (Londres, 1976) es un actor británico conocido por interpretar a Sherlock Holmes en la serie Sherlock y al Doctor Strange en el Universo Marvel.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/7/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14c"]
-  },
-  {
+    "_id": "persona_denis_villeneuve",
     "nombre": "Denis",
     "apellido": "Villeneuve",
     "fechaNacimiento": "1967-10-03",
     "nacionalidad": "Canadá",
-    "biografia": "Denis Villeneuve (Quebec, 1967) es un director canadiense reconocido por sus obras de ciencia ficción como Arrival, Blade Runner 2049 y Dune.",
+    "biografia": "Denis Villeneuve (Quebec, 1967) es un director canadiense reconocido por Arrival, Blade Runner 2049 y Dune.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/8/poster.jpg",
-    "idMetrajes": []
+    "idMetrajes": ["pelicula_interstellar_2014"]
   },
   {
-    "nombre": "Pedro",
-    "apellido": "Pascal",
-    "fechaNacimiento": "1975-04-02",
-    "nacionalidad": "Chile",
-    "biografia": "Pedro Pascal (Santiago de Chile, 1975) es un actor chileno-estadounidense conocido por The Mandalorian, The Last of Us y Game of Thrones.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/8/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc145"]
-  },
-  {
+    "_id": "persona_james_cameron",
     "nombre": "James",
     "apellido": "Cameron",
     "fechaNacimiento": "1954-08-16",
     "nacionalidad": "Canadá",
-    "biografia": "James Cameron (Ontario, 1954) es un director y productor canadiense conocido por dirigir las películas más taquilleras de la historia: Titanic y Avatar.",
+    "biografia": "James Cameron (Ontario, 1954) es un director y productor canadiense conocido por Titanic y Avatar.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/9/poster.jpg",
-    "idMetrajes": []
+    "idMetrajes": ["pelicula_the_lord_of_the_rings_the_fellowship_of_the_ring_2001"]
   },
   {
-    "nombre": "Emma",
-    "apellido": "Stone",
-    "fechaNacimiento": "1988-11-06",
-    "nacionalidad": "Estados Unidos",
-    "biografia": "Emma Stone (Arizona, 1988) es una actriz estadounidense ganadora del Oscar por La La Land. Reconocida también por Birdman y Poor Things.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/9/poster.jpg",
-    "idMetrajes": []
-  },
-  {
+    "_id": "persona_ridley_scott",
     "nombre": "Ridley",
     "apellido": "Scott",
     "fechaNacimiento": "1937-11-30",
     "nacionalidad": "Reino Unido",
-    "biografia": "Ridley Scott (South Shields, 1937) es un director británico autor de películas icónicas como Alien, Blade Runner, Gladiator y The Martian.",
+    "biografia": "Ridley Scott (South Shields, 1937) es un director británico autor de Alien, Blade Runner y Gladiator.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/10/poster.jpg",
-    "idMetrajes": []
+    "idMetrajes": ["pelicula_the_matrix_1999"]
   },
   {
-    "nombre": "Tom",
-    "apellido": "Holland",
-    "fechaNacimiento": "1996-06-01",
-    "nacionalidad": "Reino Unido",
-    "biografia": "Tom Holland (Londres, 1996) es un actor británico conocido mundialmente por interpretar a Spider-Man en el Universo Marvel y por su papel en Uncharted.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/10/poster.jpg",
-    "idMetrajes": []
-  },
-   {
+    "_id": "persona_edward_zwick",
     "nombre": "Edward",
     "apellido": "Zwick",
     "fechaNacimiento": "1952-10-08",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Edward Zwick (Illinois, 1952) es un director y productor estadounidense conocido por películas épicas como El último samurái, Diamante de sangre y Glory.",
+    "biografia": "Edward Zwick (Illinois, 1952) es un director conocido por El último samurái y Diamante de sangre.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/11/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc129"]
+    "idMetrajes": ["pelicula_el_ultimo_samurai_2003"]
   },
   {
+    "_id": "persona_katsuhiro_otomo",
     "nombre": "Katsuhiro",
     "apellido": "Otomo",
     "fechaNacimiento": "1954-04-14",
     "nacionalidad": "Japón",
-    "biografia": "Katsuhiro Otomo (Miyagi, 1954) es un mangaka y director japonés, mundialmente conocido por crear Akira, obra que revolucionó el anime y el manga de ciencia ficción.",
+    "biografia": "Katsuhiro Otomo (Miyagi, 1954) es conocido por crear Akira.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/12/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc130"]
+    "idMetrajes": ["pelicula_akira_1988"]
   },
   {
+    "_id": "persona_roger_allers",
     "nombre": "Roger",
     "apellido": "Allers",
     "fechaNacimiento": "1949-06-29",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Roger Allers (Nueva York, 1949) es un director estadounidense conocido por codirigir El Rey León, uno de los grandes clásicos de la animación de Disney.",
+    "biografia": "Roger Allers (Nueva York, 1949) es conocido por codirigir El Rey León.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/13/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc131"]
+    "idMetrajes": ["pelicula_the_lion_king_1994"]
   },
   {
+    "_id": "persona_john_lasseter",
     "nombre": "John",
     "apellido": "Lasseter",
     "fechaNacimiento": "1957-01-12",
     "nacionalidad": "Estados Unidos",
-    "biografia": "John Lasseter (Hollywood, 1957) es el director y cofundador creativo de Pixar. Dirigió Toy Story, la primera película de animación completamente digital de la historia.",
+    "biografia": "John Lasseter (Hollywood, 1957) es el cofundador creativo de Pixar y director de Toy Story.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/14/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc132"]
+    "idMetrajes": ["pelicula_toy_story_1995"]
   },
   {
+    "_id": "persona_peter_ramsey",
     "nombre": "Peter",
     "apellido": "Ramsey",
     "fechaNacimiento": "1962-05-16",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Peter Ramsey (Los Ángeles, 1962) es un director estadounidense conocido por codirigir Spider-Man: Un nuevo universo, ganadora del Oscar a mejor película de animación.",
+    "biografia": "Peter Ramsey (Los Ángeles, 1962) es conocido por Spider-Man: Un nuevo universo.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/15/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc133"]
+    "idMetrajes": ["pelicula_spider_man_into_the_spider_verse_2018"]
   },
   {
+    "_id": "persona_lana_wachowski",
     "nombre": "Lana",
     "apellido": "Wachowski",
     "fechaNacimiento": "1965-06-21",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Lana Wachowski (Chicago, 1965) es directora y guionista estadounidense, conocida por la saga Matrix y Cloud Atlas. Una de las figuras más innovadoras del cine de ciencia ficción.",
+    "biografia": "Lana Wachowski (Chicago, 1965) es conocida por la saga Matrix.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/16/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc134"]
+    "idMetrajes": ["pelicula_the_matrix_1999"]
   },
   {
+    "_id": "persona_makoto_shinkai",
     "nombre": "Makoto",
     "apellido": "Shinkai",
     "fechaNacimiento": "1973-02-09",
     "nacionalidad": "Japón",
-    "biografia": "Makoto Shinkai (Nagano, 1973) es un director japonés conocido por sus impresionantes animaciones y emotivas historias. Autor de Your Name y El tiempo contigo.",
+    "biografia": "Makoto Shinkai (Nagano, 1973) es conocido por Your Name.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/17/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc136"]
+    "idMetrajes": ["pelicula_your_name_2016"]
   },
   {
+    "_id": "persona_lee_unkrich",
     "nombre": "Lee",
     "apellido": "Unkrich",
     "fechaNacimiento": "1967-08-08",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Lee Unkrich (Ohio, 1967) es un director y editor de Pixar, conocido por codirigir Toy Story 2 y 3, y por dirigir Coco, ganadora del Oscar a mejor película de animación.",
+    "biografia": "Lee Unkrich (Ohio, 1967) es conocido por Coco y Toy Story 3.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/18/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc139"]
+    "idMetrajes": ["pelicula_coco_2017"]
   },
   {
+    "_id": "persona_sheldon_lettich",
     "nombre": "Sheldon",
     "apellido": "Lettich",
     "fechaNacimiento": "1952-01-01",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Sheldon Lettich es un director y guionista estadounidense conocido por sus colaboraciones con Jean-Claude Van Damme, incluyendo Lionheart y Double Impact.",
+    "biografia": "Sheldon Lettich es conocido por Lionheart y Double Impact.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/19/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc13a"]
+    "idMetrajes": ["pelicula_lionheart_1990"]
   },
   {
+    "_id": "persona_peter_weir",
     "nombre": "Peter",
     "apellido": "Weir",
     "fechaNacimiento": "1944-08-21",
     "nacionalidad": "Australia",
-    "biografia": "Peter Weir (Sídney, 1944) es un director australiano autor de clásicos como El show de Truman, El club de los poetas muertos y Witness.",
+    "biografia": "Peter Weir (Sídney, 1944) es conocido por El show de Truman.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/20/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc13b"]
+    "idMetrajes": ["pelicula_el_show_de_truman_1998"]
   },
   {
+    "_id": "persona_vince_gilligan",
     "nombre": "Vince",
     "apellido": "Gilligan",
     "fechaNacimiento": "1967-02-10",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Vince Gilligan (Virginia, 1967) es el creador de Breaking Bad y Better Call Saul, dos de las series más aclamadas de la historia de la televisión.",
+    "biografia": "Vince Gilligan (Virginia, 1967) es el creador de Breaking Bad y Better Call Saul.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/21/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13c", "69fafa6279601c0e70abc147"]
+    "idMetrajes": ["serie_breaking_bad_2008", "serie_better_call_saul_2015"]
   },
   {
+    "_id": "persona_matt_duffer",
     "nombre": "Matt",
     "apellido": "Duffer",
     "fechaNacimiento": "1984-02-15",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Matt y Ross Duffer, conocidos como los Duffer Brothers, son los creadores de Stranger Things, la exitosa serie de ciencia ficción y terror de Netflix.",
+    "biografia": "Matt y Ross Duffer son los creadores de Stranger Things.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/22/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13d"]
+    "idMetrajes": ["serie_stranger_things_2016"]
   },
   {
+    "_id": "persona_baran_bo_odar",
     "nombre": "Baran bo",
     "apellido": "Odar",
     "fechaNacimiento": "1978-04-18",
     "nacionalidad": "Alemania",
-    "biografia": "Baran bo Odar es un director alemán conocido por crear junto a Jantje Friese la serie Dark, aclamada producción de ciencia ficción y misterio de Netflix.",
+    "biografia": "Baran bo Odar es conocido por crear la serie Dark.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/23/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13f"]
+    "idMetrajes": ["serie_dark_2017"]
   },
   {
+    "_id": "persona_greg_daniels",
     "nombre": "Greg",
     "apellido": "Daniels",
     "fechaNacimiento": "1963-07-13",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Greg Daniels (Nueva York, 1963) es guionista y productor conocido por adaptar The Office para la televisión americana y por crear Parks and Recreation.",
+    "biografia": "Greg Daniels (Nueva York, 1963) es conocido por adaptar The Office.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/24/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc140"]
+    "idMetrajes": ["serie_the_office_2005"]
   },
   {
+    "_id": "persona_david_crane",
     "nombre": "David",
     "apellido": "Crane",
     "fechaNacimiento": "1957-08-13",
     "nacionalidad": "Estados Unidos",
-    "biografia": "David Crane es un guionista y productor estadounidense, cocreador junto a Marta Kauffman de Friends, una de las sitcoms más populares de todos los tiempos.",
+    "biografia": "David Crane es cocreador de Friends.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/25/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc141"]
+    "idMetrajes": ["serie_friends_1994"]
   },
   {
+    "_id": "persona_alex_pina",
     "nombre": "Álex",
     "apellido": "Pina",
     "fechaNacimiento": "1971-03-05",
     "nacionalidad": "España",
-    "biografia": "Álex Pina (España, 1971) es el creador de La Casa de Papel, la primera serie española en ganar el Emmy Internacional y en convertirse en fenómeno mundial en Netflix.",
+    "biografia": "Álex Pina (España, 1971) es el creador de La Casa de Papel.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/26/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc142"]
+    "idMetrajes": ["serie_la_casa_de_papel_2017"]
   },
   {
+    "_id": "persona_charlie_brooker",
     "nombre": "Charlie",
     "apellido": "Brooker",
     "fechaNacimiento": "1971-03-03",
     "nacionalidad": "Reino Unido",
-    "biografia": "Charlie Brooker (Berkshire, 1971) es el creador de Black Mirror, una antología de ciencia ficción que explora los peligros de la tecnología moderna en la sociedad.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/director/27/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc143"]
+    "biografia": "Charlie Brooker (Berkshire, 1971) es el creador de Black Mirror.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/27/poster.jpg",
+    "idMetrajes": ["serie_black_mirror_2011"]
   },
   {
+    "_id": "persona_chris_brancato",
     "nombre": "Chris",
     "apellido": "Brancato",
     "fechaNacimiento": "1966-01-01",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Chris Brancato es un guionista y productor estadounidense, cocreador de Narcos, la popular serie de Netflix sobre los carteles de droga colombianos.",
+    "biografia": "Chris Brancato es cocreador de Narcos.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/28/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc144"]
+    "idMetrajes": ["serie_narcos_2015"]
   },
   {
+    "_id": "persona_jon_favreau",
     "nombre": "Jon",
     "apellido": "Favreau",
     "fechaNacimiento": "1966-10-19",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Jon Favreau (Queens, 1966) es actor, director y productor estadounidense. Creador de The Mandalorian y director de Iron Man, pionero del Universo Cinematográfico Marvel.",
+    "biografia": "Jon Favreau (Queens, 1966) es creador de The Mandalorian y director de Iron Man.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/29/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc145"]
+    "idMetrajes": ["serie_the_mandalorian_2019"]
   },
   {
+    "_id": "persona_steven_knight",
     "nombre": "Steven",
     "apellido": "Knight",
     "fechaNacimiento": "1959-08-05",
     "nacionalidad": "Reino Unido",
-    "biografia": "Steven Knight (Birmingham, 1959) es guionista y director británico, creador de Peaky Blinders y autor de los guiones de Dirty Pretty Things y Eastern Promises.",
+    "biografia": "Steven Knight (Birmingham, 1959) es el creador de Peaky Blinders.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/30/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc146"]
+    "idMetrajes": ["serie_peaky_blinders_2013"]
   },
   {
+    "_id": "persona_eric_kripke",
     "nombre": "Eric",
     "apellido": "Kripke",
     "fechaNacimiento": "1974-04-24",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Eric Kripke (Ohio, 1974) es guionista y productor estadounidense, creador de The Boys y Supernatural, dos de las series más populares de la televisión reciente.",
+    "biografia": "Eric Kripke (Ohio, 1974) es el creador de The Boys y Supernatural.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/31/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc148"]
+    "idMetrajes": ["serie_the_boys_2019"]
   },
   {
+    "_id": "persona_michael_hirst",
     "nombre": "Michael",
     "apellido": "Hirst",
     "fechaNacimiento": "1952-01-01",
     "nacionalidad": "Reino Unido",
-    "biografia": "Michael Hirst es un guionista y productor británico conocido por crear Vikings y por escribir los guiones de Elizabeth y The Tudors.",
+    "biografia": "Michael Hirst es el creador de Vikings.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/32/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc149"]
+    "idMetrajes": ["serie_vikings_2013"]
   },
   {
+    "_id": "persona_ryan_condal",
     "nombre": "Ryan",
     "apellido": "Condal",
     "fechaNacimiento": "1980-01-01",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Ryan Condal es un guionista y productor estadounidense, cocreador de House of the Dragon, la precuela de Game of Thrones ambientada en la Casa Targaryen.",
+    "biografia": "Ryan Condal es cocreador de House of the Dragon.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/33/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14a"]
+    "idMetrajes": ["serie_house_of_the_dragon_2022"]
   },
   {
+    "_id": "persona_steven_moffat",
     "nombre": "Steven",
     "apellido": "Moffat",
     "fechaNacimiento": "1961-11-18",
     "nacionalidad": "Reino Unido",
-    "biografia": "Steven Moffat (Paisley, 1961) es guionista británico cocreador de Sherlock junto a Mark Gatiss, y también showrunner de Doctor Who durante varios años.",
+    "biografia": "Steven Moffat (Paisley, 1961) es cocreador de Sherlock.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/34/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14c"]
+    "idMetrajes": ["serie_sherlock_2010"]
   },
   {
+    "_id": "persona_sam_levinson",
     "nombre": "Sam",
     "apellido": "Levinson",
     "fechaNacimiento": "1985-01-01",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Sam Levinson es un director y guionista estadounidense, creador de Euphoria, la aclamada serie de HBO sobre la vida de adolescentes y sus problemas emocionales.",
+    "biografia": "Sam Levinson es el creador de Euphoria.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/35/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14d"]
+    "idMetrajes": ["serie_euphoria_2019"]
   },
   {
+    "_id": "persona_peter_morgan",
     "nombre": "Peter",
     "apellido": "Morgan",
     "fechaNacimiento": "1963-04-10",
     "nacionalidad": "Reino Unido",
-    "biografia": "Peter Morgan (Londres, 1963) es guionista y productor británico, creador de The Crown, la serie sobre el reinado de Isabel II, y autor de Frost/Nixon y The Queen.",
+    "biografia": "Peter Morgan (Londres, 1963) es el creador de The Crown.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/36/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14e"]
+    "idMetrajes": ["serie_the_crown_2016"]
   },
   {
+    "_id": "persona_david_shore",
     "nombre": "David",
     "apellido": "Shore",
     "fechaNacimiento": "1959-07-03",
     "nacionalidad": "Canadá",
-    "biografia": "David Shore (Ontario, 1959) es guionista y productor canadiense, creador de House M.D., la aclamada serie médica protagonizada por Hugh Laurie.",
+    "biografia": "David Shore (Ontario, 1959) es el creador de House M.D.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/37/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14f"]
+    "idMetrajes": ["serie_house_md_2004"]
   },
   {
+    "_id": "persona_matt_groening",
     "nombre": "Matt",
     "apellido": "Groening",
     "fechaNacimiento": "1954-02-15",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Matt Groening (Portland, 1954) es el creador de Los Simpson y Futurama, dos de las series animadas más influyentes y longevas de la historia de la televisión.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.coms/personas/director/38/poster.jpg",
-    "idMetrajes": ["69fb1a9c2a53a76bbfabc114"]
+    "biografia": "Matt Groening (Portland, 1954) es el creador de Los Simpson y Futurama.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/director/38/poster.jpg",
+    "idMetrajes": ["serie_futurama_1999"]
   },
   {
+    "_id": "persona_leonardo_dicaprio",
+    "nombre": "Leonardo",
+    "apellido": "DiCaprio",
+    "fechaNacimiento": "1974-11-11",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Leonardo DiCaprio (Los Ángeles, 1974) es uno de los actores más reconocidos de Hollywood, ganador del Oscar por El Renacido.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/1/poster.jpg",
+    "idMetrajes": ["pelicula_inception_2010"]
+  },
+  {
+    "_id": "persona_samuel_l_jackson",
+    "nombre": "Samuel L.",
+    "apellido": "Jackson",
+    "fechaNacimiento": "1948-12-21",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Samuel L. Jackson es uno de los actores más taquilleros de la historia, conocido por Pulp Fiction, Los vengadores y Django desencadenado.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/2/poster.jpg",
+    "idMetrajes": ["pelicula_pulp_fiction_1994"]
+  },
+  {
+    "_id": "persona_tom_hardy",
+    "nombre": "Tom",
+    "apellido": "Hardy",
+    "fechaNacimiento": "1977-09-15",
+    "nacionalidad": "Reino Unido",
+    "biografia": "Actor británico conocido por Inception, Mad Max: Fury Road y Venom.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/3/poster.jpg",
+    "idMetrajes": ["pelicula_inception_2010"]
+  },
+  {
+    "_id": "persona_ken_watanabe",
+    "nombre": "Ken",
+    "apellido": "Watanabe",
+    "fechaNacimiento": "1959-10-21",
+    "nacionalidad": "Japón",
+    "biografia": "Actor japonés conocido por Inception, El último samurái y Godzilla.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/4/poster.jpg",
+    "idMetrajes": ["pelicula_inception_2010"]
+  },
+  {
+    "_id": "persona_elliot_page",
+    "nombre": "Elliot",
+    "apellido": "Page",
+    "fechaNacimiento": "1987-02-21",
+    "nacionalidad": "Canadá",
+    "biografia": "Actor conocido por Inception, Juno y The Umbrella Academy.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/5/poster.jpg",
+    "idMetrajes": ["pelicula_inception_2010"]
+  },
+  {
+    "_id": "persona_john_travolta",
     "nombre": "John",
     "apellido": "Travolta",
     "fechaNacimiento": "1954-02-18",
     "nacionalidad": "Estados Unidos",
-    "biografia": "John Travolta (Nueva Jersey, 1954) es un actor y bailarín estadounidense conocido por sus papeles en Pulp Fiction, Fiebre del sábado noche y Grease.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/11/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc128"]
+    "biografia": "John Travolta (Nueva Jersey, 1954) es un actor y bailarín estadounidense conocido por Pulp Fiction, Fiebre del sábado noche y Grease.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/6/poster.jpg",
+    "idMetrajes": ["pelicula_pulp_fiction_1994"]
   },
   {
+    "_id": "persona_benedict_cumberbatch",
+    "nombre": "Benedict",
+    "apellido": "Cumberbatch",
+    "fechaNacimiento": "1976-07-19",
+    "nacionalidad": "Reino Unido",
+    "biografia": "Benedict Cumberbatch (Londres, 1976) es un actor británico conocido por Sherlock y Doctor Strange.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/7/poster.jpg",
+    "idMetrajes": ["serie_sherlock_2010"]
+  },
+  {
+    "_id": "persona_uma_thurman",
     "nombre": "Uma",
     "apellido": "Thurman",
     "fechaNacimiento": "1970-04-29",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Uma Thurman (Boston, 1970) es una actriz estadounidense conocida por sus colaboraciones con Quentin Tarantino en Pulp Fiction y Kill Bill.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/12/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc128"]
+    "biografia": "Uma Thurman (Boston, 1970) es una actriz conocida por Pulp Fiction y Kill Bill.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/8/poster.jpg",
+    "idMetrajes": ["pelicula_pulp_fiction_1994"]
   },
   {
-    "nombre": "Tom",
-    "apellido": "Cruise",
-    "fechaNacimiento": "1962-07-03",
+    "_id": "persona_steve_carell",
+    "nombre": "Steve",
+    "apellido": "Carell",
+    "fechaNacimiento": "1962-08-16",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Tom Cruise (Nueva York, 1962) es uno de los actores más taquilleros de Hollywood, conocido por la saga Misión Imposible, Top Gun y El último samurái.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/13/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc129"]
+    "biografia": "Actor y comediante conocido por interpretar a Michael Scott en The Office.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/9/poster.jpg",
+    "idMetrajes": ["serie_the_office_2005"]
   },
   {
+    "_id": "persona_rainn_wilson",
+    "nombre": "Rainn",
+    "apellido": "Wilson",
+    "fechaNacimiento": "1966-01-20",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Actor conocido por interpretar a Dwight Schrute en The Office.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/10/poster.jpg",
+    "idMetrajes": ["serie_the_office_2005"]
+  },
+  {
+    "_id": "persona_heath_ledger",
     "nombre": "Heath",
     "apellido": "Ledger",
     "fechaNacimiento": "1979-04-04",
     "nacionalidad": "Australia",
-    "biografia": "Heath Ledger (Perth, 1979) fue un actor australiano cuya interpretación del Joker en The Dark Knight le valió un Oscar póstumo. Considerado uno de los mejores actores de su generación.",
-    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/14/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc137"]
+    "biografia": "Heath Ledger (Perth, 1979) fue un actor australiano ganador del Oscar póstumo por The Dark Knight.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/11/poster.jpg",
+    "idMetrajes": ["pelicula_the_dark_knight_2008"]
   },
   {
+    "_id": "persona_tom_cruise",
+    "nombre": "Tom",
+    "apellido": "Cruise",
+    "fechaNacimiento": "1962-07-03",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Tom Cruise (Nueva York, 1962) es uno de los actores más taquilleros de Hollywood.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/13/poster.jpg",
+    "idMetrajes": ["pelicula_el_ultimo_samurai_2003"]
+  },
+  {
+    "_id": "persona_christian_bale",
+    "nombre": "Christian",
+    "apellido": "Bale",
+    "fechaNacimiento": "1974-01-30",
+    "nacionalidad": "Reino Unido",
+    "biografia": "Christian Bale (Gales, 1974) es un actor británico conocido por Batman Begins y El Maquinista.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/14/poster.jpg",
+    "idMetrajes": ["pelicula_the_dark_knight_2008"]
+  },
+  {
+    "_id": "persona_matthew_mcconaughey",
     "nombre": "Matthew",
     "apellido": "McConaughey",
     "fechaNacimiento": "1969-11-04",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Matthew McConaughey (Texas, 1969) es un actor estadounidense ganador del Oscar por Dallas Buyers Club. Conocido por Interstellar, True Detective y El lobo de Wall Street.",
+    "biografia": "Matthew McConaughey (Texas, 1969) es un actor ganador del Oscar conocido por Interstellar y True Detective.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/15/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc135"]
+    "idMetrajes": ["pelicula_interstellar_2014"]
   },
   {
+    "_id": "persona_jim_carrey",
     "nombre": "Jim",
     "apellido": "Carrey",
     "fechaNacimiento": "1962-01-17",
     "nacionalidad": "Canadá",
-    "biografia": "Jim Carrey (Ontario, 1962) es un actor y comediante canadiense conocido por El show de Truman, The Mask, Eterno resplandor de una mente sin recuerdos y la saga Ace Ventura.",
+    "biografia": "Jim Carrey (Ontario, 1962) es un actor y comediante conocido por El show de Truman y The Mask.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/16/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc13b"]
+    "idMetrajes": ["pelicula_el_show_de_truman_1998"]
   },
   {
+    "_id": "persona_jean_claude_van_damme",
     "nombre": "Jean-Claude",
     "apellido": "Van Damme",
     "fechaNacimiento": "1960-10-18",
     "nacionalidad": "Bélgica",
-    "biografia": "Jean-Claude Van Damme (Bruselas, 1960) es un actor y artista marcial belga conocido como 'El músculo de Bruselas'. Protagonista de Lionheart, Double Impact y Timecop.",
+    "biografia": "Jean-Claude Van Damme (Bruselas, 1960) es un actor y artista marcial belga conocido por Lionheart y Timecop.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/17/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc13a"]
+    "idMetrajes": ["pelicula_lionheart_1990"]
   },
   {
+    "_id": "persona_aaron_paul",
     "nombre": "Aaron",
     "apellido": "Paul",
     "fechaNacimiento": "1979-08-27",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Aaron Paul (Idaho, 1979) es un actor estadounidense conocido mundialmente por su papel de Jesse Pinkman en Breaking Bad, rol que le valió tres Emmy.",
+    "biografia": "Aaron Paul (Idaho, 1979) es conocido por su papel de Jesse Pinkman en Breaking Bad.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/18/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13c"]
+    "idMetrajes": ["serie_breaking_bad_2008"]
   },
   {
+    "_id": "persona_emilia_clarke",
     "nombre": "Emilia",
     "apellido": "Clarke",
     "fechaNacimiento": "1986-10-23",
     "nacionalidad": "Reino Unido",
-    "biografia": "Emilia Clarke (Londres, 1986) es una actriz británica conocida mundialmente por interpretar a Daenerys Targaryen en Game of Thrones.",
+    "biografia": "Emilia Clarke (Londres, 1986) es conocida por interpretar a Daenerys Targaryen en Game of Thrones.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/19/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13e"]
+    "idMetrajes": ["serie_game_of_thrones_2011"]
   },
   {
+    "_id": "persona_millie_bobby_brown",
     "nombre": "Millie Bobby",
     "apellido": "Brown",
     "fechaNacimiento": "2004-02-19",
     "nacionalidad": "Reino Unido",
-    "biografia": "Millie Bobby Brown (Marbella, 2004) es una actriz británica conocida por interpretar a Eleven en Stranger Things, convirtiéndose en una de las jóvenes más reconocidas de Hollywood.",
+    "biografia": "Millie Bobby Brown (Marbella, 2004) es conocida por interpretar a Eleven en Stranger Things.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/20/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc13d"]
+    "idMetrajes": ["serie_stranger_things_2016"]
   },
   {
+    "_id": "persona_cillian_murphy",
     "nombre": "Cillian",
     "apellido": "Murphy",
     "fechaNacimiento": "1976-05-25",
     "nacionalidad": "Irlanda",
-    "biografia": "Cillian Murphy (Cork, 1976) es un actor irlandés ganador del Oscar por Oppenheimer. Conocido por su papel de Tommy Shelby en Peaky Blinders.",
+    "biografia": "Cillian Murphy (Cork, 1976) es un actor ganador del Oscar por Oppenheimer y conocido por Peaky Blinders.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/21/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc146"]
+    "idMetrajes": ["serie_peaky_blinders_2013"]
   },
   {
+    "_id": "persona_hugh_laurie",
     "nombre": "Hugh",
     "apellido": "Laurie",
     "fechaNacimiento": "1959-06-11",
     "nacionalidad": "Reino Unido",
-    "biografia": "Hugh Laurie (Oxford, 1959) es un actor, comediante y músico británico mundialmente reconocido por su papel del Dr. Gregory House en House M.D.",
+    "biografia": "Hugh Laurie (Oxford, 1959) es conocido por su papel del Dr. Gregory House en House M.D.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/22/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14f"]
+    "idMetrajes": ["serie_house_md_2004"]
   },
   {
+    "_id": "persona_zendaya",
     "nombre": "Zendaya",
     "apellido": "Coleman",
     "fechaNacimiento": "1996-09-01",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Zendaya (Oakland, 1996) es una actriz y cantante estadounidense conocida por Euphoria, la saga Spider-Man y Dune. Una de las artistas más influyentes de su generación.",
+    "biografia": "Zendaya (Oakland, 1996) es una actriz conocida por Euphoria, Spider-Man y Dune.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/23/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc14d"]
+    "idMetrajes": ["serie_euphoria_2019"]
   },
   {
+    "_id": "persona_alvaro_morte",
     "nombre": "Álvaro",
     "apellido": "Morte",
     "fechaNacimiento": "1975-02-23",
     "nacionalidad": "España",
-    "biografia": "Álvaro Morte (Algeciras, 1975) es un actor español conocido mundialmente por interpretar al Profesor en La Casa de Papel, la exitosa serie española de Netflix.",
+    "biografia": "Álvaro Morte (Algeciras, 1975) es conocido por interpretar al Profesor en La Casa de Papel.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/24/poster.jpg",
-    "idMetrajes": ["69fafa6279601c0e70abc142"]
+    "idMetrajes": ["serie_la_casa_de_papel_2017"]
   },
   {
+    "_id": "persona_viggo_mortensen",
     "nombre": "Viggo",
     "apellido": "Mortensen",
     "fechaNacimiento": "1958-10-20",
     "nacionalidad": "Estados Unidos",
-    "biografia": "Viggo Mortensen (Nueva York, 1958) es un actor estadounidense conocido por interpretar a Aragorn en la trilogía de El Señor de los Anillos.",
+    "biografia": "Viggo Mortensen (Nueva York, 1958) es conocido por interpretar a Aragorn en El Señor de los Anillos.",
     "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/25/poster.jpg",
-    "idMetrajes": ["69faf9e879601c0e70abc138"]
+    "idMetrajes": ["pelicula_the_lord_of_the_rings_the_fellowship_of_the_ring_2001"]
+  },
+  {
+    "_id": "persona_joseph_gordon_levitt",
+    "nombre": "Joseph",
+    "apellido": "Gordon-Levitt",
+    "fechaNacimiento": "1981-02-17",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Actor conocido por Inception, 500 días juntos y Looper.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/26/poster.jpg",
+    "idMetrajes": ["pelicula_inception_2010"]
+  },
+  {
+    "_id": "persona_bryan_cranston",
+    "nombre": "Bryan",
+    "apellido": "Cranston",
+    "fechaNacimiento": "1956-03-07",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Bryan Cranston (Hollywood, 1956) es un actor reconocido por su papel de Walter White en Breaking Bad.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/18/poster.jpg",
+    "idMetrajes": ["serie_breaking_bad_2008"]
+  },
+  {
+    "_id": "persona_pedro_pascal",
+    "nombre": "Pedro",
+    "apellido": "Pascal",
+    "fechaNacimiento": "1975-04-02",
+    "nacionalidad": "Chile",
+    "biografia": "Pedro Pascal (Santiago de Chile, 1975) es conocido por The Mandalorian y The Last of Us.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/8/poster.jpg",
+    "idMetrajes": ["serie_the_mandalorian_2019"]
+  },
+  {
+    "_id": "persona_john_krasinski",
+    "nombre": "John",
+    "apellido": "Krasinski",
+    "fechaNacimiento": "1979-10-20",
+    "nacionalidad": "Estados Unidos",
+    "biografia": "Actor conocido por interpretar a Jim Halpert en The Office.",
+    "imagen": "https://proyecto-plottwist.s3.us-east-1.amazonaws.com/personas/actor/7/poster.jpg",
+    "idMetrajes": ["serie_the_office_2005"]
   }
 ]

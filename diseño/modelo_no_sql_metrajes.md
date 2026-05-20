@@ -9,7 +9,8 @@ Se trata de un modelo polimórfico, donde todos los documentos comparten una est
 ---
 
 ## 🎬 Películas
-### 🔹 Atributos base (Metraje)
+### 🔹 Atributos base 
+- `_id`: El id se pone de forma forzada y no el automático de mongo de bien al resultar más facil a la hora de manipulación de datos. El id será pelicula_titulo_año
 - `titulo`: Nombre del contenido
 - `anyo`: Año de lanzamiento
 - `genero`: Será una lista de los posibles géneros al que pertenece
@@ -23,12 +24,13 @@ Se trata de un modelo polimórfico, donde todos los documentos comparten una est
 ### ✔️ Ejemplo de documento (película)
 ```json
 {
+  "_id":"pelicula_inception_2010",
   "titulo": "Inception",
   "anyo": 2010,
   "genero": ["ACCION","CIENCIA FICCION"],
-  "idDirector":"ObjectId('928383838')" ,
-  "idActores":["ObjectId('9283538')","ObjectId('92835433')"],
-  "valoracion": 8.8,
+  "idDirector":"persona_cristopher_nolan" ,
+  "idActores":["persona_leonardo_dicarpio"],
+  "valoracion": 3.8,
   "sinopsis": "Un ladrón que roba secretos a través de los sueños.",
   "imagen": "https://s3.amazonaws.com/bucket/metrajes/peliculas/2/poster.jpg",
   "duracion": 148
@@ -38,6 +40,8 @@ Se trata de un modelo polimórfico, donde todos los documentos comparten una est
 ---
 
 ## 📺 Series
+### 🔹 Atributos base 
+- `_id`: El id se pone de forma forzada y no el automático de mongo de bien al resultar más facil a la hora de manipulación de datos. El id será serie_titulo_año
 - `titulo`: Nombre del contenido
 - `anyo`: Año de lanzamiento
 - `genero`: Será una lista de los posibles géneros al que pertenece
@@ -54,12 +58,13 @@ Se trata de un modelo polimórfico, donde todos los documentos comparten una est
 ### ✔️ Ejemplo de documento (serie)
 ```json
 {
+  "_id":"serie_dark_2017"
   "titulo": "Dark",
   "anyo": 2017,
   "genero": ["ACCION","CIENCIA FICCION"],
   "idDirector":"ObjectId('928383838')" ,
   "idActores":["ObjectId('9283538')","ObjectId('92835433')"],
-  "valoracion": 8.8,
+  "valoracion": 4.8,
   "sinopsis": "Un ladrón que roba secretos a través de los sueños.",
   "imagen": "https://s3.amazonaws.com/bucket/metrajes/series/2/poster.jpg",
   "numTemporadas": 3,
@@ -80,17 +85,19 @@ Se utiliza un modelo polimórfico mediante un atributo discriminador rol, que in
 - `fechaNacimiento`: Fecha de nacimiento
 - `nacionalidad`: País de origen
 - `imagen`: URL del poster o imagen principal del metraje almacenada en Amazon S3. Este atributo no guarda el archivo directamente, sino la dirección (URL) que permite acceder a la imagen desde el frontend.
-- `idMetrajes`: metrajes que contiene ese director y acto
+- `idMetrajes`: metrajes que contiene ese director o actor.
 - 
 ### ✔️ Ejemplo
 ```json
 {
+  "_id":"persona_quentin_tarantino"  
   "nombre": "Quentin",
   "apellido":"Tarantino",
   "fechaNacimiento": "1963-03-27",
   "biografia":"Quentin Tarantino (Knoxville, 1963) es un aclamado director, guionista y productor estadounidense, conocido por revolucionar el cine independiente de los 90 con su estilo único: diálogos ingeniosos, narrativas no lineales y violencia estilizada. Autodidacta y ex-empleado de videoclub, saltó a la fama con Reservoir Dogs y Pulp Fiction",
   "nacionalidad": "Estados Unidos",
   "imagen":"https://s3.amazonaws.com/bucket/personas/director/2/poster.jpg",
+  "idMetrajes":"pelicula_pulp_fiction_1994"
 }
 ```
 ---

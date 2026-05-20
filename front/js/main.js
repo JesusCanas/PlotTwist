@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectGenero = document.getElementById("genero");
     const selectAnyo = document.getElementById("anyo");
     const buscador = document.getElementById("buscador");
+    
     const divPelis = document.getElementById("pelis");
     const divSeries = document.getElementById("serie");
     
@@ -42,21 +43,40 @@ document.addEventListener("DOMContentLoaded", () => {
         return divPoster;
     }
 
-    function clasificarYRenderizar(data, esFiltrado = false) {
+    function clasificarYRenderizar(data) {
         if (!Array.isArray(data)) return;
 
+        if (divPelis) divPelis.innerHTML = "";
+        if (divSeries) divSeries.innerHTML = "";
+
+        // Si existe el botón de películas se añade; si no, se crea un espacio del mismo tamaño
         if (divPelis) {
-            while (divPelis.firstChild) divPelis.removeChild(divPelis.firstChild);
-            if (boton_pelicula) divPelis.appendChild(boton_pelicula);
+            if (boton_pelicula) {
+                divPelis.appendChild(boton_pelicula);
+            } else {
+                const placeholder = document.createElement('div');
+                placeholder.classList.add("poster-placeholder");
+                divPelis.appendChild(placeholder);
+            }
         }
+
+        // Si falta el botón de series, inyectamos un bloque vacío para sostener el diseño CSS
         if (divSeries) {
-            while (divSeries.firstChild) divSeries.removeChild(divSeries.firstChild);
-            if (boton_serie) divSeries.appendChild(boton_serie);
+            if (boton_serie) {
+                divSeries.appendChild(boton_serie);
+            } else {
+                const placeholder = document.createElement('div');
+                placeholder.style.width = "100px"; // Ajusta al ancho de tu botón original si es necesario
+                placeholder.style.flexShrink = "0";
+                divSeries.appendChild(placeholder);
+            }
         }
 
         data.forEach(item => {
             const tarjeta = crearTarjeta(item);
-            if (item.tipo === "SERIE" || item.director === undefined) { 
+            const esSerie = item.tipo === "SERIE" || item.director === undefined;
+
+            if (esSerie) {
                 if (divSeries) divSeries.appendChild(tarjeta);
             } else {
                 if (divPelis) divPelis.appendChild(tarjeta);
@@ -78,32 +98,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         let url = BASE_URL + "?";
-        if (buscadorVal) url += `&nombre=${buscadorVal}`;
+        if (buscadorVal) url += `&nombre=${encodeURIComponent(buscadorVal)}`;
         if (valoracionVal) url += `&valoracion=${valoracionVal}`;
         if (generoVal) url += `&generos=${generoVal}`;
         if (anyoVal) url += `&anyo=${anyoVal}`;
 
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            clasificarYRenderizar(data, true);
-        } catch (error) {
-            console.error(error);
-        }
+        const res = await fetch(url);
+        const data = await res.json();
+        clasificarYRenderizar(data);
     }
 
-    function debounce(funcion, tiempo) {
+    function aplicarDebounce(funcion, tiempo = 300) {
         clearTimeout(temporizador);
         temporizador = setTimeout(funcion, tiempo);
     }
 
-    if (selectValoracion) selectValoracion.addEventListener("change", filtrar);
-    if (selectGenero) selectGenero.addEventListener("change", () => debounce(filtrar, 2000));
-    if (selectAnyo) selectAnyo.addEventListener("change", filtrar);
-    if (buscador) buscador.addEventListener("input", () => debounce(filtrar, 2000));
+    selectValoracion?.addEventListener("change", filtrar);
+    selectAnyo?.addEventListener("change", filtrar);
+    selectGenero?.addEventListener("change", () => aplicarDebounce(filtrar, 300));
+    buscador?.addEventListener("input", () => aplicarDebounce(filtrar, 300));
 
     fetch("http://localhost:8082/metrajes/obtenerDestacados?cantidad=4")
         .then(res => res.json())
-        .then(data => clasificarYRenderizar(data, false))
-        .catch(error => console.error(error));
+        .then(data => clasificarYRenderizar(data));
 });
