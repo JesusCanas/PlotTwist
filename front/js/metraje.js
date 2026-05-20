@@ -42,17 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectValoracion?.value) url += `&valoracion=${selectValoracion.value}`;
         if (selectGenero?.value) url += `&generos=${selectGenero.value}`;
         if (selectAnyo?.value) url += `&anyo=${selectAnyo.value}`;   
-
-        try {
-            const res = await fetch(url);
-            if (!res.ok) throw new Error();
-            const data = await res.json();
-            
-            contenedor.innerHTML = "";
-            data.forEach(item => contenedor.appendChild(crearTarjeta(item)));
-        } catch (error) {
-            console.error(error);
-        }
+        const res = await fetch(url);
+        const data = await res.json();
+        contenedor.innerHTML = "";
+        data.forEach(item => contenedor.appendChild(crearTarjeta(item)));
+    
     }
 
     let temporizador;

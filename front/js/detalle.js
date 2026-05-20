@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const parametros = new URLSearchParams(window.location.search);
     const id = parametros.get("id");
     const URL_DETALLE = `http://localhost:8082/metrajes/obtenerDetalles?metraje=${id}`;
+    const esSerie = id && id.startsWith("serie");
 
     function crear(element) {
         const seccion_poster = document.querySelector(".detalle-poster");
         const seccion_sinopsis = document.querySelector(".detalle-sinopsis");
+        const seccion_info = document.querySelector(".detalle-info");
 
         const genero = document.getElementById("genero-detalle");
         const valoracion = document.getElementById("valoracion-detalle");
@@ -35,10 +37,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
         valoracion.innerHTML = '<strong>Valoración</strong> ' + element.valoracion;
         anyo_detalle.innerHTML = '<strong>Año</strong> ' + element.anyo;
-        director.innerHTML = '<strong>Director</strong> ' + element.director;
-        director.addEventListener('click', () => {
-            window.location.href = `persona.html?id=${element.director}`;
-        });
+
+        if (director) {
+            director.innerHTML = '<strong>Director</strong> ' + element.director;
+            director.addEventListener('click', () => {
+                window.location.href = `persona.html?id=${element.director}`;
+            });
+        }
+
+        if (esSerie) {
+            const temporadas = document.createElement("p"); 
+            temporadas.innerHTML = '<strong>Temporadas:</strong> ' + element.numTemporadas;
+            
+            const episodios = document.createElement("p");
+            episodios.innerHTML = '<strong>Episodios:</strong> ' + element.numEpisodios;
+            
+            const duracionEpi = document.createElement("p");
+            duracionEpi.innerHTML = '<strong>Duración Episodio:</strong> ' + element.duracionEpisodio;
+            
+            const estado = document.createElement("p"); 
+            estado.innerHTML = '<strong>Estado:</strong> ' + element.estado;
+
+            seccion_info.appendChild(temporadas);
+            seccion_info.appendChild(episodios);
+            seccion_info.appendChild(duracionEpi);
+            seccion_info.appendChild(estado);
+        } else {
+            const duracion = document.createElement("p");
+            duracion.innerHTML = '<strong>Duración:</strong> ' + element.duracion;
+            seccion_info.appendChild(duracion);
+        }
 
         element.actores.forEach(a => {
             const span_actor = document.createElement('span');
@@ -50,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
     fetch(URL_DETALLE)
         .then(res => res.json())
         .then(data => crear(data));
