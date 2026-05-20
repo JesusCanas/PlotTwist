@@ -17,17 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let temporizador;
 
-    if (botonPelicula) {
+
         botonPelicula.addEventListener("click", () => {
             window.location.href = "paginas/peliculas.html";
         });
-    }
-
-    if (botonSerie) {
+    
         botonSerie.addEventListener("click", () => {
             window.location.href = "paginas/serie.html";
         });
-    }
+    
 
     function crearTarjeta(elemento) {
 
@@ -60,13 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.values(contenedores).forEach(div => {
             if (div) div.innerHTML = "";
         });
-        if (contenedores.peliculas && botonPelicula) {
-            contenedores.peliculas.appendChild(botonPelicula);
-        }
-        if (contenedores.series && botonSerie) {
-            contenedores.series.appendChild(botonSerie);
-        }
-
+        
         data.forEach(item => {
             const tarjeta = crearTarjeta(item);
             const esSerie = item.id.startsWith("serie_");
@@ -78,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             destino?.appendChild(tarjeta);
         });
+        contenedores.peliculas.appendChild(botonPelicula);
+        contenedores.series.appendChild(botonSerie);
+        
     }
 
     async function filtrar() {

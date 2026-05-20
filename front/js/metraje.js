@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectValoracion?.value) url += `&valoracion=${selectValoracion.value}`;
         if (selectGenero?.value) url += `&generos=${selectGenero.value}`;
         if (selectAnyo?.value) url += `&anyo=${selectAnyo.value}`;   
+        if (url == BASE_URL)  url = `http://98.84.88.91:8082/metrajes/obtenerPorFecha?tipoMetraje=${TIPO_METRAJE}`;
         const res = await fetch(url);
         const data = await res.json();
         contenedor.innerHTML = "";

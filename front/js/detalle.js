@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             episodios.innerHTML = '<strong>Episodios:</strong> ' + element.numEpisodios;
 
             const duracionEpi = document.createElement("p");
-            duracionEpi.innerHTML = '<strong>Duración Episodio:</strong> ' + element.duracionEpisodio;
+            duracionEpi.innerHTML = '<strong>Duración Episodio:</strong> ' + element.duracionEpisodio  + ' minutos';
 
             const estado = document.createElement("p");
             estado.innerHTML = '<strong>Estado:</strong> ' + element.estado;
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             seccion_info.appendChild(estado);
         } else {
             const duracion = document.createElement("p");
-            duracion.innerHTML = '<strong>Duración:</strong> ' + element.duracion;
+            duracion.innerHTML = '<strong>Duración:</strong> ' + element.duracion + ' minutos';
             seccion_info.appendChild(duracion);
         }
 
