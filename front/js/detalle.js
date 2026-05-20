@@ -38,24 +38,50 @@ document.addEventListener("DOMContentLoaded", () => {
         valoracion.innerHTML = '<strong>Valoración</strong> ' + element.valoracion;
         anyo_detalle.innerHTML = '<strong>Año</strong> ' + element.anyo;
 
-        if (director) {
-            director.innerHTML = '<strong>Director</strong> ' + element.director;
-            director.addEventListener('click', () => {
-                window.location.href = `persona.html?id=${element.director}`;
+        if (director && element.director) {
+
+            director.innerHTML = "<strong>Director</strong>";
+
+            const span_director = document.createElement("span");
+            span_director.textContent =   element.director.nombre + " " + element.director.apellido;
+
+            span_director.classList.add("badge-actor");
+
+            span_director.addEventListener("click", () => {
+                window.location.href = `persona.html?id=${element.director.id}`;
+            });
+
+            director.appendChild(span_director);
+        }
+        if (actor && Array.isArray(element.actores)) {
+
+            actor.innerHTML = "<strong>Actores</strong>";
+
+            element.actores.forEach(a => {
+                
+                const span_actor = document.createElement("span");
+                span_actor.textContent =  a.nombre + " " + a.apellido;
+                span_actor.classList.add("badge-actor");
+
+                span_actor.addEventListener("click", () => {
+                    window.location.href = `persona.html?id=${a.id}`;
+                });
+
+                actor.appendChild(span_actor);
             });
         }
 
         if (esSerie) {
-            const temporadas = document.createElement("p"); 
+            const temporadas = document.createElement("p");
             temporadas.innerHTML = '<strong>Temporadas:</strong> ' + element.numTemporadas;
-            
+
             const episodios = document.createElement("p");
             episodios.innerHTML = '<strong>Episodios:</strong> ' + element.numEpisodios;
-            
+
             const duracionEpi = document.createElement("p");
             duracionEpi.innerHTML = '<strong>Duración Episodio:</strong> ' + element.duracionEpisodio;
-            
-            const estado = document.createElement("p"); 
+
+            const estado = document.createElement("p");
             estado.innerHTML = '<strong>Estado:</strong> ' + element.estado;
 
             seccion_info.appendChild(temporadas);
@@ -68,15 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
             seccion_info.appendChild(duracion);
         }
 
-        element.actores.forEach(a => {
-            const span_actor = document.createElement('span');
-            span_actor.textContent = a;
-            span_actor.classList.add('badge-actor');
-            actor.appendChild(span_actor);
-            span_actor.addEventListener('click', () => {
-                window.location.href = `persona.html?id=${a}`;
-            });
-        });
     }
 
     fetch(URL_DETALLE)
