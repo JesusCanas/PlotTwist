@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             element.actores.forEach(a => {
                 
                 const span_actor = document.createElement("span");
-                span_actor.textContent =  a.nombre + " " + a.apellido;
+                span_actor.textContent =  + a.nombre + " " + a.apellido;
                 span_actor.classList.add("badge-actor");
 
                 span_actor.addEventListener("click", () => {
