@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const esPelicula = contenedor.id === "pelis";
     const TIPO_METRAJE = esPelicula ? 'PELICULA' : 'SERIE';
-    const BASE_URL = `http://localhost:8082/metrajes/obtenerFiltrados?tipoMetraje=${TIPO_METRAJE}`;
+    const BASE_URL = `http://98.84.88.91:8082/metrajes/obtenerFiltrados?tipoMetraje=${TIPO_METRAJE}`;
 
     function crearTarjeta(element) {
         const divPoster = document.createElement('div');
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await res.json();
         contenedor.innerHTML = "";
         data.forEach(item => contenedor.appendChild(crearTarjeta(item)));
-    
     }
 
     let temporizador;

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const parametros = new URLSearchParams(window.location.search);
     const id = parametros.get("id");
-    const URL_DETALLE = `http://localhost:8082/metrajes/obtenerDetalles?metraje=${id}`;
+    const URL_DETALLE = `http://98.84.88.91:8082/metrajes/obtenerDetalles?metraje=${id}`;
     const esSerie = id && id.startsWith("serie");
 
     function crear(element) {
