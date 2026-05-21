@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let temporizador;
 
 
-        botonPelicula.addEventListener("click", () => {
-            window.location.href = "paginas/peliculas.html";
-        });
-    
-        botonSerie.addEventListener("click", () => {
-            window.location.href = "paginas/serie.html";
-        });
-    
+    botonPelicula.addEventListener("click", () => {
+        window.location.href = "paginas/peliculas.html";
+    });
+
+    botonSerie.addEventListener("click", () => {
+        window.location.href = "paginas/serie.html";
+    });
+
 
     function crearTarjeta(elemento) {
 
@@ -52,27 +52,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function clasificarYRenderizar(data) {
-
         if (!Array.isArray(data)) return;
 
         Object.values(contenedores).forEach(div => {
             if (div) div.innerHTML = "";
         });
-        
-        data.forEach(item => {
-            const tarjeta = crearTarjeta(item);
-            const esSerie = item.id.startsWith("serie_");
-            let destino;
-            if (esSerie) {
-                destino = contenedores.series;
-            } else {
-                destino = contenedores.peliculas;
-            }
-            destino?.appendChild(tarjeta);
-        });
+
+        const peliculas = data.filter(item => !item.numTemporadas);
+        const series = data.filter(item => item.numTemporadas);
+
+        peliculas.forEach(item => contenedores.peliculas?.appendChild(crearTarjeta(item)));
+        series.forEach(item => contenedores.series?.appendChild(crearTarjeta(item)));
+
         contenedores.peliculas.appendChild(botonPelicula);
         contenedores.series.appendChild(botonSerie);
-        
     }
 
     async function filtrar() {
