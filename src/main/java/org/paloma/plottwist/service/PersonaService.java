@@ -54,7 +54,9 @@ public class PersonaService {
         Query query = new Query();
 
         persona = repositoryPersona.findById(idPersona).orElse(null);
-        if (persona == null) {return devolucion;}
+        if (persona == null) {
+            return devolucion;
+        }
 
         query.addCriteria(Criteria.where("_id").in(persona.getMetrajesId()));
 
@@ -66,6 +68,15 @@ public class PersonaService {
         return devolucion;
     }
 
+    /**
+     * Devuelve una persona a traves de su id.
+     * Utiliza el método mostrarDestacados de persona para rellenar
+     * la lista de metrajes y motrarlos en la página de la persona
+     * 
+     * @param cantidad  Cantidad a usar en obtenerDetalles
+     * @param idPersona Id de la persona a buscar
+     * @return el objeto persona
+     */
     public Persona obtenerDetalles(int cantidad, String idPersona) {
         Persona persona = repositoryPersona.findById(idPersona).orElse(null);
 

@@ -21,6 +21,15 @@ public class PersonasController {
     @Autowired
     private PersonaService servicePersona;
 
+    /**
+     * Obtiene los detalles de una persona y sus metrajes asociados.
+     * Delegado al servicio de persona, que realiza la consulta en la colección
+     * de personas y devuelve la información completa para el identificador dado.
+     *
+     * @param cantidad Número de metrajes asociados a devolver junto con la persona
+     * @param idPersona Identificador de la persona a consultar
+     * @return Objeto Persona con los detalles completos y sus metrajes
+     */
     @GetMapping("/obtenerDetalles")
     public Persona obtenerDetalles(int cantidad, String idPersona) {
         return servicePersona.obtenerDetalles(cantidad, idPersona);
