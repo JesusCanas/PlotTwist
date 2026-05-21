@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("ID Persona:", idPersona);
 
-    const URL_PERSONA = `http://98.84.88.91:8082/personas//obtenerDetalles?cantidad=3&idPersona=${idPersona}`;
+    const URL_PERSONA = `http://98.84.88.91:8082/personas/obtenerDetalles?cantidad=3&idPersona=${idPersona}`;
 
     console.log("URL:", URL_PERSONA);
 
@@ -92,15 +92,13 @@ document.addEventListener("DOMContentLoaded", () => {
             todosLosMetrajes.filter(item => item.numTemporadas);
 
         const encabezado_pelis = document.createElement("h2");
-        encabezado_pelis.textContent = "Películas";
-
-        const lista_pelis = document.createElement("ul");
-        lista_pelis.className = "metrajes-lista";
-
         const encabezado_series = document.createElement("h2");
+        encabezado_pelis.textContent = "Películas";
         encabezado_series.textContent = "Series";
 
+        const lista_pelis = document.createElement("ul");
         const lista_series = document.createElement("ul");
+        lista_pelis.className = "metrajes-lista";
         lista_series.className = "metrajes-lista";
 
         if (peliculas.length > 0) {
@@ -123,14 +121,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function crearPersona(elemento) {
-
         crearPersonaFoto(elemento);
         crearPersonaBiografia(elemento);
         crearPoster(elemento);
     }
 
-       fetch(URL_PERSONA)
-        .then(res => res.json())
-        .then(data => crear(data));
+    if (idPersona) {
+        fetch(URL_PERSONA)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`Error: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then(data => crearPersona(data))
+            .catch(error => console.error(error));
+    } else {
+        console.error("No se encontró el ID en la URL.");
+    }
 
 });
