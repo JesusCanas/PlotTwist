@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const parametros = new URLSearchParams(window.location.search);
-    const idPersona = parametros.get("idPersona");
+    const idPersona = parametros.get("id");
     const URL_PERSONA = `http://98.84.88.91:8082/personas/mostrarDestacados?cantidad=3&idPersona=${idPersona}`;
 
     function crearPersonaFoto(elemento){
@@ -86,8 +86,20 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-   fetch(URL_PERSONA)
-    .then (res => res.json())
-    .then (elemento => crearPersona(elemento)) // Cambiado 'data =>' por 'elemento =>'
-    .catch(err => console.error(err));
+    if (idPersona) {
+        fetch(URL_PERSONA)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status);
+                }
+                return res.json();
+            })
+            .then(elemento => crearPersona(elemento))
+            .catch(err => console.error(err));
+    } else {
+        const seccion_biografia = document.querySelector(".persona-biografia");
+        if (seccion_biografia) {
+            seccion_biografia.innerHTML = "<p>Error: No se especificó ninguna persona para mostrar.</p>";
+        }
+    }
 });
