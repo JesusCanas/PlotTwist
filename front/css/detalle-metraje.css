@@ -89,11 +89,13 @@
     display: inline-block;
     background: transparent;
     border: 0.12rem solid #7c4dff;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     padding: 0.4rem 1.2rem;
     font-size: 0.85rem;
     font-weight: bold;
     color: #ffffff;
     margin-right: 0.5rem;
     margin-top: 0.25rem;
+    cursor: pointer;
+
 }
