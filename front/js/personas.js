@@ -21,34 +21,63 @@ document.addEventListener("DOMContentLoaded", () => {
         lista.appendChild(puntoFecha);
         lista.appendChild(puntoNacionalidad);
     }
+
     function crearPersonaBiografia(elemento){
         const seccion_biografia = document.querySelector(".persona-biografia");
         const parrafo_biografia = document.createElement("p");  
+        parrafo_biografia.textContent = elemento.biografia || "";
+        seccion_biografia.appendChild(parrafo_biografia);
     }
+
+    function crearTarjeta(item) {
+        const lista = document.createElement("li");
+        const img = document.createElement("img");
+        const titulo = document.createElement("span");
+
+        lista.className = "metraje-card";
+        img.src = item.imagenURL;
+        img.alt = item.titulo;
+        titulo.textContent = item.titulo;
+
+        lista.addEventListener("click", () => {
+            window.location.href = `detalle-metraje.html?id=${item.id}`;
+        });
+
+        lista.appendChild(img);
+        lista.appendChild(titulo);
+        return lista;
+    }
+
     function crearPoster(elemento) {
         const seccion_poster = document.querySelector(".persona-metrajes");
-        const li = document.createElement("li");
-        const img = document.createElement("img");
-        const span = document.createElement("span");
-        li.className = "metraje-card";
-        img.src = metraje.imagenURL;
-        img.alt = metraje.titulo;
-        span.textContent = metraje.titulo;
-        li.addEventListener("click", () => {
-            window.location.href = `detalle-metraje.html?id=${metraje.id}`;
-        });
-        const peliculas = data.filter(item => !item.numTemporadas);
-        const series = data.filter(item => item.numTemporadas);
-        if(peliculas){
-            tipoMetraje.textContent="PELICULAS";
+        const todosLosMetrajes = elemento.metrajes || []; 
+        const peliculas = todosLosMetrajes.filter(item => !item.numTemporadas);
+        const series = todosLosMetrajes.filter(item => item.numTemporadas);
+        const encabezado_pelis = document.createElement("h2");
+
+        encabezado_pelis.textContent = "Peliculas";
+        const lista_pelis= document.createElement("ul");
+        lista_pelis.className = "metrajes-lista";
+        const encabezado_series = document.createElement("h2");
+        encabezado_series.textContent = "Series";
+        const lista_series = document.createElement("ul");
+        lista_series.className = "metrajes-lista";
+
+        if (peliculas.length > 0) {
+            seccion_poster.appendChild(encabezado_pelis);
+            seccion_poster.appendChild(lista_pelis);
         }
-        else {
-            tipoMetraje.textContent="SERIES";
+        if (series.length > 0) {
+            seccion_poster.appendChild(encabezado_series);
+            seccion_poster.appendChild(lista_pelis);
         }
-        seccion_poster.appendChild(tipoMetraje);
-        li.appendChild(img);
-        li.appendChild(span);
-        seccion_poster.appendChild(li);
+        const contenedores = {
+            peliculas: lista_pelis,
+            series: lista_series
+        };
+
+        peliculas.forEach(item => contenedores.peliculas?.appendChild(crearTarjeta(item)));
+        series.forEach(item => contenedores.series?.appendChild(crearTarjeta(item)));
     }
 
     function crearPersona(elemento){
@@ -56,7 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPersonaBiografia(elemento);
         crearPoster(elemento);
     }
+
     fetch(URL_PERSONA)
     .then (res => res.json())
-    .then (data => crearPersona(data));
+    .then (data => crearPersona(data))
+    .catch(err => console.error(err));
 });
