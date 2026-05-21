@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectAnyo?.value) { url += `&anyo=${selectAnyo.value}`; filtroExiste = true; }
 
         if (!filtroExiste) {
-            url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=6";
+            url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=7";
         }
 
         const res = await fetch(url);
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectGenero?.addEventListener("change", () => aplicarDebounce(filtrar));
     buscador?.addEventListener("input", () => aplicarDebounce(filtrar));
 
-    fetch("http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=6")
+    fetch("http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=7")
         .then(res => res.json())
         .then(data => clasificarYRenderizar(data))
         .catch(error => console.error(error));
