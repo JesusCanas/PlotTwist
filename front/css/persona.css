@@ -92,6 +92,10 @@
     font-size: 1.2rem;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px; 
 }
 
 .persona-metrajes h2:first-child {
