@@ -66,4 +66,12 @@ public class PersonaService {
         return devolucion;
     }
 
+    public Persona obtenerDetalles(int cantidad, String idPersona) {
+        Persona persona = repositoryPersona.findById(idPersona).orElse(null);
+
+        persona.setMetrajes(metrajesDestacados(cantidad, idPersona));
+
+        return persona;
+    }
+
 }
