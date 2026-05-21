@@ -165,3 +165,6 @@ nav img:last-child {
     font-family: 'Montserrat', sans-serif;
 }
 
+#logo {
+    cursor: pointer;
+}
