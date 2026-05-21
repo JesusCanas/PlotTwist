@@ -22,7 +22,7 @@ public class Persona {
     @Id
     private String id;
     private String nombre;
-    @Field("FechaNacimiento")
+    @Field("fechaNacimiento")
     private LocalDate fechaDeNacimiento;
     private String nacionalidad;
     @Field("imagen")
