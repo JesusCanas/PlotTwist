@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         puntoFecha.innerHTML =
             "<strong>Fecha de nacimiento:</strong> " +
-            (elemento.fechaDeNacimiento || "No disponible");
+            (elemento.fechaNacimiento || "No disponible");
 
         puntoNacionalidad.innerHTML =
             "<strong>Nacionalidad:</strong> " +
