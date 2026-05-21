@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const parametros = new URLSearchParams(window.location.search);
-    const idPersona = parametros.get("idPersona");
+    const idPersona = parametros.get("id");
     const URL_PERSONA = `http://98.84.88.91:8082/personas/mostrarDestacados?cantidad=3&idPersona=${idPersona}`;
 
     function crearPersonaFoto(elemento){
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const puntoFecha = document.createElement("li");
         const puntoNacionalidad = document.createElement("li");
         imagen.src = elemento.imagenURL;
-        imagen.alt= elemento.nombre +" " +element.apellido;
+        imagen.alt= elemento.nombre + ' '  +element.apellido;
         nombrePersona.textContent=elemento.nombre + ' ' + elemento.apellido;
         puntoFecha.innerHTML='<strong>Fecha de nacimiento:</strong>' + elemento.fechaDeNacimiento;
         puntoNacionalidad.innerHTML = '<strong>Nacionalidad:</strong>' + elemento.nacionalidad;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function crearPersonaBiografia(elemento){
         const seccion_biografia = document.querySelector(".persona-biografia");
         const parrafo_biografia = document.createElement("p");  
-        parrafo_biografia.textContent = elemento.biografia || "";
+        parrafo_biografia.textContent = elemento.biografia;
         seccion_biografia.appendChild(parrafo_biografia);
     }
 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (series.length > 0) {
             seccion_poster.appendChild(encabezado_series);
-            seccion_poster.appendChild(lista_pelis);
+            seccion_poster.appendChild(lista_series);
         }
         const contenedores = {
             peliculas: lista_pelis,
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-    fetch(URL_PERSONA)
+   fetch(URL_PERSONA)
     .then (res => res.json())
-    .then (data => crearPersona(data))
+    .then (elemento => crearPersona(elemento)) // Cambiado 'data =>' por 'elemento =>'
     .catch(err => console.error(err));
 });
