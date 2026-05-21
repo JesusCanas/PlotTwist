@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contenedores = {
         peliculas: document.getElementById("pelis"),
-        series: document.getElementById("serie")
+        series: document.getElementById("serie"),
+        metrajes: document.getElementById("metrajes")
     };
 
     const BASE_URL = "http://98.84.88.91:8082/metrajes/obtenerTodosFiltrados";
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return divPoster;
     }
 
-    function clasificarYRenderizar(data) {
+    function clasificarYRenderizar(data, hayFiltro) {
 
         if (!Array.isArray(data)) return;
 
@@ -62,8 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const peliculas = data.filter(item => !item.numTemporadas);
         const series = data.filter(item => item.numTemporadas);
 
-        peliculas.forEach(item => contenedores.peliculas?.appendChild(crearTarjeta(item)));
-        series.forEach(item => contenedores.series?.appendChild(crearTarjeta(item)));
+        if (hayFiltro) {
+            data.forEach(item => contenedores.metrajes?.appendChild(crearTarjeta(item)));
+        } else {
+            peliculas.forEach(item => contenedores.peliculas?.appendChild(crearTarjeta(item)));
+            series.forEach(item => contenedores.series?.appendChild(crearTarjeta(item)));
+        }
 
         contenedores.peliculas.appendChild(botonPelicula);
         contenedores.series.appendChild(botonSerie);
@@ -74,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let url = BASE_URL + "?";
         let filtroExiste = false;
 
-        if (buscador?.value) {  
+        if (buscador?.value) {
             url += `nombre=${encodeURIComponent(buscador.value)}&`;
             filtroExiste = true;
         }
@@ -94,18 +99,21 @@ document.addEventListener("DOMContentLoaded", () => {
             filtroExiste = true;
         }
 
-        if(filtroExiste) {
-            botonPelicula.style.display = "none";
-            botonSerie.style.display = "none";
-        } else {
-            botonPelicula.style.display = "";
-            botonSerie.style.display = "";
+        if (!filtroExiste) {
             url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=4";
         }
 
         const res = await fetch(url);
         const data = await res.json();
-        clasificarYRenderizar(data);
+        clasificarYRenderizar(data, filtroExiste);
+
+        if (filtroExiste) {
+            botonPelicula.style.display = "none";
+            botonSerie.style.display = "none";
+        } else {
+            botonPelicula.style.display = "";
+            botonSerie.style.display = "";
+        }
     }
 
     function aplicarDebounce(funcion, tiempo = 300) {
