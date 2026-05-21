@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const parametros = new URLSearchParams(window.location.search);
-    const idPersona = parametros.get("id");
+    const idPersona = parametros.get("idPersona");
     const URL_PERSONA = `http://98.84.88.91:8082/personas/mostrarDestacados?cantidad=3&idPersona=${idPersona}`;
 
     function crearPersonaFoto(elemento){
