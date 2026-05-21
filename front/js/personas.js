@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-    fetch(URL_PERSONA)
+   fetch(URL_PERSONA)
     .then (res => res.json())
-    .then ((elemento => crearPersona(elemento)))
+    .then (elemento => crearPersona(elemento)) // Cambiado 'data =>' por 'elemento =>'
     .catch(err => console.error(err));
 });
