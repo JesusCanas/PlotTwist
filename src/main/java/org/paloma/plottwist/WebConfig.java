@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://44.193.42.133","http://localhost:5500") // Aquí ponemos tu Live Server específico
+                .allowedOrigins("http://44.193.42.133") // Aquí ponemos tu Live Server específico
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
