@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const parametros = new URLSearchParams(window.location.search);
     const idPersona = parametros.get("id");
-    const URL_PERSONA = `http://98.84.88.91:8082/personas/mostrarDestacados?cantidad=3&idPersona=${idPersona}`;
+    
+    const URL_PERSONA = `http://98.84.88.91:8082/personas/obtenerDetalles?id=${idPersona}`;
 
     function crearPersonaFoto(elemento){
         const seccion_personaFoto = document.querySelector(".persona-foto");
@@ -10,11 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const nombrePersona = document.createElement("h1");
         const puntoFecha = document.createElement("li");
         const puntoNacionalidad = document.createElement("li");
-        imagen.src = elemento.imagenURL;
-        imagen.alt= elemento.nombre + ' ' + elemento.apellido;
-        nombrePersona.textContent=elemento.nombre + ' ' + elemento.apellido;
-        puntoFecha.innerHTML='<strong>Fecha de nacimiento:</strong>' + elemento.fechaDeNacimiento;
-        puntoNacionalidad.innerHTML = '<strong>Nacionalidad:</strong>' + elemento.nacionalidad;
+        
+        imagen.src = elemento.imagenURL || "";
+        imagen.alt = (elemento.nombre || "") + ' ' + (elemento.apellido || "");
+        nombrePersona.textContent = (elemento.nombre || "") + ' ' + (elemento.apellido || "");
+        puntoFecha.innerHTML = '<strong>Fecha de nacimiento:</strong> ' + (elemento.fechaDeNacimiento || "No disponible");
+        puntoNacionalidad.innerHTML = '<strong>Nacionalidad:</strong> ' + (elemento.nacionalidad || "No disponible");
+        
         seccion_personaFoto.appendChild(imagen);
         seccion_personaFoto.appendChild(nombrePersona);
         seccion_personaFoto.appendChild(lista);
@@ -25,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function crearPersonaBiografia(elemento){
         const seccion_biografia = document.querySelector(".persona-biografia");
         const parrafo_biografia = document.createElement("p");  
-        parrafo_biografia.textContent = elemento.biografia;
+        parrafo_biografia.textContent = elemento.biografia || "Biografía no disponible.";
         seccion_biografia.appendChild(parrafo_biografia);
     }
 
@@ -35,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const titulo = document.createElement("span");
 
         lista.className = "metraje-card";
-        img.src = item.imagenURL;
-        img.alt = item.titulo;
-        titulo.textContent = item.titulo;
+        img.src = item.imagenURL || "";
+        img.alt = item.titulo || "";
+        titulo.textContent = item.titulo || "";
 
         lista.addEventListener("click", () => {
             window.location.href = `detalle-metraje.html?id=${item.id}`;
@@ -53,11 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const todosLosMetrajes = elemento.metrajes || []; 
         const peliculas = todosLosMetrajes.filter(item => !item.numTemporadas);
         const series = todosLosMetrajes.filter(item => item.numTemporadas);
+        
         const encabezado_pelis = document.createElement("h2");
-
-        encabezado_pelis.textContent = "Peliculas";
-        const lista_pelis= document.createElement("ul");
+        encabezado_pelis.textContent = "Películas";
+        const lista_pelis = document.createElement("ul");
         lista_pelis.className = "metrajes-lista";
+        
         const encabezado_series = document.createElement("h2");
         encabezado_series.textContent = "Series";
         const lista_series = document.createElement("ul");
@@ -71,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             seccion_poster.appendChild(encabezado_series);
             seccion_poster.appendChild(lista_series);
         }
+        
         const contenedores = {
             peliculas: lista_pelis,
             series: lista_series
