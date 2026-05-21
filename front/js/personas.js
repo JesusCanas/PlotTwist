@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-       fetch(URL_DETALLE)
+       fetch(URL_PERSONA)
         .then(res => res.json())
         .then(data => crear(data));
 
