@@ -99,7 +99,7 @@ nav img:last-child {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .poster {
