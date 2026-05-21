@@ -91,20 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-    if (idPersona) {
-        fetch(URL_PERSONA)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(res.status);
-                }
-                return res.json();
-            })
-            .then(elemento => crearPersona(elemento))
-            .catch(err => console.error(err));
-    } else {
-        const seccion_biografia = document.querySelector(".persona-biografia");
-        if (seccion_biografia) {
-            seccion_biografia.innerHTML = "<p>Error: No se especificó ninguna persona para mostrar.</p>";
-        }
-    }
+    fetch(URL_DETALLE)
+        .then(res => res.json())
+        .then(data => crear(data));
+    
 });
