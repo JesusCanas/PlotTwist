@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (series.length > 0) {
             seccion_poster.appendChild(encabezado_series);
-            seccion_poster.appendChild(lista_pelis);
+            seccion_poster.appendChild(lista_series);
         }
         const contenedores = {
             peliculas: lista_pelis,
