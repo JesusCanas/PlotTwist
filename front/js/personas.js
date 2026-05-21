@@ -88,6 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(URL_PERSONA)
     .then (res => res.json())
-    .then (data => crearPersona(data))
+    .then ((elemento => crearPersona(elemento)))
     .catch(err => console.error(err));
 });
