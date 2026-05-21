@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const boton_principio = document.getElementById("logo");
+    
     const selectValoracion = document.getElementById("valoracion");
     const selectGenero = document.getElementById("genero");
     const selectAnyo = document.getElementById("anyo");
@@ -6,11 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contenedor = document.getElementById("pelis") || document.getElementById("seri");
 
-    if (!contenedor) return;
-
     const esPelicula = contenedor.id === "pelis";
     const TIPO_METRAJE = esPelicula ? 'PELICULA' : 'SERIE';
     const BASE_URL = `http://98.84.88.91:8082/metrajes/obtenerFiltrados?tipoMetraje=${TIPO_METRAJE}`;
+
+    boton_principio.addEventListener("click",() => {
+        window.location.href = "../index.html";
+    });
 
     function crearTarjeta(element) {
         const divPoster = document.createElement('div');

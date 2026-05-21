@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const id = parametros.get("id");
     const URL_DETALLE = `http://98.84.88.91:8082/metrajes/obtenerDetalles?metraje=${id}`;
     const esSerie = id && id.startsWith("serie_");
+    const boton_principio = document.getElementById("logo");
+    boton_principio.addEventListener("click",() => {
+        window.location.href = "../index.html";
+    });
 
     function crear(element) {
         crearPoster(element);

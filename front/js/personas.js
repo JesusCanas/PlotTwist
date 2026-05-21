@@ -2,17 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const parametros = new URLSearchParams(window.location.search);
     const idPersona = parametros.get("id");
-
-    console.log("ID Persona:", idPersona);
-
     const URL_PERSONA = `http://98.84.88.91:8082/personas/obtenerDetalles?cantidad=3&idPersona=${idPersona}`;
-
-    console.log("URL:", URL_PERSONA);
+    const boton_principio = document.getElementById("logo");
+    boton_principio.addEventListener("click",() => {
+        window.location.href = "../index.html";
+    });
 
     function crearPersonaFoto(elemento) {
 
         const seccion_personaFoto = document.querySelector(".persona-foto");
-
         const imagen = document.createElement("img");
         const lista = document.createElement("ul");
         const nombrePersona = document.createElement("h1");
