@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectGenero = document.getElementById("genero");
     const selectAnyo = document.getElementById("anyo");
     const buscador = document.getElementById("buscador");
-    
+
     const contenedor = document.getElementById("pelis") || document.getElementById("seri");
-    
+
     if (!contenedor) return;
 
     const esPelicula = contenedor.id === "pelis";
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function crearTarjeta(element) {
         const divPoster = document.createElement('div');
         divPoster.classList.add("poster");
-        divPoster.dataset.id = element.id; 
+        divPoster.dataset.id = element.id;
 
         const img = document.createElement('img');
         img.src = element.imagenURL;
@@ -27,22 +27,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         divPoster.appendChild(img);
         divPoster.appendChild(titulo);
-        
+
         divPoster.addEventListener('click', () => {
             window.location.href = `detalle-metraje.html?id=${element.id}`;
         });
-        
+
         return divPoster;
     }
 
     async function filtrar() {
         let url = BASE_URL;
-        
+
         if (buscador?.value) url += `&nombre=${encodeURIComponent(buscador.value)}`;
         if (selectValoracion?.value) url += `&valoracion=${selectValoracion.value}`;
-        if (selectGenero?.value) url += `&generos=${selectGenero.value}`;
-        if (selectAnyo?.value) url += `&anyo=${selectAnyo.value}`;   
-        if (url == BASE_URL)  url = `http://98.84.88.91:8082/metrajes/obtenerPorFecha?tipoMetraje=${TIPO_METRAJE}`;
+        if (selectGenero?.value) {
+            const generosSeleccionados = Array.from(selectGenero.selectedOptions)
+                .map(option => option.value)
+                .join(",");
+            url += `&generos=${generosSeleccionados}`;
+        }
+        if (selectAnyo?.value) url += `&anyo=${selectAnyo.value}`;
+        if (url == BASE_URL) url = `http://98.84.88.91:8082/metrajes/obtenerPorFecha?tipoMetraje=${TIPO_METRAJE}`;
         const res = await fetch(url);
         const data = await res.json();
         contenedor.innerHTML = "";

@@ -79,25 +79,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let url = BASE_URL + "?";
         let filtroExiste = false;
 
-        if (buscador?.value) {
-            url += `nombre=${encodeURIComponent(buscador.value)}&`;
-            filtroExiste = true;
-        }
-
-        if (selectValoracion?.value) {
-            url += `valoracion=${selectValoracion.value}&`;
-            filtroExiste = true;
-        }
-
+        if (buscador?.value) { url += `&nombre=${encodeURIComponent(buscador.value)}`; filtroExiste = true; }
+        if (selectValoracion?.value) { url += `&valoracion=${selectValoracion.value}`; filtroExiste = true; }
         if (selectGenero?.value) {
-            url += `generos=${selectGenero.value}&`;
+            const generosSeleccionados = Array.from(selectGenero.selectedOptions)
+                .map(option => option.value)
+                .join(",");
+            url += `&generos=${generosSeleccionados}`;
             filtroExiste = true;
         }
-
-        if (selectAnyo?.value) {
-            url += `anyo=${selectAnyo.value}&`;
-            filtroExiste = true;
-        }
+        if (selectAnyo?.value) { url += `&anyo=${selectAnyo.value}`; filtroExiste = true; }
 
         if (!filtroExiste) {
             url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=4";
