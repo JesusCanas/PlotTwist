@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function clasificarYRenderizar(data) {
+
         if (!Array.isArray(data)) return;
 
         Object.values(contenedores).forEach(div => {
@@ -71,22 +72,42 @@ document.addEventListener("DOMContentLoaded", () => {
     async function filtrar() {
 
         let url = BASE_URL + "?";
-        if (buscador?.value) {
+        let filtroExiste = false;
+
+        if (buscador?.value) {  
             url += `nombre=${encodeURIComponent(buscador.value)}&`;
+            filtroExiste = true;
         }
+
         if (selectValoracion?.value) {
             url += `valoracion=${selectValoracion.value}&`;
+            filtroExiste = true;
         }
+
         if (selectGenero?.value) {
             url += `generos=${selectGenero.value}&`;
+            filtroExiste = true;
         }
+
         if (selectAnyo?.value) {
             url += `anyo=${selectAnyo.value}&`;
+            filtroExiste = true;
         }
+
+        if(filtroExiste) {
+            botonPelicula.style.display = "none";
+            botonSerie.style.display = "none";
+        } else {
+            botonPelicula.style.display = "";
+            botonSerie.style.display = "";
+            url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=4";
+        }
+
         const res = await fetch(url);
         const data = await res.json();
         clasificarYRenderizar(data);
     }
+
     function aplicarDebounce(funcion, tiempo = 300) {
         clearTimeout(temporizador);
         temporizador = setTimeout(() => {
