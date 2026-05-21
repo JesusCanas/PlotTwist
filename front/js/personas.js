@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const puntoFecha = document.createElement("li");
         const puntoNacionalidad = document.createElement("li");
         imagen.src = elemento.imagenURL;
-        imagen.alt= elemento.nombre +" " +element.apellido;
+        imagen.alt= elemento.nombre + ' '  +element.apellido;
         nombrePersona.textContent=elemento.nombre + ' ' + elemento.apellido;
         puntoFecha.innerHTML='<strong>Fecha de nacimiento:</strong>' + elemento.fechaDeNacimiento;
         puntoNacionalidad.innerHTML = '<strong>Nacionalidad:</strong>' + elemento.nacionalidad;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function crearPersonaBiografia(elemento){
         const seccion_biografia = document.querySelector(".persona-biografia");
         const parrafo_biografia = document.createElement("p");  
-        parrafo_biografia.textContent = elemento.biografia || "";
+        parrafo_biografia.textContent = elemento.biografia;
         seccion_biografia.appendChild(parrafo_biografia);
     }
 
