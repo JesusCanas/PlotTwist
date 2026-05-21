@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("ID Persona:", idPersona);
 
-    const URL_PERSONA = `http://98.84.88.91:8082/personas/obtenerDetalles?id=${idPersona}`;
+    const URL_PERSONA = `http://98.84.88.91:8082/personas//obtenerDetalles?cantidad=3&idPersona=${idPersona}`;
 
     console.log("URL:", URL_PERSONA);
 
@@ -129,24 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-    fetch(URL_PERSONA)
-
-        .then(res => {
-
-            if (!res.ok) {
-                throw new Error(`HTTP Error: ${res.status}`);
-            }
-
-            return res.json();
-        })
-
-        .then(data => {
-            console.log("Datos recibidos:", data);
-            crearPersona(data);
-        })
-
-        .catch(error => {
-            console.error("Error al cargar la persona:", error);
-        });
+       fetch(URL_DETALLE)
+        .then(res => res.json())
+        .then(data => crear(data));
 
 });
