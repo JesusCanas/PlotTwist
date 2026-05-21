@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectAnyo?.value) { url += `&anyo=${selectAnyo.value}`; filtroExiste = true; }
 
         if (!filtroExiste) {
-            url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=4";
+            url = "http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=6";
         }
 
         const res = await fetch(url);
