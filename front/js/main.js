@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectGenero?.addEventListener("change", () => aplicarDebounce(filtrar));
     buscador?.addEventListener("input", () => aplicarDebounce(filtrar));
 
-    fetch("http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=4")
+    fetch("http://98.84.88.91:8082/metrajes/obtenerDestacados?cantidad=6")
         .then(res => res.json())
         .then(data => clasificarYRenderizar(data))
         .catch(error => console.error(error));
