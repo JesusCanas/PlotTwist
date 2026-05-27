@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ── Lectura del id de la persona desde la query string de la URL ──
+    //  Lectura del id de la persona desde la query string de la URL 
     const parametros = new URLSearchParams(window.location.search);
     const idPersona = parametros.get("id");
     const URL_PERSONA = `http://98.84.88.91:8082/personas/obtenerDetalles?cantidad=3&idPersona=${idPersona}`;
 
-    // ── Botón del logo: vuelve a la página principal ──
+    // Botón del logo: vuelve a la página principal 
     const boton_principio = document.getElementById("logo");
     boton_principio.addEventListener("click", () => {
         window.location.href = "../index.html";
@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nombrePersona.textContent =
             (elemento.nombre || "") + " " + (elemento.apellido || "");
 
-        // Fallback explícito para campos que la API puede omitir
         puntoFecha.innerHTML =
             "<strong>Fecha de nacimiento:</strong> " +
             (elemento.fechaDeNacimiento || "No disponible");
@@ -135,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Orquesta la construcción completa de la página de persona
+     * Hace la construcción completa de la página de persona
      * llamando a las tres funciones de renderizado.
      * @param {Object} elemento - Datos completos de la persona devueltos por la API.
      */
@@ -145,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         crearPoster(elemento);
     }
 
-    // ── Carga de datos: solo se lanza la petición si el id está presente en la URL ──
+    // Carga de datos: solo se lanza la petición si el id está presente en la URL
     if (idPersona) {
         fetch(URL_PERSONA)
             .then(res => {
