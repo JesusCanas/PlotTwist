@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ── Controles del formulario de filtrado ──
+    // Controles del formulario de filtrado
     const selectValoracion = document.getElementById("valoracion");
     const selectGenero = document.getElementById("genero");
     const selectAnyo = document.getElementById("anyo");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // URL base compartida; el tipo de metraje ya va incluido como parámetro fijo
     const BASE_URL = `http://98.84.88.91:8082/metrajes/obtenerFiltrados?tipoMetraje=${TIPO_METRAJE}`;
 
-    // ── Botón del logo: vuelve a la página principal ──
+    // Botón del logo: vuelve a la página principal
     const boton_principio = document.getElementById("logo");
     boton_principio.addEventListener("click", () => {
         window.location.href = "../index.html";
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data.forEach(item => contenedor.appendChild(crearTarjeta(item)));
     }
 
-    // ── Debounce: evita llamadas excesivas a la API mientras el usuario escribe o selecciona ──
+    // Debounce: evita llamadas excesivas a la API mientras el usuario escribe o selecciona
     let temporizador;
 
     /**
@@ -98,12 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
         temporizador = setTimeout(funcion, tiempo);
     }
 
-    // ── Escuchadores de eventos para los filtros ──
+    // Escuchadores de eventos para los filtros 
     selectValoracion?.addEventListener("change", filtrar);
     selectAnyo?.addEventListener("change", filtrar);
     selectGenero?.addEventListener("change", () => aplicarDebounce(filtrar, 300)); // Debounce para selección múltiple
     buscador?.addEventListener("input", () => aplicarDebounce(filtrar, 300));      // Debounce para escritura
 
-    // ── Carga inicial: se ejecuta filtrar() sin argumentos para mostrar el listado por defecto ──
+    // Carga inicial: se ejecuta filtrar() sin argumentos para mostrar el listado por defecto
     filtrar();
 });
