@@ -1,26 +1,63 @@
 ```mermaid
-flowchart TD
-    actor((🧍))
-    
-    %% Relaciones
-    actor --- Inicio["(1) Ver peliculas y series destacadas al inicio"]
-    actor --- BuscarNombre["(2) Buscar películas y series por título en barra de busqueda"]
-    actor --- DatosPortada["(3) Ver portada y titulo de los metrajes en las páginas de búsqueda"]
-    actor --- VerInfo["(4) Ver detalles de los metrajes"]
-    actor --- FiltrarEtiquetas["(5) Filtrar la búsqueda por valoración, año y género"]
-    actor --- VerBiografía["(6) Ver la biografia de director/actor"]
-    actor --- CrearCuenta["(7) Crear una cuenta en la pagina"]
-    actor --- Sesion["(10) Iniciar sesion"]
-    actor --- InsertarDatos["(8) Insertar una pelicula/serie"]
-    actor --- InsertarDatos["(8) Modificar los datos una pelicula/serie"]
-    actor --- CrearLista["(9) Crear lista propia de series y peliculas"]
-    actor --- Comentarios["(11) Poner comentarios en las peliculas/series"]
-    actor --- Comentarios["(11) Poner valoración en las peliculas/series"]
+flowchart LR
+  actor((🧍))
 
+  %% Asociaciones
+  actor --- Inicio
+  actor --- BuscarNombre
+  actor --- DatosPortada
+  actor --- VerInfo
+  actor --- FiltrarEtiquetas
+  actor --- VerBiografía
+  actor --- CrearCuenta
+  actor --- Sesion
+  actor --- InsertarDatos
+  actor --- CrearLista
+  actor --- Comentarios
 
-    %% Estilos
-    classDef useCaseStyle stroke:#818cf8,fill:#eef2ff,color:#1e1b4b
-    classDef actorStyle stroke:#2dd4bf,fill:#f0fdfa,color:#1e1b4b
+  %% INCLUDE
+  Comentarios -.->|«include»| Sesion
+  CrearLista -.->|«include»| Sesion
+  InsertarDatos -.->|«include»| Sesion
 
-    class actor actorStyle
-    class Inicio,BuscarNombre,DatosPortada,VerInfo,FiltrarEtiquetas,VerBiografía,CrearCuenta,InsertarDatos,CrearLista,Sesion,Comentarios useCaseStyle
+  %% EXTEND
+  VerInfo -.->|«extend»| Inicio
+  VerInfo -.->|«extend»| BuscarNombre
+  VerInfo -.->|«extend»| FiltrarEtiquetas
+  VerBiografía -.->|«extend»| VerInfo
+  Comentarios -.->|«extend»| VerInfo
+  CrearLista -.->|«extend»| VerInfo
+
+  %% Nombres sin números
+  Inicio["Ver destacadas al inicio"]
+  BuscarNombre["Buscar por título"]
+  DatosPortada["Ver portada y título"]
+  VerInfo["Ver detalles del metraje"]
+  FiltrarEtiquetas["Filtrar por valoración, año y género"]
+  VerBiografía["Ver biografía director/actor"]
+  CrearCuenta["Crear cuenta"]
+  InsertarDatos["Insertar / modificar película"]
+  CrearLista["Crear lista propia"]
+  Sesion["Iniciar sesión"]
+  Comentarios["Comentar y valorar"]
+
+  %% Agrupaciones para ordenar verticalmente
+  subgraph " "
+    direction TB
+    Inicio
+    BuscarNombre
+    DatosPortada
+    VerInfo
+    FiltrarEtiquetas
+    VerBiografía
+  end
+
+  subgraph "  "
+    direction TB
+    CrearCuenta
+    Sesion
+    InsertarDatos
+    CrearLista
+    Comentarios
+  end
+```
