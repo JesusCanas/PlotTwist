@@ -19,11 +19,17 @@ import org.springframework.boot.test.context.SpringBootTest;
  * los métodos del servicio MetrajeService funcionen correctamente, interactuando con la base
  * de datos en la nube MongoDB Atlas sin alterar su contenido.
  * 
+ * Nota: para evitar el uso de Mocks, este test utiliza @Autowired con 
+ * @SpringBootTest, Spring levanta un entorno similar al de producción. La anotación
+ * busca los componentes reales configurados en el sistema y los introduce en este test.
+ * En este caso, inyecta una instancia real de 
+ * MetrajeService.
+ * 
  * @author AdrianStephano
  * @version 1.0
  */
 @SpringBootTest
-public class MetrajeServiceIntegrationTest {
+class MetrajeServiceIntegrationTest {
 
     @Autowired
     private MetrajeService metrajeService;
@@ -42,10 +48,10 @@ public class MetrajeServiceIntegrationTest {
         // Act - Llamada al método del servicio
         List<Metraje> destacados = metrajeService.obtenerDestacados(cantidadSolicitada);
         
-        // Assertions estructurales básicas obligatorias
+        // Assertions estructurales básicas.
         assertNotNull(destacados, "La lista de destacados no debería ser nula");
         
-        // Si la base de datos devuelve elementos, validamos las reglas de negocio de forma dinámica
+        // Si la base de datos devuelve elementos, validamos las reglas de negocio de forma dinámica.
         if (!destacados.isEmpty()) {
             
             // Comprobar que respeta las instancias básicas si la lista viene completa
@@ -54,7 +60,7 @@ public class MetrajeServiceIntegrationTest {
                 assertNotNull(destacados.get(i).getTitulo(), "El metraje destacado debe tener un título válido en el índice " + i);
             }
 
-            // Validación semántica tolerante: comprobar que el primer elemento recuperado es un Metraje válido
+            // Comprobar que el primer elemento recuperado es un Metraje válido
             Metraje primero = destacados.get(0);
             assertTrue(primero.getValoracion() >= 0 && primero.getValoracion() <= 5.0, 
                 "La valoración obtenida (" + primero.getValoracion() + ") se sale del rango permitido [0.0, 5.0]");

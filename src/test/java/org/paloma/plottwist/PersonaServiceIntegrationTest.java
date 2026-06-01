@@ -16,6 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * PersonaService, encargados de verificar las consultas dinámicas a la colección de personas
  * y sus metrajes asociados en MongoDB Atlas.
  * 
+ * Nota: para evitar el uso de Mocks, este test utiliza @Autowired con 
+ * @SpringBootTest, Spring levanta un entorno similar al de producción. La anotación
+ * busca los componentes reales configurados en el sistema y los introduce en este test.
+ * En este caso, inyecta una instancia real de 
+ * PersonaService.
+ * 
  * @author AdrianStephano
  * @version 1.0
  */

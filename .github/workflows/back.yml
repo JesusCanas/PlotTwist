@@ -44,45 +44,25 @@ jobs:
 
     steps: 
       - name: Download artifact 
-
         uses: actions/download-artifact@v4 
-
         with: 
-
           name: java-app-artifact 
-
           path: ./target 
-
       - name: Copy JAR to EC2 
-
         uses: appleboy/scp-action@v0.1.7 
-
         with: 
-
           host: ${{ secrets.EC2_API_HOST }} 
-
           username: ${{ secrets.EC2_API_USER }} 
-
           key: ${{ secrets.EC2_API_SSH_KEY }} 
-
           source: "target/*.jar" 
-
           target: "/home/${{ secrets.EC2_API_USER }}/app" 
-
           strip_components: 1 
-
       - name: Executing remote ssh commands to deploy 
-
         uses: appleboy/ssh-action@v1.0.3 
-
         with: 
-
           host: ${{ secrets.EC2_API_HOST }} 
-
           username: ${{ secrets.EC2_API_USER }} 
-
           key: ${{ secrets.EC2_API_SSH_KEY }} 
-
           script: | 
 
             # Matar el proceso anterior (si existe) y lanzar el nuevo 
